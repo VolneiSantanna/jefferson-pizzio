@@ -1,4 +1,7 @@
-# Arquivos temporários de teste e depuração
+# Documentos internos e sigilosos do cliente (não publicar)
+_documentos_referencia/
+
+# Arquivos temporários e logs
 debug_*.png
 test_*.png
 *.log
@@ -10,4 +13,3 @@ Thumbs.db
 # Pastas de IDE e ambiente
 .vscode/
 .idea/
-assets/images/teste_*.*
