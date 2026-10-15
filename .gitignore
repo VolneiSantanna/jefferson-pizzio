@@ -1,0 +1,13 @@
+# Arquivos temporários de teste e depuração
+debug_*.png
+test_*.png
+*.log
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Pastas de IDE e ambiente
+.vscode/
+.idea/
+assets/images/teste_*.*

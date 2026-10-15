@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jefferson Pizzio Advisory | Preservação Patrimonial, Liquidez Sucessória & Proteção Societária</title>
+  <meta name="description" content="Consultoria patrimonial independente para famílias empresárias e sócios. Liquidez sucessória em moeda forte, acordos de quotas societárias e mitigação de riscos corporativos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #08111C;
+      --bg-surface: #0D1A2B;
+      --bg-card: #122238;
+      --bg-card-hover: #172C48;
+      --gold-primary: #C5A880;
+      --gold-light: #DFC9AB;
+      --gold-dark: #8C6F47;
+      --gold-border: rgba(197, 168, 128, 0.20);
+      --text-main: #F6F4EE;
+      --text-muted: #9BB0C7;
+      --text-dim: #60758B;
+      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 14px;
+      --shadow-luxury: 0 24px 48px -12px rgba(0, 0, 0, 0.75), 0 0 1px 1px rgba(197, 168, 128, 0.16);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.65;
+      overflow-x: hidden;
+      font-family: var(--font-main);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Linhas decorativas contemporâneas */
+    .gold-divider {
+      width: 56px;
+      height: 2px;
+      background: var(--gold-primary);
+      margin: 24px 0 32px 0;
+      border-radius: 1px;
+    }
+    .gold-divider-center {
+      width: 64px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+      margin: 24px auto 36px auto;
+      border-radius: 1px;
+    }
+
+    /* =========================================
+       HEADER MODERNO & REFINADO
+       ========================================= */
+    /* =========================================
+       HEADER MINIMALISTA & QUIET LUXURY
+       ========================================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 17, 28, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(197, 168, 128, 0.16);
+      height: 78px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    /* Logo Puramente Tipográfico - Sem Caixas ou Ícones Pesados */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text-main);
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 1.10rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-size: 0.58rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* Navegação Desktop Minimalista (Apenas 4 itens essenciais) */
+    nav.desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    nav.desktop-nav a {
+      color: rgba(246, 244, 238, 0.72);
+      text-decoration: none;
+      font-size: 0.84rem;
+      letter-spacing: 0.04em;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    nav.desktop-nav a:hover {
+      color: var(--gold-light);
+    }
+
+    /* Menu dropdown de materiais */
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown-btn {
+      color: var(--gold-primary);
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 0.84rem;
+      letter-spacing: 0.04em;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 0;
+    }
+
+    .nav-dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      min-width: 250px;
+      background: var(--bg-surface);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-sm);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.65);
+      padding: 8px 0;
+      z-index: 101;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-content {
+      display: block;
+    }
+
+    .nav-dropdown-content a {
+      display: block;
+      padding: 10px 18px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .nav-dropdown-content a:hover {
+      background: rgba(197, 168, 128, 0.08);
+      color: var(--gold-light);
+      padding-left: 22px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    /* Botão de Ação do Topo: Luxo Discreto, Leve & Refinado */
+    .header-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 20px;
+      font-family: var(--font-main);
+      font-size: 0.75rem;
+      letter-spacing: 0.10em;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--gold-light);
+      background: rgba(197, 168, 128, 0.05);
+      border: 1px solid rgba(197, 168, 128, 0.40);
+      border-radius: var(--radius-sm);
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .header-cta-btn:hover {
+      background: rgba(197, 168, 128, 0.16);
+      border-color: var(--gold-primary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 18px rgba(197, 168, 128, 0.18);
+      transform: translateY(-1px);
+    }
+
+    /* Botão Hambúrguer Minimalista (2 Linhas Finas Douradas) */
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(197, 168, 128, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 9px 11px;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .mobile-menu-btn:hover {
+      border-color: var(--gold-primary);
+      background: rgba(197, 168, 128, 0.08);
+    }
+
+    .mobile-menu-line {
+      width: 18px;
+      height: 1.5px;
+      background-color: var(--gold-primary);
+      display: block;
+      transition: all 0.2s ease;
+    }
+
+    /* Slide-over Drawer Mobile */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 360px;
+      height: 100vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      background: rgba(10, 20, 32, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-left: 1px solid var(--gold-border);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 32px 28px;
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: -16px 0 48px rgba(0,0,0,0.8);
+    }
+
+    .mobile-drawer.active {
+      right: 0;
+    }
+
+    .mobile-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-drawer-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(197, 168, 128, 0.12);
+    }
+
+    .mobile-drawer-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.5rem;
+      line-height: 1;
+      padding: 4px;
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .mobile-nav-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: color 0.2s ease;
+      padding: 4px 0;
+    }
+
+    .mobile-nav-links a:hover {
+      color: var(--gold-primary);
+    }
+
+    .mobile-materials-box {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(197, 168, 128, 0.12);
+    }
+
+    .mobile-materials-title {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .mobile-materials-box a {
+      display: block;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 8px 0;
+      transition: color 0.2s ease;
+    }
+
+    .mobile-materials-box a:hover {
+      color: var(--gold-light);
+    }
+
+    /* Botões Padrão Executivo */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 26px;
+      font-family: var(--font-main);
+      font-size: 0.84rem;
+      letter-spacing: 0.04em;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all 0.25s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-gold {
+      background: var(--gold-primary);
+      color: #070E18;
+      border: 1px solid var(--gold-primary);
+      font-weight: 700;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+      box-shadow: 0 8px 24px -4px rgba(197, 168, 128, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid rgba(197, 168, 128, 0.35);
+    }
+
+    .btn-outline:hover {
+      background: rgba(197, 168, 128, 0.08);
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+    }
+
+    /* =========================================
+       HERO SECTION CONTEMPORÂNEA
+       ========================================= */
+    .hero {
+      position: relative;
+      padding: 96px 0 100px 0;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(197, 168, 128, 0.12);
+    }
+
+    .hero-bg-glow {
+      position: absolute;
+      top: -20%;
+      left: 30%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(23, 44, 72, 0.45) 0%, rgba(197, 168, 128, 0.05) 50%, transparent 70%);
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: 100px;
+      background: rgba(197, 168, 128, 0.08);
+      border: 1px solid rgba(197, 168, 128, 0.25);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--gold-primary);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 4.2vw, 3.4rem);
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--text-main);
+      margin-bottom: 24px;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
+    .hero-lead {
+      font-size: 1.12rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 24px;
+      max-width: 580px;
+    }
+
+    .hero-punchline {
+      font-size: 0.98rem;
+      line-height: 1.65;
+      color: var(--text-main);
+      font-weight: 400;
+      padding-left: 20px;
+      border-left: 2px solid var(--gold-primary);
+      margin-bottom: 38px;
+      max-width: 580px;
+      background: rgba(197, 168, 128, 0.02);
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Retrato Executivo com Leveza & Integração Sofisticada */
+    .hero-image-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Halo ambiente suave para integrar o azul com o fundo escuro do site */
+    .hero-image-wrapper::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 90%;
+      top: 5%;
+      left: 0;
+      background: radial-gradient(circle at 50% 40%, rgba(30, 65, 115, 0.32) 0%, rgba(197, 168, 128, 0.08) 50%, transparent 75%);
+      filter: blur(48px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-image-card {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(197, 168, 128, 0.18);
+      box-shadow: 0 28px 56px -12px rgba(0, 0, 0, 0.75), 0 0 35px rgba(197, 168, 128, 0.06);
+      background: #08111C;
+      z-index: 1;
+    }
+
+    /* Suavização de transição nas bordas e base (elimina o corte brusco) */
+    .hero-image-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: 
+        radial-gradient(ellipse at 50% 35%, transparent 62%, rgba(8, 17, 28, 0.28) 100%),
+        linear-gradient(to bottom, transparent 65%, rgba(8, 17, 28, 0.7) 90%, rgba(8, 17, 28, 0.96) 100%);
+      z-index: 1;
+    }
+
+    .hero-image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .hero-image-card:hover img {
+      transform: scale(1.015);
+    }
+
+    .hero-image-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px;
+      background: linear-gradient(180deg, transparent 0%, rgba(8, 17, 28, 0.88) 60%, rgba(8, 17, 28, 0.98) 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      z-index: 2;
+    }
+
+    .hero-image-caption .name {
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .hero-image-caption .role {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--gold-primary);
+    }
+
+    /* =========================================
+       SEÇÕES GERAIS DE CONTEÚDO
+       ========================================= */
+    .section {
+      padding: 104px 0;
+      border-top: 1px solid rgba(197, 168, 128, 0.12);
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: 56px;
+    }
+
+    .section-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.2vw, 2.7rem);
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      max-width: 720px;
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    /* Grid do Cenário Real */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .problem-card {
+      background: var(--bg-surface);
+      border: 1px solid rgba(197, 168, 128, 0.14);
+      border-radius: var(--radius-md);
+      padding: 38px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .problem-card:hover {
+      border-color: rgba(197, 168, 128, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.4);
+    }
+
+    .problem-card .problem-number {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      color: var(--gold-primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .problem-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      line-height: 1.35;
+    }
+
+    .problem-card p {
+      font-size: 0.94rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* Especialidades: Grid 2x2 */
+    .specialty-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .specialty-card {
+      background: var(--bg-surface);
+      border: 1px solid rgba(197, 168, 128, 0.15);
+      border-radius: var(--radius-md);
+      padding: 42px 36px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .specialty-card:hover {
+      border-color: rgba(197, 168, 128, 0.45);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+      transform: translateY(-3px);
+    }
+
+    .specialty-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .specialty-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background: rgba(197, 168, 128, 0.08);
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-primary);
+      flex-shrink: 0;
+    }
+
+    .specialty-card h3 {
+      font-size: 1.32rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+
+    .specialty-card p {
+      font-size: 0.96rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      font-weight: 400;
+    }
+
+    .specialty-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(197, 168, 128, 0.1);
+    }
+
+    .specialty-bullets li {
+      font-size: 0.88rem;
+      color: rgba(246, 244, 238, 0.85);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .specialty-bullets li::before {
+      content: '✓';
+      color: var(--gold-primary);
+      font-weight: 700;
+      font-size: 0.82rem;
+      margin-top: 1px;
+    }
+
+    /* Parcerias com Advogados & Contadores */
+    .partners-wrapper {
+      background: linear-gradient(135deg, rgba(13, 26, 43, 0.9) 0%, rgba(18, 34, 56, 0.8) 100%);
+      border: 1px solid rgba(197, 168, 128, 0.22);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      box-shadow: var(--shadow-luxury);
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .partners-content h3 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+
+    .partners-content p {
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .partners-benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .benefit-item {
+      background: rgba(8, 17, 28, 0.6);
+      border: 1px solid rgba(197, 168, 128, 0.15);
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .benefit-icon {
+      color: var(--gold-primary);
+      font-size: 1.1rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .benefit-item strong {
+      display: block;
+      color: var(--text-main);
+      font-size: 0.96rem;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .benefit-item span {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Metodologia de Atendimento (Timeline 4 Etapas) */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .method-step {
+      background: var(--bg-surface);
+      border: 1px solid rgba(197, 168, 128, 0.14);
+      border-radius: var(--radius-md);
+      padding: 34px 24px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .method-step:hover {
+      border-color: rgba(197, 168, 128, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .method-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+      background: rgba(197, 168, 128, 0.06);
+    }
+
+    .method-step h4 {
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .method-step p {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* Seção Sobre Jefferson Pizzio */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(197, 168, 128, 0.18);
+      background: #08111C;
+      box-shadow: 0 28px 56px -12px rgba(0, 0, 0, 0.75), 0 0 35px rgba(197, 168, 128, 0.06);
+    }
+
+    /* Suavização da base da foto e bordas */
+    .about-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: 
+        radial-gradient(ellipse at 50% 35%, transparent 62%, rgba(8, 17, 28, 0.28) 100%),
+        linear-gradient(to bottom, transparent 65%, rgba(8, 17, 28, 0.7) 90%, rgba(8, 17, 28, 0.96) 100%);
+      z-index: 1;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.015);
+    }
+
+    .about-content h2 {
+      font-size: clamp(2.2rem, 3.4vw, 2.9rem);
+      line-height: 1.18;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      font-size: 1.02rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+
+    .cred-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .cred-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      background: rgba(197, 168, 128, 0.08);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--gold-light);
+    }
+
+    /* CTA Final */
+    .cta-section {
+      background: linear-gradient(180deg, var(--bg-surface) 0%, #050B12 100%);
+      padding: 108px 0;
+      text-align: center;
+      border-top: 1px solid var(--gold-border);
+    }
+
+    .cta-box {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .cta-box h2 {
+      font-size: clamp(2.2rem, 3.8vw, 3.1rem);
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+
+    .cta-box p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    /* Modal de Agendamento */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(4, 9, 15, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-md);
+      box-shadow: 0 32px 64px rgba(0, 0, 0, 0.8);
+      width: 100%;
+      max-width: 540px;
+      padding: 44px 40px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.6rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-header h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .modal-header p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--gold-primary);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 13px 16px;
+      background: rgba(8, 17, 28, 0.8);
+      border: 1px solid rgba(197, 168, 128, 0.25);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--gold-primary);
+    }
+
+    select.form-control option {
+      background: #08111C;
+      color: var(--text-main);
+    }
+
+    /* Footer */
+    footer {
+      background: #04090F;
+      border-top: 1px solid rgba(197, 168, 128, 0.12);
+      padding: 64px 0 36px 0;
+      font-size: 0.88rem;
+      color: var(--text-dim);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand .brand-name {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      max-width: 340px;
+    }
+
+    .footer-col h5 {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--gold-primary);
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      font-size: 0.86rem;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(197, 168, 128, 0.08);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    /* =========================================
+       RESPONSIVIDADE EXECUTIVA (MOBILE & TABLET)
+       ========================================= */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .specialty-grid { grid-template-columns: 1fr; }
+      .partners-grid { grid-template-columns: 1fr; gap: 36px; }
+      .method-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-image { max-width: 360px; margin: 0 auto; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 820px) {
+      header {
+        height: 66px;
+      }
+      .brand-name {
+        font-size: 1.0rem;
+        letter-spacing: 0.14em;
+      }
+      .brand-sub {
+        font-size: 0.52rem;
+        letter-spacing: 0.24em;
+      }
+      nav.desktop-nav {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      .header-actions .header-cta-btn {
+        display: none;
+      }
+
+      /* Hero Mobile Refinado */
+      .hero {
+        padding: 40px 0 54px 0;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .hero-badge {
+        font-size: 0.62rem;
+        padding: 5px 12px;
+        margin-bottom: 16px;
+        letter-spacing: 0.14em;
+      }
+      .hero-title {
+        font-size: clamp(1.80rem, 6.5vw, 2.30rem);
+        line-height: 1.22;
+        letter-spacing: -0.02em;
+        margin-bottom: 18px;
+      }
+      .hero-lead {
+        font-size: 0.98rem;
+        line-height: 1.65;
+        margin-bottom: 18px;
+      }
+      .hero-punchline {
+        font-size: 0.90rem;
+        line-height: 1.6;
+        padding: 6px 0 6px 14px;
+        margin-bottom: 24px;
+        background: transparent;
+      }
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+      }
+      .hero-actions .btn {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 0.82rem;
+        text-align: center;
+      }
+      .hero-image-card {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      .hero-image-caption {
+        padding: 18px 16px;
+      }
+      .hero-image-caption .name {
+        font-size: 1.05rem;
+      }
+      .hero-image-caption .role {
+        font-size: 0.60rem;
+      }
+
+      /* Seções no Mobile: Menos Vazio, Mais Fluidez */
+      .section {
+        padding: 56px 0;
+      }
+      .section-header {
+        margin-bottom: 32px;
+      }
+      .section-title {
+        font-size: clamp(1.65rem, 5.8vw, 2.15rem);
+        line-height: 1.25;
+      }
+      .section-subtitle {
+        font-size: 0.95rem;
+        line-height: 1.62;
+      }
+      .gold-divider {
+        margin: 18px 0 24px 0;
+      }
+      .gold-divider-center {
+        margin: 18px auto 26px auto;
+      }
+
+      /* Cards no Mobile */
+      .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .problem-card {
+        padding: 26px 20px;
+      }
+      .problem-card h3 {
+        font-size: 1.15rem;
+      }
+      .problem-card p {
+        font-size: 0.88rem;
+      }
+
+      .specialty-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .specialty-card {
+        padding: 28px 20px;
+      }
+      .specialty-card h3 {
+        font-size: 1.2rem;
+      }
+      .specialty-card p {
+        font-size: 0.90rem;
+      }
+
+      .partners-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .partners-wrapper {
+        padding: 30px 20px;
+        border-radius: var(--radius-md);
+      }
+      .partners-content h3 {
+        font-size: 1.55rem;
+      }
+      .partners-content p {
+        font-size: 0.95rem;
+      }
+      .benefit-item {
+        padding: 14px 16px;
+        gap: 12px;
+      }
+
+      .method-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .method-step {
+        padding: 24px 18px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .about-image {
+        max-width: 290px;
+        margin: 0 auto;
+      }
+      .about-content h2 {
+        font-size: clamp(1.7rem, 6vw, 2.2rem);
+        line-height: 1.22;
+      }
+      .about-content p {
+        font-size: 0.95rem;
+      }
+      .cred-list {
+        gap: 8px;
+      }
+      .cred-badge {
+        font-size: 0.70rem;
+        padding: 6px 12px;
+      }
+
+      .cta-section {
+        padding: 64px 0;
+      }
+      .cta-box h2 {
+        font-size: clamp(1.75rem, 6.2vw, 2.3rem);
+        line-height: 1.22;
+      }
+      .cta-box p {
+        font-size: 0.98rem;
+        margin-bottom: 28px;
+      }
+      .cta-box .btn {
+        width: 100%;
+      }
+
+      .modal-card {
+        padding: 28px 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      .modal-header h3 {
+        font-size: 1.35rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-bottom: 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 18px;
+      }
+      .hero-title {
+        font-size: clamp(1.72rem, 7vw, 2.05rem);
+      }
+      .hero-image-card {
+        max-width: 275px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================
+       HEADER OFICIAL MINIMALISTA
+       ========================================= -->
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="brand-logo">
+        <div class="brand-text">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+      </a>
+
+      <!-- Navegação Desktop Minimalista -->
+      <nav class="desktop-nav">
+        <a href="#especialidades">Especialidades</a>
+        <a href="#metodologia">Metodologia</a>
+        <a href="#trajetoria">Sobre</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-btn">
+            Materiais ▾
+          </button>
+          <div class="nav-dropdown-content">
+            <a href="materiais/one-pager-parceiros.html">One-Pager de Parcerias (A4)</a>
+            <a href="materiais/guia-liquidez-sucessoria.html">Guia de Liquidez Sucessória</a>
+            <a href="materiais/deck-institucional.html">Apresentação Executiva</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Ações do Header (Quiet Luxury) -->
+      <div class="header-actions">
+        <a href="javascript:void(0)" onclick="openModal()" class="header-cta-btn">Agendar Reunião</a>
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Abrir menu de navegação">
+          <span class="mobile-menu-line"></span>
+          <span class="mobile-menu-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================
+       DRAWER LATERAL MOBILE REFINADO
+       ========================================= -->
+  <div id="mobileDrawerBackdrop" class="mobile-drawer-backdrop" onclick="toggleMobileMenu()"></div>
+  <aside id="mobileDrawer" class="mobile-drawer">
+    <div>
+      <div class="mobile-drawer-header">
+        <div class="brand-text">
+          <span class="brand-name" style="font-size: 1.05rem;">JEFFERSON PIZZIO</span>
+          <span class="brand-sub" style="font-size: 0.58rem;">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <button class="mobile-drawer-close" onclick="toggleMobileMenu()" aria-label="Fechar menu">&times;</button>
+      </div>
+
+      <nav class="mobile-nav-links">
+        <a href="#especialidades" onclick="toggleMobileMenu()">Especialidades</a>
+        <a href="#metodologia" onclick="toggleMobileMenu()">Metodologia</a>
+        <a href="#parcerias" onclick="toggleMobileMenu()">Parcerias Estratégicas</a>
+        <a href="#cenario" onclick="toggleMobileMenu()">O Cenário Real</a>
+        <a href="#trajetoria" onclick="toggleMobileMenu()">Sobre Jefferson Pizzio</a>
+      </nav>
+
+      <div class="mobile-materials-box">
+        <div class="mobile-materials-title">Materiais Executivos</div>
+        <a href="materiais/one-pager-parceiros.html">📄 One-Pager de Parcerias</a>
+        <a href="materiais/guia-liquidez-sucessoria.html">📘 Guia de Liquidez Sucessória</a>
+        <a href="materiais/deck-institucional.html">📊 Apresentação Executiva</a>
+      </div>
+    </div>
+
+    <div>
+      <a href="javascript:void(0)" onclick="toggleMobileMenu(); openModal();" class="btn btn-gold" style="width: 100%; margin-bottom: 12px;">Agendar Reunião Consultiva</a>
+      <a href="https://wa.me/5551998970838?text=Ol%C3%A1%20Jefferson,%20gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20consultiva." target="_blank" class="btn btn-outline" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        (51) 99897-0838
+      </a>
+    </div>
+  </aside>
+
+  <!-- =========================================
+       HERO SECTION
+       ========================================= -->
+  <section class="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">Consultoria Patrimonial & Sucessória</div>
+        <h1 class="hero-title">Preservação patrimonial, liquidez sucessória e <em>proteção societária.</em></h1>
+        <div class="gold-divider"></div>
+        <p class="hero-lead">
+          Estruturação estratégica no Brasil e em jurisdições globais para famílias empresárias e sócios diante de eventos de transição e liquidez.
+        </p>
+        <p class="hero-punchline">
+          Mais do que desenhar documentos, garantimos caixa imediato em moeda forte e regras claras para que seu patrimônio e sua empresa permaneçam sólidos por gerações.
+        </p>
+        <div class="hero-actions">
+          <a href="javascript:void(0)" onclick="openModal()" class="btn btn-gold">Agendar Reunião Consultiva</a>
+          <a href="#especialidades" class="btn btn-outline">Conhecer as Especialidades</a>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <div class="hero-image-card">
+          <img src="assets/images/jefferson_pizzio_portrait_1_studio.jpg?v=5" alt="Jefferson Pizzio - Wealth & Succession Advisor">
+          <div class="hero-image-caption">
+            <span class="name">Jefferson Pizzio</span>
+            <span class="role">Wealth Strategist & Succession Advisor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SEÇÃO: O CENÁRIO REAL DO PATRIMÔNIO
+       ========================================= -->
+  <section id="cenario" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Diagnóstico de Mercado</span>
+        <h2 class="section-title">Patrimônio imobilizado não paga imposto. Empresas sem regras claras não sobrevivem à transição.</h2>
+        <div class="gold-divider"></div>
+        <p class="section-subtitle">
+          Sete em cada dez empresas familiares enfrentam severas perdas financeiras ou litígios na sucessão. O motivo quase nunca é a falta de solidez do negócio, mas sim a ausência de liquidez imediata para tributos e a falta de mecanismos estruturados entre sócios.
+        </p>
+      </div>
+
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div>
+            <span class="problem-number">01 / LIQUIDEZ E INVENTÁRIO</span>
+            <h3>Travamento de Caixa e Pressão Tributária</h3>
+            <p>
+              O inventário exige tributos (ITCMD progressivo de até 16%-20% após a reforma) e custas processuais quitados em dinheiro vivo antes da liberação de qualquer bem. Sem liquidez, a família é forçada a vender ativos nobres com deságios de até 40% sob forte pressão de prazo.
+            </p>
+          </div>
+        </div>
+
+        <div class="problem-card">
+          <div>
+            <span class="problem-number">02 / CONTROLE SOCIETÁRIO</span>
+            <h3>Ingresso Indesejado de Herdeiros na Empresa</h3>
+            <p>
+              Na falta de um sócio, sem um acordo de compra e venda de quotas financiado com liquidez pré-estabelecida, os herdeiros ou o cônjuge entram na gestão operacional sem aptidão técnica, gerando impasses de voto, litígios judiciais e perda de valor do negócio.
+            </p>
+          </div>
+        </div>
+
+        <div class="problem-card">
+          <div>
+            <span class="problem-number">03 / EXPOSIÇÃO PATRIMONIAL</span>
+            <h3>Concentração Excessiva em Risco Brasil</h3>
+            <p>
+              Manter 100% dos ativos vinculados às oscilações da economia local, do sistema judiciário e de regras fiscais voláteis expõe o trabalho de uma vida inteira. A internacionalização em moeda forte e jurisdições com grau de investimento é a blindagem essencial de preservação.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SEÇÃO: ESPECIALIDADES ESTRATÉGICAS
+       ========================================= -->
+  <section id="especialidades" class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Áreas de Especialidade</span>
+        <h2 class="section-title">Soluções integradas para blindar o capital familiar e garantir a continuidade da empresa.</h2>
+        <div class="gold-divider"></div>
+        <p class="section-subtitle">
+          Atuação técnica precisa para viabilizar na prática o que os instrumentos jurídicos e contábeis projetam no papel.
+        </p>
+      </div>
+
+      <div class="specialty-grid">
+        <div class="specialty-card">
+          <div class="specialty-header">
+            <div class="specialty-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <h3>Liquidez Sucessória Familiar & Moeda Forte</h3>
+          </div>
+          <p>
+            Desenho de apólices internacionais e nacionais sob medida emitidas por seguradoras de classe mundial (rating A+ A.M. Best). Garantia de capital líquido transferido diretamente aos beneficiários indicados em até 30 dias, totalmente fora de inventário e isento de ITCMD.
+          </p>
+          <ul class="specialty-bullets">
+            <li>Caixa imediato para quitação de impostos e despesas sucessórias</li>
+            <li>Proteção em moeda forte (Dólar americano) em jurisdição segura</li>
+            <li>Eliminação do risco de deságio na venda forçada de ativos familiares</li>
+          </ul>
+        </div>
+
+        <div class="specialty-card">
+          <div class="specialty-header">
+            <div class="specialty-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3>Proteção Societária & Acordo entre Sócios (Buy-Sell)</h3>
+          </div>
+          <p>
+            Estruturação de mecanismos financeiros para acordos de compra e venda de quotas societárias. Se um sócio falecer ou sofrer invalidez, os sócios remanescentes recebem o capital necessário para adquirir as quotas da família pelo valor justo, garantindo o controle da operação.
+          </p>
+          <ul class="specialty-bullets">
+            <li>Família do sócio ausente é indenizada com dinheiro líquido e seguro</li>
+            <li>Sócios operacionais mantêm o controle e a governança da empresa</li>
+            <li>Evita litígios desgastantes entre herdeiros e fundadores remanescentes</li>
+          </ul>
+        </div>
+
+        <div class="specialty-card">
+          <div class="specialty-header">
+            <div class="specialty-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3>Seguro de Homem-Chave & Riscos Corporativos</h3>
+          </div>
+          <p>
+            Mitigação de impactos severos nas operações e garantias bancárias da empresa diante da perda de executivos-chave ou fundadores estratégicos. Estruturação complementar de seguro de crédito para proteção de contas a receber no mercado nacional e exterior.
+          </p>
+          <ul class="specialty-bullets">
+            <li>Proteção de faturamento e estabilidade do fluxo de caixa corporativo</li>
+            <li>Garantia da manutenção de limites de crédito bancário junto a instituições</li>
+            <li>Gestão estratégica de risco de inadimplência em vendas faturadas</li>
+          </ul>
+        </div>
+
+        <div class="specialty-card">
+          <div class="specialty-header">
+            <div class="specialty-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <h3>Governança Patrimonial & Sucessão Transfronteiriça</h3>
+          </div>
+          <p>
+            Harmonização entre a holding familiar no Brasil, estruturas offshores e instrumentos de liquidez internacional. Estabelecimento de regras preventivas e protocolos de governança que asseguram a harmonia familiar e a perenidade dos negócios.
+          </p>
+          <ul class="specialty-bullets">
+            <li>Alinhamento multidisciplinar com advogados e contadores do cliente</li>
+            <li>Conformidade regulatória total perante a Receita Federal e BACEN</li>
+            <li>Preservação do patrimônio familiar construído ao longo de décadas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SEÇÃO: ALIANÇA COM ADVOGADOS E CONTADORES
+       ========================================= -->
+  <section id="parcerias" class="section">
+    <div class="container">
+      <div class="partners-wrapper">
+        <div class="partners-grid">
+          <div class="partners-content">
+            <span class="section-tag">Modelo de Parceria</span>
+            <h3>Atuação técnica complementar. Respeito irrestrito à sua banca de confiança.</h3>
+            <div class="gold-divider"></div>
+            <p>
+              A Jefferson Pizzio Advisory não concorre com os escritórios de advocacia ou contabilidade que já possuem a confiança da família. Pelo contrário: somos o braço técnico que resolve a necessidade de liquidez e seguros de alta capacidade que o planejamento jurídico projeta.
+            </p>
+            <p>
+              Trabalhamos em sinergia com advogados sucessórios, societaristas e tributaristas para que a holding e o acordo parassociativo tenham lastro financeiro real no momento da sucessão.
+            </p>
+            <div style="margin-top: 32px;">
+              <a href="materiais/one-pager-parceiros.html" class="btn btn-gold">Ver One-Pager para Parceiros</a>
+            </div>
+          </div>
+
+          <div class="partners-benefits">
+            <div class="benefit-item">
+              <div class="benefit-icon">◆</div>
+              <div>
+                <strong>Sem Conflito de Competência</strong>
+                <span>Foco exclusivo em liquidez e gestão de riscos. Não prestamos serviços advocatícios, consultoria jurídica ou contábil.</span>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <div class="benefit-icon">◆</div>
+              <div>
+                <strong>Preservação Integral do Relacionamento</strong>
+                <span>O cliente continua sob a liderança de sua assessoria de confiança. Atuamos como especialistas convidados para desenhar a engenharia de liquidez.</span>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <div class="benefit-icon">◆</div>
+              <div>
+                <strong>Independência e Acesso Global</strong>
+                <span>Livre escolha das melhores seguradoras e provedores internacionais do mundo, sem viés institucional ou metas de prateleira bancária.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SEÇÃO: METODOLOGIA DE ATENDIMENTO
+       ========================================= -->
+  <section id="metodologia" class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Processo Consultivo</span>
+        <h2 class="section-title">Uma metodologia estruturada, confidencial e orientada a dados reais.</h2>
+        <div class="gold-divider"></div>
+        <p class="section-subtitle">
+          Como conduzimos cada caso, desde o primeiro levantamento até o acompanhamento anual de governança.
+        </p>
+      </div>
+
+      <div class="method-grid">
+        <div class="method-step">
+          <div class="method-num">01</div>
+          <h4>Diagnóstico Confidencial</h4>
+          <p>
+            Levantamento seguro da composição patrimonial (imóveis, empresas operacionais, investimentos líquidos) e compreensão da dinâmica societária e familiar.
+          </p>
+        </div>
+
+        <div class="method-step">
+          <div class="method-num">02</div>
+          <h4>Mapeamento de Gargalos</h4>
+          <p>
+            Cálculo minucioso do volume de caixa necessário para o ITCMD e despesas no inventário, além da avaliação da exposição societária em caso de ausência de um dos sócios.
+          </p>
+        </div>
+
+        <div class="method-step">
+          <div class="method-num">03</div>
+          <h4>Desenho Sob Medida</h4>
+          <p>
+            Estruturação da melhor arquitetura de apólices no Brasil e no exterior (moeda forte com rating A+), dimensionando o capital exato para fechar o gap de liquidez.
+          </p>
+        </div>
+
+        <div class="method-step">
+          <div class="method-num">04</div>
+          <h4>Implantação & Revisão</h4>
+          <p>
+            Ativação das soluções junto aos provedores globais, integração com os advogados da família e revisão anual periódica para acompanhar a evolução do patrimônio.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SEÇÃO: TRAJETÓRIA DE JEFFERSON PIZZIO
+       ========================================= -->
+  <section id="trajetoria" class="section">
+    <div class="container about-grid">
+      <div class="about-image">
+        <img src="assets/images/jefferson_pizzio_portrait_2_studio.jpg?v=5" alt="Jefferson Pizzio">
+      </div>
+
+      <div class="about-content">
+        <span class="section-tag">Trajetória & Credenciais</span>
+        <h2>Jefferson Pizzio</h2>
+        <div class="gold-divider"></div>
+        <p>
+          Com <strong>mais de uma década de vivência corporativa e no mercado financeiro</strong>, Jefferson construiu uma sólida trajetória na estruturação de operações financeiras estratégicas, gestão de riscos patrimoniais e proteção de ativos para empresas e famílias de alta renda.
+        </p>
+        <p>
+          Ao longo dos últimos 4 anos, liderou a área de soluções patrimoniais, mercado internacional e seguros corporativos no ecossistema do <strong>Grupo Origem / Banco Safra</strong>, conduzindo dezenas de casos complexos para famílias empresárias, produtores do agronegócio e sócios de médias e grandes empresas em todo o Sul do Brasil.
+        </p>
+        <p>
+          Fundou a <strong>Jefferson Pizzio Advisory</strong> para atuar como consultor estritamente independente: com liberdade total para selecionar as maiores e mais sólidas seguradoras e provedores globais, sem pressão por metas de prateleira bancária e com atendimento próximo, ético e confidencial.
+        </p>
+
+        <div class="cred-list">
+          <div class="cred-badge">+10 Anos no Mercado Corporativo & Financeiro</div>
+          <div class="cred-badge">Ex-Líder no Ecossistema Grupo Origem / Safra</div>
+          <div class="cred-badge">Liquidez Offshore & Sucessão Internacional</div>
+          <div class="cred-badge">Acordos de Sócios & Proteção Societária</div>
+          <div class="cred-badge">Porto Alegre · Atendimento Nacional</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SEÇÃO: CTA FINAL
+       ========================================= -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <span class="section-tag">Próximo Passo</span>
+        <h2>O melhor momento para estruturar a sucessão e o caixa da sua empresa é enquanto tudo está sob controle.</h2>
+        <div class="gold-divider-center"></div>
+        <p>
+          Agende uma reunião consultiva confidencial de 30 minutos para avaliar os gargalos de liquidez da sua família ou da sua sociedade empresária.
+        </p>
+        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-gold" style="padding: 16px 36px; font-size: 0.95rem;">Agendar Reunião Consultiva</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       MODAL DE AGENDAMENTO
+       ========================================= -->
+  <div id="contactModal" class="modal-overlay" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal()" aria-label="Fechar formulário">&times;</button>
+      <div class="modal-header">
+        <h3>Agendar Reunião Consultiva</h3>
+        <p>Preencha os dados abaixo. Entraremos em contato com discrição e sigilo absoluto.</p>
+      </div>
+
+      <form id="consultForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label for="clientName">Nome Completo</label>
+          <input type="text" id="clientName" class="form-control" required placeholder="Ex.: Marcelo Silveira">
+        </div>
+
+        <div class="form-group">
+          <label for="clientPhone">WhatsApp / Telefone</label>
+          <input type="tel" id="clientPhone" class="form-control" required placeholder="(00) 00000-0000">
+        </div>
+
+        <div class="form-group">
+          <label for="clientEmail">E-mail Corporativo ou Pessoal</label>
+          <input type="email" id="clientEmail" class="form-control" required placeholder="seuemail@exemplo.com">
+        </div>
+
+        <div class="form-group">
+          <label for="clientTopic">Assunto Principal de Interesse</label>
+          <select id="clientTopic" class="form-control" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="Liquidez Sucessória Familiar">Planejamento Sucessório Familiar & Moeda Forte</option>
+            <option value="Proteção Societária entre Sócios">Proteção Societária & Acordo entre Sócios (Buy-Sell)</option>
+            <option value="Seguro de Homem-Chave e Crédito">Seguro de Homem-Chave & Riscos Corporativos</option>
+            <option value="Parceria Estratégica (Advogado/Contador)">Parceria Estratégica (Advocacia / Contabilidade)</option>
+            <option value="Outro assunto">Outro assunto confidencial</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="clientMessage">Mensagem ou Observação (Opcional)</label>
+          <textarea id="clientMessage" class="form-control" rows="3" placeholder="Contexto resumido sobre seu patrimônio ou empresa..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 10px;">Solicitar Agendamento</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-text">
+            <span class="brand-name" style="color: var(--text-main); font-weight: 700;">JEFFERSON PIZZIO</span>
+            <span class="brand-sub" style="margin-bottom: 14px;">WEALTH & SUCCESSION ADVISORY</span>
+          </div>
+          <p>
+            Consultoria patrimonial independente e estruturação de liquidez sucessória para famílias empresárias, sócios e detentores de patrimônio no Brasil e no exterior.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navegação</h5>
+          <ul>
+            <li><a href="#cenario">O Cenário Real</a></li>
+            <li><a href="#especialidades">Especialidades</a></li>
+            <li><a href="#parcerias">Aliança com Advogados</a></li>
+            <li><a href="#metodologia">Metodologia de Atendimento</a></li>
+            <li><a href="#trajetoria">Sobre Jefferson Pizzio</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Materiais & Contato</h5>
+          <ul>
+            <li><a href="materiais/one-pager-parceiros.html">One-Pager Parcerias (A4)</a></li>
+            <li><a href="materiais/guia-liquidez-sucessoria.html">Guia de Liquidez Sucessória</a></li>
+            <li><a href="materiais/deck-institucional.html">Apresentação Executiva</a></li>
+            <li style="margin-top: 12px;"><a href="https://wa.me/5551998970838" target="_blank" style="color: var(--gold-primary); font-weight: 600;">(51) 99897-0838 (WhatsApp)</a></li>
+            <li><a href="mailto:contato@jeffersonpizzio.com">contato@jeffersonpizzio.com</a></li>
+            <li><span style="color: var(--text-dim);">Porto Alegre · RS · Brasil</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Jefferson Pizzio Advisory. Todos os direitos reservados.</div>
+        <div>Estruturação Patrimonial & Sucessória Independente</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================
+       SCRIPTS JAVASCRIPT
+       ========================================= -->
+  <script>
+    // Controle do Drawer Mobile
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobileDrawer');
+      const backdrop = document.getElementById('mobileDrawerBackdrop');
+      const isOpen = drawer.classList.contains('active');
+      
+      if (isOpen) {
+        drawer.classList.remove('active');
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      } else {
+        drawer.classList.add('active');
+        backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+
+    // Controle do Modal de Agendamento
+    function openModal() {
+      document.getElementById('contactModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('contactModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnBackdrop(event) {
+      if (event.target === document.getElementById('contactModal')) {
+        closeModal();
+      }
+    }
+
+    // Envio do Formulário de Agendamento
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('clientName').value;
+      const phone = document.getElementById('clientPhone').value;
+      const email = document.getElementById('clientEmail').value;
+      const topic = document.getElementById('clientTopic').value;
+      const message = document.getElementById('clientMessage').value;
+
+      const whatsappText = encodeURIComponent(
+        `*Solicitação de Reunião Consultiva - Jefferson Pizzio Advisory*\n\n` +
+        `*Nome:* ${name}\n` +
+        `*WhatsApp:* ${phone}\n` +
+        `*E-mail:* ${email}\n` +
+        `*Interesse Principal:* ${topic}\n` +
+        (message ? `*Mensagem:* ${message}\n` : '') +
+        `\n_Enviado através do site jeffersonpizzio.com_`
+      );
+
+      // Abre WhatsApp diretamente com os dados formatados
+      window.open(`https://wa.me/5551998970838?text=${whatsappText}`, '_blank');
+      
+      alert('Obrigado, ' + name + '! Sua solicitação foi registrada. Estamos redirecionando para o WhatsApp do Jefferson para confirmação de horário.');
+      closeModal();
+    }
+  </script>
+</body>
+</html>
