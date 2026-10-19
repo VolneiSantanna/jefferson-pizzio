@@ -65,16 +65,45 @@ Abaixo está o detalhamento de cada um dos 3 materiais desenvolvidos:
   3. *Os 4 Pilares de Atuação*: Liquidez Sucessória, Proteção Societária (Buy-Sell), Dolarização e Seguro de Crédito.
   4. *O Abismo do Inventário*: A conta do ITCMD e custas à vista.
   5. *A Arquitetura Offshore*: Apólices em Dólar fora do alcance jurisdicional e tributário do inventário.
-  6. *Apresentação do Especialista*: Jefferson Pizzio, trajetória corporativa e ecossistema Origem / Safra.
+  6. *Apresentação do Especialista*: Jefferson Pizzio, trajetória executiva e ecossistema de assessoria patrimonial.
   7. *Encerramento*: Convite para Reunião Consultiva de 30 minutos.
 - **Como Jefferson usa no dia a dia**:
   - Pode ser projetado em reuniões por videoconferência (Google Meet / Zoom), visualizado em iPad em reuniões presenciais, ou exportado em PDF para envio formal.
 
 ---
 
+### 🌎 4. Mercado Internacional · Diversificação Patrimonial Global & Moeda Forte
+- **Arquivo**: `materiais/mercado-internacional.html`
+- **PDF Oficial**: `materiais/Mercado_Internacional_Jefferson_Pizzio.pdf`
+- **Formato**: Apresentação Completa de 16 Slides Widescreen (16:9 / Paisagem Full HD).
+- **Para quem serve**:
+  - Clientes Private, Famílias Empresárias, Investidores e Produtores com patrimônio exposto 100% ao risco-país Brasil (Custo Brasil, volatilidade cambial e instabilidade jurídica).
+- **Conteúdo dos Slides**:
+  1. *Capa*: Jefferson Pizzio · Mercado Internacional · Diversificação & Proteção Global.
+  2. *Cenário Econômico*: Histórico do poder de compra e desvalorização do Real frente ao Dólar.
+  3. *A Diluição da Moeda*: O impacto inflacionário de longo prazo nos ativos domésticos.
+  4. *Poder de Compra (2026)*: A perda real do poder aquisitivo no Brasil e a preservação em Dólar.
+  5. *Por que o Mercado Americano?*: Maior economia global, segurança institucional, liquidez incomparável, inovação contínua e previsibilidade jurídica (com foto arquitetônica de Wall Street / Lower Manhattan).
+  6. *O Papel da Moeda Forte*: Dólar como padrão de reserva mundial e escudo cambial patrimonial.
+  7. *Evolução das Maiores Economias*: Histórico comparativo global nas últimas décadas.
+  8. *Diversificação Geográfica*: Por que concentrar mais de 95% do patrimônio no Brasil é um risco desproporcional.
+  9. *Risco de Jurisdição*: Isolamento de risco patrimonial contra decisões locais e bloqueios judiciais.
+  10. *Instrumentos Internacionais*: Estruturas offshore, contas globais e apólices securitárias em Dólar.
+  11. *Segurança Institucional & Regulação*: Seguradoras e custodiantes globais com ratings A/A+ de solidez.
+  12. *Benefícios Fiscais & Sucessórios*: Planejamento tributário legítimo, isenção de ITCMD no exterior e liquidez imediata.
+  13. *Balança de Ativos Securitários*: Comparativo visual do custo-benefício de proteção internacional.
+  14. *Cronograma de Implementação*: As 4 fases da estruturação patrimonial internacional.
+  15. *Governança Contínua*: Monitoramento ativo e alinhamento com a sucessão familiar.
+  16. *Fechamento Executivo*: Retrato oficial de Jefferson Pizzio, frase de impacto patrimonial e canais de atendimento direto.
+- **Como Jefferson usa no dia a dia**:
+  - Apresentação visual interativa (com teclas de seta, suporte touch em iPad/notebook e tela cheia).
+  - Envio do PDF vetorial de alta definição para leitura prévia ou posterior a reuniões de estruturação internacional.
+
+---
+
 ## 🖨️ Como Salvar ou Imprimir em PDF de Alta Qualidade
 
-Todos os 3 materiais agora contam com:
-1. **Barra Superior Executiva**: botão direto **"🖨️ Salvar em PDF (A4)"** no topo da página.
-2. **Modo Tela / Modo Mobile**: se aberto em um celular, adapta-se perfeitamente para leitura fluida sem cortes.
-3. **Modo Impressão / PDF (`@media print`)**: ao clicar em imprimir (ou Ctrl+P), o navegador oculta menus, barras e botões, ajustando as páginas perfeitamente nas dimensões oficiais **A4 (210mm x 297mm)** com margens e nitidez impecáveis.
+Todos os materiais contam com:
+1. **Barra Superior Executiva**: botão direto para download ou impressão em PDF.
+2. **Navegação Intuitiva**: atalhos de teclado (setas ← →, espaço, F para tela cheia).
+3. **Modo Impressão / PDF (`@media print`)**: renderização calibrada pixel-a-pixel para folhas A4 e 16:9 paisagem sem cortes ou margens indesejadas.

@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mercado Internacional · Preservação & Moeda Forte | Jefferson Pizzio Advisory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: 1920px 1080px;
+      margin: 0;
+    }
+
+    :root {
+      --navy-deep: #07111D;
+      --navy-surface: #0D1927;
+      --navy-card: #132337;
+      --navy-border: rgba(197, 168, 128, 0.25);
+      
+      --cream-bg: #F5F3EC;
+      --cream-surface: #EFECE3;
+      --cream-card: #FFFFFF;
+      --cream-border: rgba(158, 128, 85, 0.22);
+      --cream-text: #0C1622;
+      --cream-muted: #5A6D82;
+
+      --gold-primary: #C5A880;
+      --gold-light: #DFCAAA;
+      --gold-dark: #9E8055;
+      
+      --text-light: #F6F4EE;
+      --text-muted: #9BB0C7;
+      
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #03070D;
+      color: var(--text-light);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow-x: hidden;
+    }
+
+    /* TOP ACTION BAR */
+    .action-bar {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding: 8px 16px;
+      background: rgba(13, 25, 39, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--navy-border);
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+
+    .action-bar a {
+      color: var(--gold-light);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .action-bar a:hover { color: #fff; }
+
+    .action-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-action {
+      background: rgba(197, 168, 128, 0.15);
+      color: var(--gold-light);
+      border: 1px solid var(--gold-primary);
+      padding: 6px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-action:hover {
+      background: var(--gold-primary);
+      color: var(--navy-deep);
+    }
+
+    /* SLIDE CONTAINER 16:9 */
+    .deck-viewport {
+      width: 100%;
+      max-width: 1200px;
+      aspect-ratio: 16 / 9;
+      position: relative;
+      background: var(--navy-deep);
+      border: 1px solid var(--navy-border);
+      border-radius: 8px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95), 0 0 1px 1px rgba(197, 168, 128, 0.2);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 38px 48px;
+      flex-direction: column;
+      justify-content: space-between;
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      z-index: 10;
+    }
+
+    /* THEMES */
+    .slide.theme-dark {
+      background: var(--navy-deep);
+      color: var(--text-light);
+    }
+    .slide.theme-dark::before {
+      content: '';
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(197, 168, 128, 0.14);
+      pointer-events: none;
+    }
+
+    .slide.theme-cream {
+      background: var(--cream-bg);
+      color: var(--cream-text);
+    }
+    .slide.theme-cream::before {
+      content: '';
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(158, 128, 85, 0.18);
+      pointer-events: none;
+    }
+
+    /* HEADER */
+    .slide-hdr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(197, 168, 128, 0.22);
+      padding-bottom: 10px;
+      z-index: 2;
+    }
+    .theme-cream .slide-hdr {
+      border-bottom: 1px solid rgba(158, 128, 85, 0.22);
+    }
+
+    .brand-box {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .theme-dark .brand-name { color: #FFFFFF; }
+    .theme-cream .brand-name { color: var(--navy-deep); }
+
+    .brand-sub {
+      font-family: var(--font-sans);
+      font-size: 0.52rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .theme-cream .brand-sub { color: var(--gold-dark); }
+
+    .chapter-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .theme-dark .chapter-tag { color: var(--gold-primary); }
+    .theme-cream .chapter-tag { color: var(--gold-dark); }
+
+    /* FOOTER */
+    .slide-ftr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(197, 168, 128, 0.18);
+      padding-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      z-index: 2;
+    }
+    .theme-dark .slide-ftr {
+      color: var(--text-muted);
+    }
+    .theme-cream .slide-ftr {
+      border-top: 1px solid rgba(158, 128, 85, 0.18);
+      color: var(--cream-muted);
+    }
+    .slide-ftr .page-num {
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+    .theme-dark .slide-ftr .page-num { color: var(--gold-primary); }
+    .theme-cream .slide-ftr .page-num { color: var(--gold-dark); }
+
+    /* SLIDE BODY */
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      padding: 10px 0;
+    }
+
+    /* SLIDE 1: CAPA */
+    .cover-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100%;
+      padding-left: 10px;
+    }
+    .cover-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: rgba(197, 168, 128, 0.1);
+      border: 1px solid rgba(197, 168, 128, 0.3);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 24px;
+    }
+    .cover-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold-primary);
+    }
+    .cover-title {
+      font-family: var(--font-sans);
+      font-size: 4.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+    }
+    .cover-title span {
+      display: block;
+      color: var(--gold-primary);
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 4.8rem;
+      text-transform: none;
+      letter-spacing: 0;
+      margin-top: 4px;
+    }
+    .cover-desc {
+      max-width: 680px;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      border-left: 2px solid var(--gold-primary);
+      padding-left: 16px;
+      margin-top: 10px;
+    }
+
+    /* SECTION TITLES */
+    .sec-sub {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .theme-dark .sec-sub { color: var(--gold-primary); }
+    .theme-cream .sec-sub { color: var(--gold-dark); }
+
+    .sec-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .theme-dark .sec-title { color: #FFFFFF; }
+    .theme-cream .sec-title { color: var(--cream-text); }
+
+    /* TIMELINE (SLIDES 2 & 3) */
+    .timeline-container {
+      position: relative;
+      margin-top: 10px;
+      padding: 10px 0;
+    }
+    .timeline-line {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      right: 20px;
+      height: 2px;
+      background: rgba(158, 128, 85, 0.35);
+      z-index: 1;
+    }
+    .timeline-grid {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+    .timeline-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 10.5%;
+    }
+    .timeline-item.top {
+      justify-content: flex-end;
+      margin-bottom: 24px;
+    }
+    .timeline-item.bottom {
+      justify-content: flex-start;
+      margin-top: 24px;
+    }
+    .banknote-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 2px;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.18));
+      margin-bottom: 6px;
+    }
+    .t-year {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--cream-text);
+      line-height: 1;
+    }
+    .t-name {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--cream-muted);
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+    .t-stat {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #9E2B25;
+      margin-top: 2px;
+    }
+    .timeline-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--navy-deep);
+      border: 2px solid var(--gold-dark);
+      margin: 4px 0;
+    }
+
+    /* SLIDE 4: PODER DE COMPRA */
+    .purchasing-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 10px;
+    }
+    .purchasing-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 28px;
+      background: #FFFFFF;
+      border: 1px solid rgba(158, 128, 85, 0.2);
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+    .p-year {
+      font-size: 3.4rem;
+      font-weight: 800;
+      color: var(--cream-text);
+      width: 180px;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .p-year.highlight-2026 {
+      color: var(--navy-deep);
+      position: relative;
+    }
+    .p-equation {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex: 1;
+      justify-content: flex-end;
+    }
+    .p-equation img {
+      max-height: 110px;
+      width: auto;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+    }
+
+    /* SLIDE 5: POR QUE O MERCADO AMERICANO */
+    .split-layout {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 36px;
+      height: 100%;
+      align-items: center;
+    }
+    .split-image-box {
+      height: 100%;
+      max-height: 480px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--navy-border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      position: relative;
+    }
+    .split-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .split-image-box::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 17, 29, 0.05) 0%, rgba(7, 17, 29, 0.45) 100%);
+      pointer-events: none;
+    }
+    .split-image-caption {
+      position: absolute;
+      bottom: 12px;
+      left: 16px;
+      right: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--gold-light);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .points-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .point-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 10px 14px;
+      background: rgba(19, 35, 55, 0.5);
+      border: 1px solid rgba(197, 168, 128, 0.2);
+      border-radius: 6px;
+    }
+    .point-num {
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+      line-height: 1;
+    }
+    .point-content h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 2px;
+    }
+    .point-content p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* CHARTS CONTAINER */
+    .chart-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .chart-container img {
+      max-width: 100%;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    /* SLIDE 7 & 8: NUMBERS HERO */
+    .stat-hero-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 32px;
+      align-items: center;
+      height: 100%;
+    }
+    .stat-numbers-col {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .stat-box-large {
+      border-left: 3px solid var(--gold-dark);
+      padding-left: 14px;
+    }
+    .stat-val-giant {
+      font-size: 3.6rem;
+      font-weight: 800;
+      line-height: 0.95;
+      color: var(--navy-deep);
+      letter-spacing: -0.02em;
+    }
+    .stat-lbl-giant {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--cream-muted);
+      margin-top: 4px;
+    }
+
+    /* SLIDE 9: FLAGS GRID */
+    .flags-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .flag-card {
+      background: var(--navy-surface);
+      border: 1px solid var(--navy-border);
+      border-radius: 6px;
+      padding: 18px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .flag-card img {
+      width: 64px;
+      height: auto;
+      border-radius: 3px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+    .flag-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    /* SLIDE 10: RATINGS */
+    .rating-split {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      align-items: center;
+      height: 100%;
+    }
+    .rating-brazil-card {
+      background: var(--navy-surface);
+      border: 2px solid rgba(220, 53, 69, 0.4);
+      border-radius: 8px;
+      padding: 32px 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .rating-brazil-card img {
+      width: 72px;
+      height: auto;
+      border-radius: 4px;
+    }
+    .rating-grade-giant {
+      font-size: 5.5rem;
+      font-weight: 800;
+      color: var(--gold-light);
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+    }
+    .rating-grade-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: #DC3545;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .ratings-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .ratings-table tr {
+      border-bottom: 1px solid rgba(197, 168, 128, 0.15);
+    }
+    .ratings-table td {
+      padding: 10px 12px;
+    }
+    .country-td {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+    .country-td img {
+      width: 32px;
+      height: auto;
+      border-radius: 2px;
+    }
+    .grade-td {
+      text-align: right;
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--gold-primary);
+    }
+
+    /* SLIDE 11: GDP BARS */
+    .gdp-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 36px;
+      align-items: center;
+      height: 100%;
+    }
+    .gdp-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .gdp-bar-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 110px;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .bar-track {
+      background: rgba(158, 128, 85, 0.12);
+      height: 18px;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: #7DA4C7;
+      border-radius: 3px;
+    }
+    .bar-fill.lead-us {
+      background: var(--navy-deep);
+    }
+    .gdp-val {
+      font-family: var(--font-mono);
+      text-align: right;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--cream-text);
+    }
+
+    /* SLIDE 12: DÓLAR HISTÓRICO TABLE */
+    .dolar-hist-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 36px;
+      align-items: center;
+      height: 100%;
+    }
+    .dolar-hero-val {
+      font-size: 5.5rem;
+      font-weight: 800;
+      line-height: 0.88;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+    .dolar-tables-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      font-size: 0.72rem;
+    }
+    .dolar-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+    }
+    .dolar-table th {
+      text-align: left;
+      color: var(--gold-primary);
+      padding: 4px 6px;
+      border-bottom: 1px solid rgba(197, 168, 128, 0.3);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+    }
+    .dolar-table td {
+      padding: 3px 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-light);
+    }
+    .dolar-table .pos { color: #51CF66; }
+    .dolar-table .neg { color: #FF6B6B; }
+
+    /* SLIDE 13: BALANÇA SVG */
+    .balance-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 15px;
+    }
+    .balance-svg-box {
+      width: 100%;
+      max-width: 860px;
+      margin-bottom: 10px;
+    }
+    .balance-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      width: 100%;
+      max-width: 860px;
+      margin-top: -30px;
+    }
+    .balance-card-item {
+      background: #FFFFFF;
+      border: 1px solid rgba(158, 128, 85, 0.25);
+      border-radius: 8px;
+      padding: 22px 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .balance-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .balance-text {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--cream-text);
+      line-height: 1.35;
+    }
+
+    /* SLIDE 16: SOLUÇÕES & FECHAMENTO */
+    .solutions-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      height: 100%;
+      align-items: center;
+    }
+    .solutions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .sol-card {
+      background: var(--navy-surface);
+      border: 1px solid var(--navy-border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      display: grid;
+      grid-template-columns: 40px 140px 1fr;
+      align-items: center;
+      gap: 12px;
+    }
+    .sol-num {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold-primary);
+    }
+    .sol-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .sol-detail {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .advisor-closing-card {
+      background: linear-gradient(145deg, rgba(14, 26, 42, 0.85) 0%, rgba(7, 17, 29, 0.95) 100%);
+      border: 1px solid var(--gold-primary);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    }
+    .advisor-thumb {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-primary);
+      object-fit: cover;
+      margin-bottom: 12px;
+      box-shadow: 0 0 20px rgba(197, 168, 128, 0.3);
+    }
+    .advisor-name {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 0.05em;
+    }
+    .advisor-role {
+      font-size: 0.65rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 14px;
+    }
+    .advisor-quote {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--gold-light);
+      line-height: 1.4;
+      margin-bottom: 16px;
+      border-top: 1px solid rgba(197, 168, 128, 0.2);
+      border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+      padding: 8px 0;
+      width: 100%;
+    }
+    .advisor-contacts {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .advisor-contacts strong {
+      color: #FFFFFF;
+    }
+
+    /* CONTROLS (NAV) */
+    .deck-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 14px;
+      padding: 0 8px;
+    }
+    .nav-btn {
+      background: var(--navy-surface);
+      color: var(--gold-light);
+      border: 1px solid var(--navy-border);
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--gold-primary);
+      color: var(--navy-deep);
+    }
+    .nav-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .slide-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .slide-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(197, 168, 128, 0.25);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .slide-dot.active {
+      background: var(--gold-primary);
+      width: 22px;
+      border-radius: 4px;
+    }
+
+    /* PRINT STYLES (LANDSCAPE WIDESCREEN 1920x1080) */
+    @media print {
+      html, body {
+        width: 1920px !important;
+        height: auto !important;
+        background: #03070D !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .action-bar, .deck-controls {
+        display: none !important;
+      }
+      .deck-viewport {
+        width: 1920px !important;
+        max-width: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        aspect-ratio: auto !important;
+        overflow: visible !important;
+      }
+      .slide {
+        display: flex !important;
+        opacity: 1 !important;
+        position: relative !important;
+        width: 1920px !important;
+        height: 1080px !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        box-sizing: border-box !important;
+        padding: 50px 70px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .slide::before {
+        inset: 24px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP ACTION BAR -->
+  <header class="action-bar">
+    <a href="../index.html">← Voltar ao Site Oficial (jeffersonpizzio.com)</a>
+    <div class="action-group">
+      <span id="slideIndicator" style="font-family: var(--font-mono); color: var(--gold-primary); font-size: 0.8rem;">Lâmina 01 / 16</span>
+      <button class="btn-action" onclick="toggleFullscreen()">⛶ Tela Cheia</button>
+      <button class="btn-action" onclick="window.print()">🖨️ Salvar em PDF (16:9)</button>
+    </div>
+  </header>
+
+  <!-- VIEWPORT -->
+  <main class="deck-viewport" id="deckViewport">
+
+    <!-- SLIDE 01: CAPA -->
+    <section class="slide theme-dark active" data-index="1">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">APRESENTAÇÃO EXECUTIVA</span>
+      </div>
+      <div class="slide-body cover-body">
+        <div class="cover-badge">ESTRATÉGIA PATRIMONIAL & MOEDA FORTE</div>
+        <h1 class="cover-title">
+          MERCADO
+          <span>Internacional</span>
+        </h1>
+        <p class="cover-desc">
+          A relevância estratégica da diversificação global, solidez soberana e preservação de poder de compra em moeda forte para famílias empresárias e sócios.
+        </p>
+      </div>
+      <div class="slide-ftr">
+        <span>JEFFERSON PIZZIO · WEALTH & SUCCESSION ADVISORY</span>
+        <span class="page-num">01</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 02: HISTÓRICO MONETÁRIO BRASIL -->
+    <section class="slide theme-cream" data-index="2">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 01 · BRASIL</span>
+      </div>
+      <div class="slide-body">
+        <div class="sec-sub">HISTÓRICO MONETÁRIO</div>
+        <h2 class="sec-title">MOEDAS BRASIL <span style="font-weight: 300; font-size: 1.6rem; color: var(--gold-dark);">1833 — 1994</span></h2>
+        
+        <div class="timeline-container">
+          <div class="timeline-line"></div>
+          <div class="timeline-grid">
+            
+            <div class="timeline-item top">
+              <img src="../assets/images/mercado-internacional/img-007.png" class="banknote-img" alt="Réis">
+              <span class="t-name">Réis / Mil Réis</span>
+              <span class="t-stat">0,23%</span>
+              <div class="timeline-dot"></div>
+              <span class="t-year">1833</span>
+            </div>
+
+            <div class="timeline-item bottom">
+              <span class="t-year">1942</span>
+              <div class="timeline-dot"></div>
+              <span class="t-name">Cruzeiro</span>
+              <span class="t-stat">31.1919%</span>
+              <img src="../assets/images/mercado-internacional/img-018_rgba.png" class="banknote-img" alt="Cruzeiro">
+            </div>
+
+            <div class="timeline-item top">
+              <img src="../assets/images/mercado-internacional/img-005_rgba.png" class="banknote-img" alt="Cruzeiro Novo">
+              <span class="t-name">Cruzeiro Novo</span>
+              <span class="t-stat">90%</span>
+              <div class="timeline-dot"></div>
+              <span class="t-year">1967</span>
+            </div>
+
+            <div class="timeline-item bottom">
+              <span class="t-year">1970</span>
+              <div class="timeline-dot"></div>
+              <span class="t-name">Cruzeiro</span>
+              <span class="t-stat">206.288%</span>
+              <img src="../assets/images/mercado-internacional/img-016_rgba.png" class="banknote-img" alt="Cruzeiro">
+            </div>
+
+            <div class="timeline-item top">
+              <img src="../assets/images/mercado-internacional/img-008_rgba.png" class="banknote-img" alt="Cruzado">
+              <span class="t-name">Cruzado</span>
+              <span class="t-stat">5.699%</span>
+              <div class="timeline-dot"></div>
+              <span class="t-year">1986</span>
+            </div>
+
+            <div class="timeline-item bottom">
+              <span class="t-year">1989</span>
+              <div class="timeline-dot"></div>
+              <span class="t-name">Cruzado Novo</span>
+              <span class="t-stat">5.937%</span>
+              <img src="../assets/images/mercado-internacional/img-014_rgba.png" class="banknote-img" alt="Cruzado Novo">
+            </div>
+
+            <div class="timeline-item top">
+              <img src="../assets/images/mercado-internacional/img-010_rgba.png" class="banknote-img" alt="Cruzeiro">
+              <span class="t-name">Cruzeiro</span>
+              <span class="t-stat">118.590%</span>
+              <div class="timeline-dot"></div>
+              <span class="t-year">1990</span>
+            </div>
+
+            <div class="timeline-item bottom">
+              <span class="t-year">1993</span>
+              <div class="timeline-dot"></div>
+              <span class="t-name">Cruzeiro Real</span>
+              <span class="t-stat">2.396%</span>
+              <img src="../assets/images/mercado-internacional/img-012_rgba.png" class="banknote-img" alt="Cruzeiro Real">
+            </div>
+
+            <div class="timeline-item top">
+              <img src="../assets/images/mercado-internacional/img-020_rgba.png" class="banknote-img" alt="Real">
+              <span class="t-name">Real</span>
+              <span class="t-stat">728%</span>
+              <div class="timeline-dot"></div>
+              <span class="t-year">1994</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>JEFFERSON PIZZIO · MERCADO INTERNACIONAL</span>
+        <span class="page-num">02</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 03: HISTÓRICO MONETÁRIO EUA -->
+    <section class="slide theme-cream" data-index="3">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 01 · ESTADOS UNIDOS</span>
+      </div>
+      <div class="slide-body">
+        <div class="sec-sub">HISTÓRICO MONETÁRIO</div>
+        <h2 class="sec-title">MOEDAS EUA <span style="font-weight: 300; font-size: 1.6rem; color: var(--gold-dark);">1862 — 2026</span></h2>
+        
+        <div class="timeline-container" style="margin-top: 25px;">
+          <div class="timeline-line"></div>
+          <div class="timeline-grid" style="justify-content: space-around;">
+            
+            <div class="timeline-item top" style="width: 15%;">
+              <img src="../assets/images/mercado-internacional/img-024_rgba.png" class="banknote-img" alt="1862">
+              <span class="t-name">U.S. Note</span>
+              <div class="timeline-dot"></div>
+              <span class="t-year">1862</span>
+            </div>
+
+            <div class="timeline-item bottom" style="width: 15%;">
+              <span class="t-year">1914</span>
+              <div class="timeline-dot"></div>
+              <span class="t-name">Federal Reserve</span>
+              <img src="../assets/images/mercado-internacional/img-028_rgba.png" class="banknote-img" alt="1914">
+            </div>
+
+            <div class="timeline-item top" style="width: 15%;">
+              <img src="../assets/images/mercado-internacional/img-026_rgba.png" class="banknote-img" alt="1966">
+              <span class="t-name">Red Seal</span>
+              <div class="timeline-dot"></div>
+              <span class="t-year">1966</span>
+            </div>
+
+            <div class="timeline-item bottom" style="width: 15%;">
+              <span class="t-year">1990</span>
+              <div class="timeline-dot"></div>
+              <span class="t-name">Security Thread</span>
+              <img src="../assets/images/mercado-internacional/img-030_rgba.png" class="banknote-img" alt="1990">
+            </div>
+
+            <div class="timeline-item top" style="width: 15%;">
+              <img src="../assets/images/mercado-internacional/img-032_rgba.png" class="banknote-img" alt="1996">
+              <span class="t-name">Portrait Series</span>
+              <div class="timeline-dot"></div>
+              <span class="t-year">1996</span>
+            </div>
+
+            <div class="timeline-item bottom" style="width: 15%;">
+              <span class="t-year" style="color: var(--navy-deep); font-weight: 800;">2026</span>
+              <div class="timeline-dot" style="background: var(--gold-dark);"></div>
+              <span class="t-name" style="font-weight: 700;">3D Security Ribbon</span>
+              <img src="../assets/images/mercado-internacional/img-034_rgba.png" class="banknote-img" alt="2026">
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>JEFFERSON PIZZIO · MERCADO INTERNACIONAL</span>
+        <span class="page-num">03</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 04: PODER DE COMPRA (ATUALIZADO COM 2026) -->
+    <section class="slide theme-cream" data-index="4">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 02 · DÓLAR</span>
+      </div>
+      <div class="slide-body">
+        <div class="sec-sub">PARIDADE CAMBIAL & DESVALORIZAÇÃO HISTÓRICA</div>
+        <h2 class="sec-title">PODER DE COMPRA</h2>
+        
+        <div class="purchasing-grid">
+          <!-- 1994 -->
+          <div class="purchasing-row">
+            <div class="p-year">1994</div>
+            <div class="p-equation">
+              <img src="../assets/images/mercado-internacional/img-038_rgba.png" alt="1994: US$ 20 = R$ 20">
+            </div>
+          </div>
+
+          <!-- 2026 -->
+          <div class="purchasing-row" style="border-left: 4px solid var(--navy-deep);">
+            <div class="p-year highlight-2026">2026</div>
+            <div class="p-equation">
+              <img src="../assets/images/mercado-internacional/img-040_rgba.png" alt="2026: US$ 20 = Múltiplas notas de Real">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>JEFFERSON PIZZIO · MERCADO INTERNACIONAL</span>
+        <span class="page-num">04</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 05: POR QUE O MERCADO AMERICANO? (COM FOTO ARQUITETÔNICA NY/WALL STREET) -->
+    <section class="slide theme-dark" data-index="5">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 03 · MERCADO AMERICANO</span>
+      </div>
+      <div class="slide-body">
+        <div class="split-layout">
+          <!-- PHOTO -->
+          <div class="split-image-box">
+            <img src="../assets/images/mercado_eua_ny_financial_district.jpg" alt="Distrito Financeiro de Manhattan e Wall Street">
+            <div class="split-image-caption">Lower Manhattan & Wall Street · Capital Global</div>
+          </div>
+
+          <!-- POINTS -->
+          <div class="split-content">
+            <div class="sec-sub">SOLIDEZ INSTITUCIONAL & LIQUIDEZ</div>
+            <h2 class="sec-title" style="font-size: 2rem; margin-bottom: 20px;">
+              POR QUE O MERCADO<br>
+              <span style="color: var(--gold-light);">AMERICANO?</span>
+            </h2>
+
+            <div class="points-list">
+              <div class="point-card">
+                <span class="point-num">01</span>
+                <div class="point-content">
+                  <h4>Moeda Forte</h4>
+                  <p>Dólar: Estabilidade, reserva mundial incontestável e preservação perene de poder de compra.</p>
+                </div>
+              </div>
+
+              <div class="point-card">
+                <span class="point-num">02</span>
+                <div class="point-content">
+                  <h4>Maior Mercado do Mundo</h4>
+                  <p>Acesso direto ao ecossistema financeiro mais profundo, seguro e líquido do planeta.</p>
+                </div>
+              </div>
+
+              <div class="point-card">
+                <span class="point-num">03</span>
+                <div class="point-content">
+                  <h4>Segurança & Governança</h4>
+                  <p>Previsibilidade jurídica inabalável e proteção patrimonial transfronteiriça para o investidor.</p>
+                </div>
+              </div>
+
+              <div class="point-card">
+                <span class="point-num">04</span>
+                <div class="point-content">
+                  <h4>Diversificação</h4>
+                  <p>Vasta amplitude de instrumentos imunes ao risco econômico, fiscal e político doméstico.</p>
+                </div>
+              </div>
+
+              <div class="point-card">
+                <span class="point-num">05</span>
+                <div class="point-content">
+                  <h4>Empresas Globais</h4>
+                  <p>Alocação de capital nas corporações líderes e provedores mais sólidos da economia mundial.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>JEFFERSON PIZZIO · MERCADO INTERNACIONAL</span>
+        <span class="page-num">05</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 06: A EVOLUÇÃO DO DÓLAR -->
+    <section class="slide theme-dark" data-index="6">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 02 · DÓLAR</span>
+      </div>
+      <div class="slide-body">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 8px;">
+          <div>
+            <div class="sec-sub">REAL × DÓLAR</div>
+            <h2 class="sec-title" style="margin-bottom: 4px;">A EVOLUÇÃO DO DÓLAR</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Análise da flutuação do Real em relação ao Dólar desde 1994 · Valor da nota de R$ 100,00 convertida em Dólar.</p>
+          </div>
+        </div>
+        <div class="chart-container">
+          <img src="../assets/images/mercado-internacional/img-049.png" alt="Evolução do Real versus Dólar desde 1994">
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>FONTE: BLOOMBERG · ANÁLISE DE MERCADO</span>
+        <span class="page-num">06</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 07: CDI VS T-BILLS -->
+    <section class="slide theme-cream" data-index="7">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 04 · RETORNO EM DÓLARES</span>
+      </div>
+      <div class="slide-body">
+        <div class="stat-hero-grid">
+          <div class="stat-numbers-col">
+            <div>
+              <div class="sec-sub">COMPARAÇÃO HISTÓRICA</div>
+              <h2 class="sec-title" style="font-size: 2rem; margin-bottom: 6px;">CDI vs. T-Bills</h2>
+              <p style="font-size: 0.85rem; color: var(--cream-muted); margin-bottom: 18px;">
+                Quem gerou maior ganho real em dólares desde 1995?<br>
+                <span style="font-family: var(--font-mono); font-size: 0.75rem;">Base 100 · 1995 a 2024</span>
+              </p>
+            </div>
+
+            <div class="stat-box-large">
+              <div class="stat-val-giant">199.2</div>
+              <div class="stat-lbl-giant">T-Bill 90 dias (Tesouro EUA)</div>
+            </div>
+
+            <div class="stat-box-large" style="border-left-color: #C0392B;">
+              <div class="stat-val-giant" style="color: #C0392B;">13.8</div>
+              <div class="stat-lbl-giant">CDI Brasileiro (medido em Dólares)</div>
+            </div>
+          </div>
+
+          <div class="chart-container">
+            <img src="../assets/images/mercado-internacional/img-052.png" alt="Gráfico CDI vs T-Bills">
+          </div>
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>JEFFERSON PIZZIO · MERCADO INTERNACIONAL</span>
+        <span class="page-num">07</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 08: CDI X T-BILLS X S&P 500 -->
+    <section class="slide theme-cream" data-index="8">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 04 · RETORNO EM DÓLARES</span>
+      </div>
+      <div class="slide-body">
+        <div class="stat-hero-grid">
+          <div class="stat-numbers-col">
+            <div>
+              <div class="sec-sub">POTENCIAL DO MERCADO ACIONÁRIO GLOBAL</div>
+              <h2 class="sec-title" style="font-size: 1.85rem; margin-bottom: 6px;">CDI × T-Bills × S&P 500</h2>
+              <p style="font-size: 0.82rem; color: var(--cream-muted); margin-bottom: 16px;">
+                Retorno acumulado em moeda forte desde 1995.
+              </p>
+            </div>
+
+            <div class="stat-box-large" style="border-left-color: #2E7D32;">
+              <div class="stat-val-giant" style="color: #2E7D32; font-size: 3.2rem;">3296.3</div>
+              <div class="stat-lbl-giant">S&P 500 (Ações Norte-Americanas)</div>
+            </div>
+
+            <div class="stat-box-large">
+              <div class="stat-val-giant" style="font-size: 2.2rem;">199.2</div>
+              <div class="stat-lbl-giant">T-Bill 90 dias (EUA)</div>
+            </div>
+
+            <div class="stat-box-large" style="border-left-color: #C0392B;">
+              <div class="stat-val-giant" style="color: #C0392B; font-size: 2.2rem;">13.8</div>
+              <div class="stat-lbl-giant">CDI (em Dólares)</div>
+            </div>
+          </div>
+
+          <div class="chart-container">
+            <img src="../assets/images/mercado-internacional/img-055.png" alt="Gráfico CDI vs T-Bills vs S&P 500">
+          </div>
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>JEFFERSON PIZZIO · MERCADO INTERNACIONAL</span>
+        <span class="page-num">08</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 09: RISCO SOBERANO (PROVOCAÇÃO) -->
+    <section class="slide theme-dark" data-index="9">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 05 · RISCO SOBERANO</span>
+      </div>
+      <div class="slide-body" style="text-align: center; align-items: center;">
+        <div class="sec-sub">PERCEPÇÃO VS. REALIDADE FISCAL</div>
+        <h2 class="sec-title" style="font-size: 2.8rem; max-width: 800px; margin: 10px auto 0;">
+          Você investiria em algum desses países?
+        </h2>
+        
+        <div class="flags-cards-grid" style="width: 100%; max-width: 1000px;">
+          <div class="flag-card">
+            <img src="../assets/images/mercado-internacional/img-061.png" alt="Botswana">
+            <span class="flag-name">Botswana</span>
+          </div>
+
+          <div class="flag-card">
+            <img src="../assets/images/mercado-internacional/img-058.png" alt="Romênia">
+            <span class="flag-name">Romênia</span>
+          </div>
+
+          <div class="flag-card">
+            <img src="../assets/images/mercado-internacional/img-059.png" alt="Chipre">
+            <span class="flag-name">Chipre</span>
+          </div>
+
+          <div class="flag-card">
+            <img src="../assets/images/mercado-internacional/img-060.png" alt="Paraguai">
+            <span class="flag-name">Paraguai</span>
+          </div>
+
+          <div class="flag-card">
+            <img src="../assets/images/mercado-internacional/img-062.png" alt="Cazaquistão">
+            <span class="flag-name">Cazaquistão</span>
+          </div>
+
+          <div class="flag-card">
+            <img src="../assets/images/mercado-internacional/img-063.png" alt="Trinidad e Tobago">
+            <span class="flag-name">Trinidad e Tobago</span>
+          </div>
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>JEFFERSON PIZZIO · MERCADO INTERNACIONAL</span>
+        <span class="page-num">09</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: RATINGS SOBERANOS -->
+    <section class="slide theme-dark" data-index="10">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 05 · RISCO SOBERANO</span>
+      </div>
+      <div class="slide-body">
+        <div class="rating-split">
+          <!-- BRASIL -->
+          <div class="rating-brazil-card">
+            <img src="../assets/images/mercado-internacional/img-066.png" alt="Brasil">
+            <span style="font-size: 1.4rem; font-weight: 700; color: #fff;">Brasil</span>
+            <div class="rating-grade-giant">BB</div>
+            <div class="rating-grade-label">GRAU ESPECULATIVO (JUNK)</div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin-top: 6px;">
+              A nota de crédito soberana do Brasil reflete risco fiscal estrutural, déficit público e volatilidade institucional contínua.
+            </p>
+          </div>
+
+          <!-- COMPARATIVO -->
+          <div>
+            <div class="sec-sub">CLASSIFICAÇÃO DE RISCO GLOBAL (S&P / FITCH)</div>
+            <table class="ratings-table">
+              <tr>
+                <td class="country-td"><img src="../assets/images/mercado-internacional/img-061.png" alt="Botswana"> Botswana</td>
+                <td class="grade-td">BBB+</td>
+              </tr>
+              <tr>
+                <td class="country-td"><img src="../assets/images/mercado-internacional/img-058.png" alt="Romênia"> Romênia</td>
+                <td class="grade-td">BBB-</td>
+              </tr>
+              <tr>
+                <td class="country-td"><img src="../assets/images/mercado-internacional/img-059.png" alt="Chipre"> Chipre</td>
+                <td class="grade-td">BBB+</td>
+              </tr>
+              <tr>
+                <td class="country-td"><img src="../assets/images/mercado-internacional/img-060.png" alt="Paraguai"> Paraguai</td>
+                <td class="grade-td">BB+</td>
+              </tr>
+              <tr>
+                <td class="country-td"><img src="../assets/images/mercado-internacional/img-062.png" alt="Cazaquistão"> Cazaquistão</td>
+                <td class="grade-td">BBB</td>
+              </tr>
+              <tr>
+                <td class="country-td"><img src="../assets/images/mercado-internacional/img-063.png" alt="Trinidad e Tobago"> Trinidad e Tobago</td>
+                <td class="grade-td">BBB-</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>FONTE: AGÊNCIAS GLOBAIS DE CLASSIFICAÇÃO DE RISCO</span>
+        <span class="page-num">10</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: ECONOMIA GLOBAL & DIVERSIFICAÇÃO -->
+    <section class="slide theme-cream" data-index="11">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 06 · ECONOMIA GLOBAL</span>
+      </div>
+      <div class="slide-body">
+        <div class="gdp-grid">
+          <div>
+            <div class="sec-sub">REPRESENTATIVIDADE MUNDIAL</div>
+            <h2 class="sec-title" style="font-size: 2.2rem;">Diversificação</h2>
+            <p style="font-size: 0.85rem; color: var(--cream-muted); margin-bottom: 20px;">
+              Ranking com os maiores PIBs nominais do planeta.<br>
+              <strong style="color: var(--cream-text);">O Brasil representa menos de 3% da economia global.</strong>
+            </p>
+            <div style="font-size: 3.5rem; font-weight: 800; color: var(--gold-dark); line-height: 0.9;">2024+</div>
+          </div>
+
+          <div class="gdp-bars">
+            <div class="gdp-bar-row">
+              <span>🇺🇸 Estados Unidos</span>
+              <div class="bar-track"><div class="bar-fill lead-us" style="width: 100%;"></div></div>
+              <span class="gdp-val">US$ 27,7 Tri</span>
+            </div>
+            <div class="gdp-bar-row">
+              <span>🇨🇳 China</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 64%;"></div></div>
+              <span class="gdp-val">US$ 17,7 Tri</span>
+            </div>
+            <div class="gdp-bar-row">
+              <span>🇩🇪 Alemanha</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 16%;"></div></div>
+              <span class="gdp-val">US$ 4,5 Tri</span>
+            </div>
+            <div class="gdp-bar-row">
+              <span>🇯🇵 Japão</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 15%;"></div></div>
+              <span class="gdp-val">US$ 4,2 Tri</span>
+            </div>
+            <div class="gdp-bar-row">
+              <span>🇮🇳 Índia</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 13%;"></div></div>
+              <span class="gdp-val">US$ 3,5 Tri</span>
+            </div>
+            <div class="gdp-bar-row">
+              <span>🇬🇧 Reino Unido</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 12%;"></div></div>
+              <span class="gdp-val">US$ 3,3 Tri</span>
+            </div>
+            <div class="gdp-bar-row">
+              <span>🇫🇷 França</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 11%;"></div></div>
+              <span class="gdp-val">US$ 3,0 Tri</span>
+            </div>
+            <div class="gdp-bar-row">
+              <span>🇮🇹 Itália</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 8.5%;"></div></div>
+              <span class="gdp-val">US$ 2,3 Tri</span>
+            </div>
+            <div class="gdp-bar-row" style="color: #2E7D32; font-weight: 700;">
+              <span>🇧🇷 Brasil</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 7.8%; background: #2E7D32;"></div></div>
+              <span class="gdp-val" style="color: #2E7D32;">US$ 2,1 Tri</span>
+            </div>
+            <div class="gdp-bar-row">
+              <span>🇨🇦 Canadá</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 7.7%;"></div></div>
+              <span class="gdp-val">US$ 2,1 Tri</span>
+            </div>
+            <div class="gdp-bar-row">
+              <span>🇷🇺 Rússia</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 7.2%;"></div></div>
+              <span class="gdp-val">US$ 2,0 Tri</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>FONTE: BANCO MUNDIAL / FMI · RELATÓRIO ANUAL</span>
+        <span class="page-num">11</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 12: DÓLAR CAI PRA CIMA -->
+    <section class="slide theme-dark" data-index="12">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 07 · DÓLAR</span>
+      </div>
+      <div class="slide-body">
+        <div class="dolar-hist-layout">
+          <div>
+            <div class="sec-sub">TENDÊNCIA INEXORÁVEL</div>
+            <h2 class="sec-title" style="margin-bottom: 8px;">DÓLAR<br>CAI PRA CIMA</h2>
+            <div class="dolar-hero-val">+259%</div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+              Se você comprasse dólar todos os anos, teria uma valorização histórica acumulada de Dólar × Real superior a <strong>259%</strong>.
+            </p>
+          </div>
+
+          <div class="dolar-tables-wrapper">
+            <!-- COLUNA 1 -->
+            <table class="dolar-table">
+              <thead>
+                <tr><th>ANO</th><th>MÉDIA</th><th>VAR. %</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1994</td><td>R$ 0,639</td><td>—</td></tr>
+                <tr><td>1995</td><td>R$ 0,918</td><td class="pos">+44%</td></tr>
+                <tr><td>1996</td><td>R$ 1,005</td><td class="pos">+10%</td></tr>
+                <tr><td>1997</td><td>R$ 1,078</td><td class="pos">+7%</td></tr>
+                <tr><td>1998</td><td>R$ 1,161</td><td class="pos">+8%</td></tr>
+                <tr><td>1999</td><td>R$ 1,815</td><td class="pos">+56%</td></tr>
+                <tr><td>2000</td><td>R$ 1,830</td><td class="pos">+1%</td></tr>
+                <tr><td>2001</td><td>R$ 2,350</td><td class="pos">+28%</td></tr>
+                <tr><td>2002</td><td>R$ 2,921</td><td class="pos">+24%</td></tr>
+                <tr><td>2003</td><td>R$ 3,078</td><td class="pos">+5%</td></tr>
+                <tr><td>2004</td><td>R$ 2,926</td><td class="neg">-5%</td></tr>
+                <tr><td>2005</td><td>R$ 2,435</td><td class="neg">-17%</td></tr>
+                <tr><td>2006</td><td>R$ 2,176</td><td class="neg">-11%</td></tr>
+                <tr><td>2007</td><td>R$ 1,948</td><td class="neg">-10%</td></tr>
+                <tr><td>2008</td><td>R$ 1,835</td><td class="neg">-6%</td></tr>
+              </tbody>
+            </table>
+
+            <!-- COLUNA 2 -->
+            <table class="dolar-table">
+              <thead>
+                <tr><th>ANO</th><th>MÉDIA</th><th>VAR. %</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>2009</td><td>R$ 1,998</td><td class="pos">+9%</td></tr>
+                <tr><td>2010</td><td>R$ 1,760</td><td class="neg">-12%</td></tr>
+                <tr><td>2011</td><td>R$ 1,675</td><td class="neg">-5%</td></tr>
+                <tr><td>2012</td><td>R$ 1,955</td><td class="pos">+17%</td></tr>
+                <tr><td>2013</td><td>R$ 2,158</td><td class="pos">+10%</td></tr>
+                <tr><td>2014</td><td>R$ 2,353</td><td class="pos">+9%</td></tr>
+                <tr><td>2015</td><td>R$ 3,332</td><td class="pos">+42%</td></tr>
+                <tr><td>2016</td><td>R$ 3,490</td><td class="pos">+5%</td></tr>
+                <tr><td>2017</td><td>R$ 3,192</td><td class="neg">-9%</td></tr>
+                <tr><td>2018</td><td>R$ 3,654</td><td class="pos">+14%</td></tr>
+                <tr><td>2019</td><td>R$ 3,945</td><td class="pos">+8%</td></tr>
+                <tr><td>2020</td><td>R$ 5,156</td><td class="pos">+31%</td></tr>
+                <tr><td>2021</td><td>R$ 5,395</td><td class="pos">+5%</td></tr>
+                <tr><td>2022</td><td>R$ 5,165</td><td class="neg">-4%</td></tr>
+                <tr><td>2023</td><td>R$ 4,995</td><td class="neg">-3%</td></tr>
+                <tr><td>2024</td><td>R$ 5,390</td><td class="pos">+8%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>JEFFERSON PIZZIO · MERCADO INTERNACIONAL</span>
+        <span class="page-num">12</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 13: ATIVOS SECURITÁRIOS (COM VETOR SVG CRISP DA BALANÇA) -->
+    <section class="slide theme-cream" data-index="13">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 08 · ESTRUTURA DE INVESTIMENTOS</span>
+      </div>
+      <div class="slide-body">
+        <div style="text-align: center;">
+          <div class="sec-sub">BLINDAGEM & LIQUIDEZ ESTRUTURADA</div>
+          <h2 class="sec-title" style="margin-bottom: 20px;">ATIVOS SECURITÁRIOS</h2>
+        </div>
+
+        <div class="balance-wrapper">
+          <!-- SVG BALANÇA -->
+          <div class="balance-svg-box">
+            <svg viewBox="0 0 860 160" width="100%" height="160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Linha horizontal -->
+              <path d="M70 45 L790 45" stroke="#9E8055" stroke-width="3" stroke-linecap="round"/>
+              <path d="M70 45 L70 70" stroke="#9E8055" stroke-width="3" stroke-linecap="round"/>
+              <path d="M790 45 L790 70" stroke="#9E8055" stroke-width="3" stroke-linecap="round"/>
+              <!-- Pivô central -->
+              <polygon points="430,45 405,125 455,125" fill="none" stroke="#0C1622" stroke-width="2.5"/>
+              <line x1="370" y1="125" x2="490" y2="125" stroke="#0C1622" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="430" cy="45" r="7" fill="#9E8055"/>
+              <!-- Texto Equilíbrio -->
+              <text x="430" y="145" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="13" font-weight="700" fill="#9E8055" letter-spacing="0.25em">EQUILÍBRIO</text>
+            </svg>
+          </div>
+
+          <!-- CARDS -->
+          <div class="balance-cards">
+            <div class="balance-card-item">
+              <div class="balance-tag">PROTEÇÃO</div>
+              <div class="balance-text">Proteção de um <strong style="color: var(--navy-deep);">produto de baixo risco</strong> e liquidez garantida.</div>
+            </div>
+            <div class="balance-card-item">
+              <div class="balance-tag">POTENCIAL</div>
+              <div class="balance-text">Vantagens e retorno dos <strong style="color: var(--navy-deep);">produtos de risco</strong> global.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>JEFFERSON PIZZIO · MERCADO INTERNACIONAL</span>
+        <span class="page-num">13</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 14: CDI X S&P 500 (120 MESES) -->
+    <section class="slide theme-cream" data-index="14">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 08 · ESTRUTURA DE INVESTIMENTOS</span>
+      </div>
+      <div class="slide-body">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 12px;">
+          <div>
+            <div class="sec-sub">RENTABILIDADE RELATIVA (120 MESES)</div>
+            <h2 class="sec-title" style="margin-bottom: 2px;">CDI × S&P 500</h2>
+            <p style="font-size: 0.8rem; color: var(--cream-muted);">Comparativo acumulado em moeda convertida.</p>
+          </div>
+          <div style="display: flex; gap: 32px; text-align: right;">
+            <div>
+              <div style="font-size: 2.2rem; font-weight: 800; color: #2E7D32; line-height: 1;">371,44%</div>
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--cream-muted);">S&P 500 (BRL)</div>
+            </div>
+            <div>
+              <div style="font-size: 2.2rem; font-weight: 800; color: #1976D2; line-height: 1;">143,12%</div>
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--cream-muted);">CDI</div>
+            </div>
+          </div>
+        </div>
+        <div class="chart-container">
+          <img src="../assets/images/mercado-internacional/img-094.png" alt="Gráfico CDI vs S&P 500">
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>FONTE: MAIS RETORNO · ANÁLISE COMPARATIVA</span>
+        <span class="page-num">14</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 15: CDI DOLARIZADO -->
+    <section class="slide theme-cream" data-index="15">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 08 · ESTRUTURA DE INVESTIMENTOS</span>
+      </div>
+      <div class="slide-body">
+        <div class="stat-hero-grid">
+          <div>
+            <div class="sec-sub">A ILUSÃO DA MOEDA LOCAL</div>
+            <h2 class="sec-title" style="font-size: 2rem; margin-bottom: 8px;">CDI "DOLARIZADO"</h2>
+            <p style="font-size: 0.82rem; color: var(--cream-muted); margin-bottom: 20px;">
+              Retornos acumulados do CDI: Nominal vs. Real vs. US$<br>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem;">Base 100 = Jan/2015 · Período 2015–2024</span>
+            </p>
+
+            <div style="display: flex; gap: 16px; margin-bottom: 12px;">
+              <div class="stat-box-large" style="border-left-color: #1976D2;">
+                <div style="font-size: 2.2rem; font-weight: 800; color: #1976D2;">142%</div>
+                <div class="stat-lbl-giant">CDI Nominal</div>
+              </div>
+              <div class="stat-box-large" style="border-left-color: #555;">
+                <div style="font-size: 2.2rem; font-weight: 800; color: #333;">38%</div>
+                <div class="stat-lbl-giant">CDI Real</div>
+              </div>
+              <div class="stat-box-large" style="border-left-color: #C0392B;">
+                <div style="font-size: 2.2rem; font-weight: 800; color: #C0392B;">4%</div>
+                <div class="stat-lbl-giant">CDI em US$</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-container">
+            <img src="../assets/images/mercado-internacional/img-097.png" alt="Gráfico J.P. Morgan CDI Dolarizado">
+          </div>
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>FONTE: J.P. MORGAN ASSET MANAGEMENT / BLOOMBERG / IBGE</span>
+        <span class="page-num">15</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 16: SOLUÇÕES EQUILIBRADAS & ASSINATURA JEFFERSON PIZZIO -->
+    <section class="slide theme-dark" data-index="16">
+      <div class="slide-hdr">
+        <div class="brand-box">
+          <span class="brand-name">JEFFERSON PIZZIO</span>
+          <span class="brand-sub">WEALTH & SUCCESSION ADVISORY</span>
+        </div>
+        <span class="chapter-tag">CAPÍTULO 09 · SOLUÇÕES ESTRUTURADAS</span>
+      </div>
+      <div class="slide-body">
+        <div class="solutions-layout">
+          <!-- LISTA DE SOLUÇÕES -->
+          <div>
+            <div class="sec-sub">ARQUITETURA DE QUATRO PILARES</div>
+            <h2 class="sec-title" style="margin-bottom: 16px;">SOLUÇÕES EQUILIBRADAS</h2>
+            
+            <div class="solutions-list">
+              <div class="sol-card">
+                <span class="sol-num">01</span>
+                <span class="sol-title">Reserva Financeira</span>
+                <span class="sol-detail">Liquidez imediata em Moeda Forte (Dólar americano).</span>
+              </div>
+
+              <div class="sol-card">
+                <span class="sol-num">02</span>
+                <span class="sol-title">Investimento</span>
+                <span class="sol-detail">Alocação global descorrelacionada: Taxa Fixa + Indexada.</span>
+              </div>
+
+              <div class="sol-card">
+                <span class="sol-num">03</span>
+                <span class="sol-title">Previdência</span>
+                <span class="sol-detail">Eficiência e previsibilidade com liquidez programada.</span>
+              </div>
+
+              <div class="sol-card" style="border-color: var(--gold-primary);">
+                <span class="sol-num" style="color: var(--gold-light);">04</span>
+                <span class="sol-title" style="color: var(--gold-light);">Seguro de Vida</span>
+                <span class="sol-detail">
+                  Proteção Patrimonial & Liquidez Sucessória à vista<br>
+                  <strong style="color: #FFFFFF;">Imune a Inventário · Penhora Judicial · Falência</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ASSINATURA JEFFERSON PIZZIO -->
+          <div class="advisor-closing-card">
+            <img src="../assets/images/jefferson_pizzio_portrait_1_studio.jpg" class="advisor-thumb" alt="Jefferson Pizzio">
+            <div class="advisor-name">Jefferson Pizzio</div>
+            <div class="advisor-role">WEALTH STRATEGIST & SUCCESSION ADVISOR</div>
+            
+            <div class="advisor-quote">
+              "Preservando e perpetuando o valor do seu legado através de governança, proteção e moeda forte."
+            </div>
+
+            <div class="advisor-contacts">
+              <span><strong>WhatsApp / Telefone:</strong> (51) 99897-0838</span>
+              <span><strong>E-mail:</strong> contato@jeffersonpizzio.com</span>
+              <span><strong>Portal Oficial:</strong> jeffersonpizzio.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-ftr">
+        <span>JEFFERSON PIZZIO · WEALTH & SUCCESSION ADVISORY</span>
+        <span class="page-num">16</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CONTROLS -->
+  <nav class="deck-controls">
+    <button class="nav-btn" id="prevBtn" onclick="prevSlide()" disabled>← Anterior</button>
+    <div class="slide-dots" id="dotsContainer"></div>
+    <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Próxima →</button>
+  </nav>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let currentSlide = 1;
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const slideIndicator = document.getElementById('slideIndicator');
+    const dotsContainer = document.getElementById('dotsContainer');
+
+    // Create dots
+    for (let i = 1; i <= totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = `slide-dot ${i === 1 ? 'active' : ''}`;
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+    const dots = document.querySelectorAll('.slide-dot');
+
+    function updateUI() {
+      slides.forEach(s => s.classList.remove('active'));
+      const activeSlide = document.querySelector(`.slide[data-index="${currentSlide}"]`);
+      if (activeSlide) activeSlide.classList.add('active');
+
+      dots.forEach((d, idx) => {
+        d.classList.toggle('active', idx + 1 === currentSlide);
+      });
+
+      slideIndicator.textContent = `Lâmina ${String(currentSlide).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateUI();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateUI();
+      }
+    }
+
+    function goToSlide(n) {
+      currentSlide = n;
+      updateUI();
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      }
+    });
+
+    // Fullscreen
+    function toggleFullscreen() {
+      const elem = document.getElementById('deckViewport');
+      if (!document.fullscreenElement) {
+        elem.requestFullscreen().catch(err => alert(`Erro ao entrar em tela cheia: ${err.message}`));
+      } else {
+        document.exitFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>
