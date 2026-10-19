@@ -27,7 +27,7 @@ Abaixo está o detalhamento de cada um dos 3 materiais desenvolvidos:
   - Contadores de Grandes Empresas
   - Gestores de Family Offices
 - **Qual é a dor que resolve**:
-  - Advogados e contadores montam holdings familiares maravilhosas. Porém, quando o patriarca falece, a holding **trava por falta de liquidez para pagar o ITCMD e as custas judiciais** (que podem passar de 15% a 20% do patrimônio à vista).
+  - Advogados e contadores montam holdings familiares maravilhosas. Porém, quando o patriarca falece, a holding **trava por falta de liquidez para pagar o ITCMD e as custas judiciais** (que podem passar de 16% a 30% do patrimônio à vista).
   - O advogado **não vende seguros nem produtos financeiros internacionais**. Se ele indicar um banco tradicional, o banco tenta roubar o cliente do advogado.
   - Jefferson se posiciona como o **braço técnico e neutro**: ele resolve o problema de liquidez em moeda forte (dólar) para o cliente do advogado, **sem concorrer** com o escritório e respeitando a liderança jurídica do advogado.
 - **Como Jefferson usa no dia a dia**:
