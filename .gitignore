@@ -13,3 +13,5 @@ Thumbs.db
 # Pastas de IDE e ambiente
 .vscode/
 .idea/
+.vercel
+.env*
