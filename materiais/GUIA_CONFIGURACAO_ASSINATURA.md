@@ -1,30 +1,31 @@
 # ✉️ Guia Executivo de Assinatura de E-mail · Jefferson Pizzio Advisory
 
-Este guia orienta a instalação e configuração da nova **Assinatura Corporativa de E-mail** de Jefferson Pizzio, compatível com **Microsoft Outlook (Desktop/Web)** e com o **E-mail GoDaddy (Microsoft 365 / Webmail)**.
+Este guia orienta a instalação e configuração da **Assinatura Corporativa de E-mail** de Jefferson Pizzio, compatível com **Microsoft Outlook (Desktop/Web)** e com o **E-mail GoDaddy (Microsoft 365 / Webmail)**.
 
 ---
 
-## 💎 Identidade Visual e Diferenciais da Nova Assinatura
+## 💎 Identidade Visual e Arquitetura da Assinatura
 
-Em substituição ao antigo modelo corporativo da Origem Capital (que continha blocos extensos de compliance regulatório do Banco Safra, logotipos de terceiros e excesso de dados desnecessários), a nova assinatura foi desenhada sob a ótica **Private Wealth Advisory**:
+A assinatura foi desenhada sob a ótica **Private Wealth Advisory**:
 
 1. **Autoridade e Sofisticação**:
-   - Tipografia nobre com contraste executivo: Azul Marinho Profundo (`#07101B`) e Dourado Consultivo (`#8E6D38` / `#C5A880`).
+   - Tipografia nobre com alto contraste executivo: Azul Marinho Profundo (`#07101B`) e Dourado Consultivo (`#8E6D38` / `#C5A880`).
    - Linha divisória vertical em ouro nobre, padrão das principais bancas de private banking e family offices suíços e norte-americanos.
+   - Diagramação direta e sem redundâncias: Nome em destaque, área de atuação consolidada e canais diretos de contato.
 2. **Foco em Contato de Alta Conversão**:
    - Link direto e funcional para o WhatsApp: `(51) 99897-0838`.
-   - E-mail direto institucional: `contato@jeffersonpizzio.com` (ou customizável).
+   - E-mail institucional direto: `contato@jeffersonpizzio.com` (ou customizável).
    - Website oficial: `jeffersonpizzio.com`.
 3. **Aviso de Confidencialidade Executivo**:
-   - Reduzido de 15 linhas para apenas 2 linhas elegantes e discretas, resguardando o sigilo patrimonial sem poluir as mensagens.
+   - Reduzido para 2 linhas elegantes e discretas, resguardando o sigilo patrimonial sem poluir as mensagens.
 4. **100% Compatível com Mecanismos de E-mail**:
-   - Desenvolvida em tabelas HTML com estilos inline e fontes de alta compatibilidade (`Plus Jakarta Sans`, `Arial`, `Georgia`), abrindo instantaneamente no Outlook, GoDaddy, celular e computadores Mac/Windows.
+   - Desenvolvida em tabelas HTML com estilos inline e fontes de alta compatibilidade (`Plus Jakarta Sans`, `Arial`, `Georgia`), abrindo perfeitamente no Outlook, GoDaddy, celular e computadores Mac/Windows.
 
 ---
 
-## 🛠️ Ferramenta Interativa de Cópia em 1 Clique
+## 🛠️ Ferramenta Online com Cópia em 1 Clique
 
-Disponibilizamos uma página interativa no próprio portal do Jefferson para visualizar, personalizar e copiar a assinatura formatada com 1 clique:
+Disponibilizamos uma página no próprio portal do Jefferson para visualizar, personalizar e copiar a assinatura formatada com 1 clique:
 👉 **URL Online:** [https://jeffersonpizzio.com/materiais/assinatura-email](https://jeffersonpizzio.com/materiais/assinatura-email)  
 👉 **Arquivo Local:** `materiais/assinatura-email.html`
 
@@ -38,7 +39,7 @@ Nesta página é possível:
 ## 📋 Passo a Passo de Configuração
 
 ### 1. No E-mail da GoDaddy (Webmail / Microsoft 365)
-A imensa maioria das contas empresariais da GoDaddy opera sobre o **Microsoft 365**. O processo leva menos de 1 minuto:
+A imensa maioria das contas empresariais da GoDaddy opera sobre o **Microsoft 365**:
 
 1. Acesse o webmail da GoDaddy no navegador: **[email.godaddy.com](https://email.godaddy.com)** (ou diretamente **[outlook.office.com](https://outlook.office.com)**).
 2. Faça login com o seu e-mail e senha.
@@ -98,10 +99,9 @@ A imensa maioria das contas empresariais da GoDaddy opera sobre o **Microsoft 36
 
 | Arquivo | Descrição |
 | :--- | :--- |
-| `materiais/assinatura-email.html` | Página web interativa com pré-visualização ao vivo, personalizador e botão de cópia com 1 clique |
+| `materiais/assinatura-email.html` | Página web com gerador de assinatura, personalizador e botão de cópia com 1 clique |
 | `materiais/assinatura-jefferson-pizzio.htm` | Assinatura standalone - Modelo 1: Minimalista Ouro (Sem foto) |
 | `materiais/assinatura-jefferson-pizzio-foto.htm` | Assinatura standalone - Modelo 2: Com Foto Oficial e Borda Dourada |
 | `materiais/assinatura-jefferson-pizzio-compacta.htm` | Assinatura standalone - Modelo 3: Compacta para Respostas / Forwards |
-| `assets/images/jefferson_pizzio_avatar_signature.jpg` | Avatar circular otimizado em alta definição para a assinatura |
+| `assets/images/jefferson_pizzio_avatar_signature.jpg` | Avatar circular em alta definição para a assinatura |
 | `materiais/GUIA_CONFIGURACAO_ASSINATURA.md` | Este manual completo em markdown |
-
