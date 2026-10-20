@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contrato de Parceria e Indicação de Clientes | Jefferson Pizzio Advisory</title>
+  <meta name="description" content="Contrato de Parceria e Indicação de Clientes - Planejamento Sucessório e Patrimonial. Jefferson Pizzio Advisory.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Jefferson Pizzio Advisory">
+  <meta property="og:title" content="Contrato de Parceria e Indicação de Clientes | Jefferson Pizzio Advisory">
+  <meta property="og:description" content="Instrumento particular de parceria estratégica e indicação recíproca de clientes para planejamento sucessório e patrimonial.">
+  <meta property="og:image" content="https://jeffersonpizzio.com/assets/images/og-share-card.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-desk: #07101B;
+      --bg-surface: #0E1A2A;
+      --bg-card: #132236;
+      --sheet-bg: #FFFFFF;
+      --gold-primary: #8E6D38;
+      --gold-dark: #634A21;
+      --gold-light: #C5A880;
+      --gold-soft: #F9F6F0;
+      --gold-border: rgba(197, 168, 128, 0.35);
+      --text-dark: #07111D;
+      --text-body: #1E293B;
+      --text-sub: #475569;
+      --text-dim: #64748B;
+      --border-line: #CBD5E1;
+      --border-subtle: #E2E8F0;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-desk);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+    }
+
+    /* BARRA SUPERIOR EXECUTIVA (NÃO IMPRIME) */
+    .top-action-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 16, 27, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gold-border);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .doc-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .doc-badge {
+      font-family: var(--font-mono);
+      font-size: 0.70rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      padding: 4px 10px;
+      border: 1px solid rgba(197, 168, 128, 0.35);
+      border-radius: 20px;
+      background: rgba(197, 168, 128, 0.08);
+      font-weight: 600;
+    }
+
+    .doc-name {
+      color: #F8FAFC;
+      font-size: 0.90rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #C5A880, #8E6D38);
+      color: #07101B !important;
+      border: 1px solid var(--gold-light);
+      box-shadow: 0 4px 14px rgba(197, 168, 128, 0.25);
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #DFC9AB, #A17A3D);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(197, 168, 128, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #CBD5E1;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-outline:hover {
+      color: #FFFFFF;
+      border-color: var(--gold-light);
+    }
+
+    /* MESA DE VISUALIZAÇÃO A4 */
+    .sheet-wrapper {
+      padding: 30px 16px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    /* FOLHA A4 PADRÃO (210mm x 297mm) */
+    .a4-page {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      background: var(--sheet-bg);
+      color: var(--text-dark);
+      padding: 13mm 16mm 11mm 16mm;
+      position: relative;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+      break-after: page;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+      border-radius: 2px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    /* MOLDURA EXECUTIVA ULTRAMINA */
+    .a4-border-frame {
+      position: absolute;
+      top: 5mm;
+      left: 5mm;
+      right: 5mm;
+      bottom: 5mm;
+      border: 1px solid #D8E0E8;
+      pointer-events: none;
+    }
+
+    /* CABEÇALHO DA PÁGINA 1 */
+    .doc-header-main {
+      border-bottom: 2px solid var(--gold-primary);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .doc-brand-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .doc-brand-name {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #07111D;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .doc-brand-sub {
+      font-family: var(--font-body);
+      font-size: 8.5px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .doc-meta-block {
+      text-align: right;
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      color: var(--text-sub);
+      line-height: 1.35;
+    }
+
+    .doc-meta-block strong {
+      color: #07111D;
+      font-weight: 700;
+    }
+
+    .doc-meta-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 7.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      background: var(--gold-soft);
+      border: 1px solid rgba(142, 109, 56, 0.3);
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-top: 2px;
+    }
+
+    /* CABEÇALHO DE CONTINUAÇÃO (PÁGINAS 2 A 6) */
+    .doc-header-continuation {
+      border-bottom: 1.5px solid var(--gold-primary);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .header-continuation-left {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .doc-brand-name-mini {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #07111D;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .doc-brand-sub-mini {
+      font-family: var(--font-body);
+      font-size: 7.5px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+    }
+
+    .header-continuation-right {
+      font-size: 8.5px;
+      color: var(--text-sub);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    /* TÍTULO PRINCIPAL DO CONTRATO */
+    .contract-title-card {
+      background: var(--gold-soft);
+      border-left: 3.5px solid var(--gold-primary);
+      border-top: 1px solid rgba(197, 168, 128, 0.35);
+      border-right: 1px solid rgba(197, 168, 128, 0.35);
+      border-bottom: 1px solid rgba(197, 168, 128, 0.35);
+      padding: 9px 14px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .contract-main-title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #07111D;
+      text-transform: uppercase;
+      line-height: 1.15;
+    }
+
+    .contract-sub-title {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* CORPO DO CONTEÚDO */
+    .page-content-flow {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 7px;
+    }
+
+    /* TIPOGRAFIA DO CONTRATO */
+    .contract-intro-lead {
+      font-size: 9.5px;
+      line-height: 1.5;
+      color: var(--text-body);
+      margin-bottom: 4px;
+    }
+
+    .qualification-box {
+      background: #F8FAFC;
+      border: 1px solid var(--border-line);
+      border-left: 3px solid #64748B;
+      padding: 6px 10px;
+      border-radius: 3px;
+      margin-bottom: 5px;
+      font-size: 9px;
+      line-height: 1.45;
+      color: var(--text-body);
+      text-align: justify;
+    }
+
+    .qualification-box.consultor {
+      border-left-color: var(--gold-primary);
+      background: #FDFBF8;
+    }
+
+    .party-label {
+      font-weight: 800;
+      color: #07111D;
+      letter-spacing: 0.05em;
+    }
+
+    .section-headline {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #07111D;
+      border-bottom: 1px solid var(--border-line);
+      padding-bottom: 2px;
+      margin-top: 5px;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .clause-header {
+      font-family: var(--font-body);
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #07111D;
+      background: #F1F5F9;
+      border-left: 3px solid var(--gold-primary);
+      padding: 3px 8px;
+      border-radius: 0 2px 2px 0;
+      margin-top: 5px;
+      margin-bottom: 2px;
+    }
+
+    .clause-item {
+      font-size: 8.8px;
+      line-height: 1.45;
+      color: var(--text-body);
+      text-align: justify;
+      margin-bottom: 3.5px;
+    }
+
+    .clause-num {
+      font-weight: 800;
+      color: #07111D;
+    }
+
+    .sub-item-text {
+      font-size: 8.8px;
+      line-height: 1.45;
+      color: var(--text-body);
+      text-align: justify;
+      margin-bottom: 3.5px;
+    }
+
+    /* DESTAQUE DE CAMPOS DE PREENCHIMENTO */
+    .field-fill {
+      background: rgba(197, 168, 128, 0.18);
+      border-bottom: 1.2px dashed var(--gold-primary);
+      color: #0F172A;
+      font-weight: 600;
+      padding: 0 3px;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+
+    /* MODO LIMPO DE IMPRESSÃO (OPCIONAL PELO BOTÃO) */
+    body.clean-fields .field-fill {
+      background: transparent;
+      border-bottom: 1px dotted #94A3B8;
+      font-weight: normal;
+    }
+
+    /* TABELA DE REMUNERAÇÃO (PÁGINA 3) */
+    .contract-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.8px;
+      margin: 6px 0 8px 0;
+    }
+
+    .contract-table th {
+      background: #F1F5F9;
+      color: #07111D;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 6px 10px;
+      border: 1px solid var(--border-line);
+      text-align: left;
+    }
+
+    .contract-table td {
+      padding: 7px 10px;
+      border: 1px solid var(--border-line);
+      color: var(--text-body);
+      vertical-align: middle;
+      line-height: 1.4;
+    }
+
+    .contract-table tr:nth-child(even) td {
+      background: #F8FAFC;
+    }
+
+    /* TABELA DO ANEXO I (PÁGINA 6) */
+    .anexo-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9px;
+      margin-top: 12px;
+    }
+
+    .anexo-table th {
+      background: #0A1420;
+      color: #F8FAFC;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 8px 12px;
+      border: 1px solid #0A1420;
+      text-align: left;
+    }
+
+    .anexo-table th.col-fill {
+      background: #142236;
+      border-color: #142236;
+      color: var(--gold-light);
+    }
+
+    .anexo-table td {
+      padding: 13px 12px;
+      border: 1px solid var(--border-line);
+      color: var(--text-body);
+      vertical-align: middle;
+      line-height: 1.4;
+    }
+
+    .anexo-table td.col-label {
+      width: 36%;
+      background: #F8FAFC;
+      font-weight: 700;
+      color: #07111D;
+      border-right: 1.5px solid #CBD5E1;
+    }
+
+    .anexo-table td.col-field {
+      width: 64%;
+      background: #FFFFFF;
+      min-height: 48px;
+    }
+
+    .anexo-table tr:nth-child(even) td.col-label {
+      background: #F1F5F9;
+    }
+
+    /* BLOCO DE ASSINATURAS (PÁGINA 5) */
+    .signatures-block {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .signatures-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .signature-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .signature-line {
+      width: 100%;
+      height: 1px;
+      background: #475569;
+      margin-bottom: 8px;
+    }
+
+    .signature-title {
+      font-family: var(--font-body);
+      font-size: 8.8px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #07111D;
+    }
+
+    .signature-sub {
+      font-size: 8.5px;
+      color: var(--text-sub);
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+
+    /* RODAPÉ DAS PÁGINAS A4 */
+    .doc-footer-a4 {
+      border-top: 1px solid var(--border-line);
+      padding-top: 5px;
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8px;
+      color: var(--text-dim);
+    }
+
+    .footer-rubricas {
+      font-family: var(--font-mono);
+      font-size: 7.8px;
+      color: var(--text-sub);
+    }
+
+    .footer-rubricas strong {
+      color: #07111D;
+    }
+
+    .footer-center {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 7.2px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+    }
+
+    .footer-page-num {
+      font-family: var(--font-mono);
+      font-size: 7.8px;
+      font-weight: 700;
+      color: #07111D;
+    }
+
+    /* SEPARADOR DIDÁTICO ENTRE PÁGINAS NA TELA */
+    .screen-page-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 210mm;
+      color: #94A3B8;
+      font-size: 0.70rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .screen-page-divider::before,
+    .screen-page-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(197, 168, 128, 0.3);
+    }
+    .screen-page-divider span {
+      background: #0A1420;
+      border: 1px solid rgba(197, 168, 128, 0.4);
+      padding: 4px 12px;
+      border-radius: 20px;
+      color: var(--gold-light);
+    }
+
+    /* REGRAS DE IMPRESSÃO / PDF NATIVO */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      html, body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .top-action-bar, .screen-page-divider {
+        display: none !important;
+      }
+
+      .sheet-wrapper {
+        padding: 0 !important;
+        gap: 0 !important;
+        display: block !important;
+      }
+
+      .a4-page {
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        margin: 0 !important;
+        padding: 12mm 15mm 10mm 15mm !important;
+        box-sizing: border-box !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        overflow: hidden !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+      }
+
+      .a4-page:last-child {
+        page-break-after: auto !important;
+        break-after: auto !important;
+      }
+
+      .a4-border-frame {
+        top: 4mm !important;
+        left: 4mm !important;
+        right: 4mm !important;
+        bottom: 4mm !important;
+        border: 1px solid #CBD5E1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE AÇÕES EXECUTIVA NO TOPO (NÃO IMPRIME) -->
+  <header class="top-action-bar">
+    <div class="doc-info">
+      <span class="doc-badge">CONTRATO OFICIAL · ADVISORY</span>
+      <span class="doc-name">Contrato de Parceria e Indicação de Clientes</span>
+    </div>
+    <div class="top-actions">
+      <button class="btn btn-outline" id="btnToggleFields" onclick="toggleFieldHighlights()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        <span id="toggleFieldsText">Ocultar Destaques</span>
+      </button>
+      <button class="btn btn-gold" onclick="window.print()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Imprimir / Salvar PDF
+      </button>
+      <a href="gerador-documentos.html" class="btn btn-outline">
+        Gerador de Docs
+      </a>
+      <a href="../index.html" class="btn btn-outline">
+        Site Principal
+      </a>
+    </div>
+  </header>
+
+  <!-- RECIPIENTE DAS 6 FOLHAS A4 -->
+  <main class="sheet-wrapper">
+
+    <!-- ======================================================== -->
+    <!-- FOLHA 1 DE 6                                            -->
+    <!-- ======================================================== -->
+    <article class="a4-page" id="folha-1">
+      <div class="a4-border-frame"></div>
+
+      <!-- CABEÇALHO FOLHA 1 -->
+      <header class="doc-header-main">
+        <div class="doc-brand-block">
+          <div class="doc-brand-name">Jefferson Pizzio</div>
+          <div class="doc-brand-sub">Wealth &amp; Succession Advisory</div>
+        </div>
+        <div class="doc-meta-block">
+          <div><strong>INSTRUMENTO PARTICULAR</strong></div>
+          <div>Planejamento Sucessório &amp; Patrimonial</div>
+          <span class="doc-meta-badge">SUSEP Nº 0335448</span>
+        </div>
+      </header>
+
+      <!-- CORPO DA FOLHA 1 -->
+      <div class="page-content-flow">
+        
+        <div class="contract-title-card">
+          <h1 class="contract-main-title">CONTRATO DE PARCERIA E INDICAÇÃO DE CLIENTES</h1>
+          <div class="contract-sub-title">Planejamento Sucessório e Patrimonial</div>
+        </div>
+
+        <p class="contract-intro-lead">Pelo presente instrumento particular, as partes abaixo qualificadas:</p>
+
+        <div class="qualification-box consultor">
+          <span class="party-label">CONSULTOR:</span> <strong>JEFFERSON PIZZIO CORRETAGEM DE SEGUROS DE VIDA LTDA</strong>, sociedade empresária limitada, inscrita no CNPJ sob o nº 39.619.569/0001-75, com sede na Rua Dona Oti, nº 103, 401, bairro Petrópolis, Porto Alegre/RS, CEP 90680-060, neste ato representada por seu sócio administrador, Jefferson Pizzio, Brasileiro, casado, inscrito no CPF sob o nº 809.037.110-87;
+        </div>
+
+        <div class="qualification-box">
+          <span class="party-label">PARCEIRO:</span> <span class="field-fill">[Razão social ou nome completo]</span>, <span class="field-fill">[sociedade / profissional autônomo]</span>, inscrito no <span class="field-fill">[CNPJ / CPF]</span> sob o nº <span class="field-fill">[preencher]</span>, com sede ou domicílio em <span class="field-fill">[endereço completo]</span>, neste ato representado por <span class="field-fill">[nome, cargo, CPF]</span>, registro profissional <span class="field-fill">[OAB / CRC / SUSEP / CVM / ANBIMA, se houver]</span> nº <span class="field-fill">[preencher]</span>.
+        </div>
+
+        <p class="clause-item">Consultor e Parceiro, em conjunto, são denominados <strong>Partes</strong>.</p>
+
+        <div class="section-headline">CONSIDERANDOS</div>
+
+        <p class="sub-item-text"><strong>(i)</strong> O Consultor presta serviços de planejamento sucessório e patrimonial, incluindo diagnóstico patrimonial, estruturação sucessória, governança familiar e soluções de seguro de vida e previdência;</p>
+
+        <p class="sub-item-text"><strong>(ii)</strong> O Parceiro atua em <span class="field-fill">[descrever atividade: advocacia, contabilidade, assessoria de investimentos etc.]</span> e mantém relacionamento próprio e de confiança com seus clientes;</p>
+
+        <p class="sub-item-text"><strong>(iii)</strong> As Partes desejam indicar clientes uma à outra, preservando o relacionamento de cada uma com seus clientes e a confiança que motivou a indicação.</p>
+
+        <p class="clause-item" style="margin-top: 2px;">Resolvem celebrar este Contrato de Parceria e Indicação de Clientes, que se regerá pelas cláusulas a seguir.</p>
+
+        <div class="clause-header">CLÁUSULA 1 – OBJETO</div>
+
+        <p class="clause-item"><span class="clause-num">1.1.</span> Este Contrato regula a indicação recíproca de clientes entre as Partes, sem exclusividade, para que cada uma preste os serviços de sua especialidade.</p>
+
+        <p class="clause-item"><span class="clause-num">1.2.</span> Nenhuma das Partes se obriga a indicar volume mínimo de clientes, nem a aceitar todo cliente indicado.</p>
+
+        <p class="clause-item"><span class="clause-num">1.3.</span> Cada Parte contratará diretamente com o cliente os serviços que lhe couberem, sob sua exclusiva responsabilidade técnica.</p>
+
+        <div class="clause-header">CLÁUSULA 2 – REGISTRO DAS INDICAÇÕES</div>
+
+        <p class="clause-item"><span class="clause-num">2.1.</span> Toda indicação será registrada por e-mail ou mensagem escrita contendo, no mínimo, o nome do cliente, a data e o serviço pretendido, conforme o modelo do Anexo I.</p>
+
+        <p class="clause-item"><span class="clause-num">2.2.</span> A Parte que receber a indicação confirmará o recebimento em até 3 (três) dias úteis. Sem resposta nesse prazo, a indicação será considerada aceita.</p>
+
+        <p class="clause-item"><span class="clause-num">2.3.</span> Se o cliente indicado já for cliente ou contato ativo da Parte que recebe a indicação, esta informará o fato no mesmo prazo, com prova do relacionamento anterior (e-mail, proposta,</p>
+
+      </div>
+
+      <!-- RODAPÉ FOLHA 1 -->
+      <footer class="doc-footer-a4">
+        <div class="footer-rubricas">Rubricas: ________ ________</div>
+        <div class="footer-center">Jefferson Pizzio Advisory</div>
+        <div class="footer-page-num">Página 1 de 6</div>
+      </footer>
+    </article>
+
+    <!-- DIVISOR VISUAL ENTRE FOLHAS 1 E 2 -->
+    <div class="screen-page-divider"><span>📄 Início da Folha 2</span></div>
+
+    <!-- ======================================================== -->
+    <!-- FOLHA 2 DE 6                                            -->
+    <!-- ======================================================== -->
+    <article class="a4-page" id="folha-2">
+      <div class="a4-border-frame"></div>
+
+      <!-- CABEÇALHO FOLHA 2 -->
+      <header class="doc-header-continuation">
+        <div class="header-continuation-left">
+          <span class="doc-brand-name-mini">Jefferson Pizzio</span>
+          <span class="doc-brand-sub-mini">Advisory</span>
+        </div>
+        <div class="header-continuation-right">
+          Contrato de Parceria e Indicação de Clientes
+        </div>
+      </header>
+
+      <!-- CORPO DA FOLHA 2 -->
+      <div class="page-content-flow">
+        
+        <p class="clause-item" style="margin-top: 2px;">contrato ou reunião registrada). Nesse caso, a indicação não gera direito à remuneração da Cláusula 7.</p>
+
+        <p class="clause-item"><span class="clause-num">2.4.</span> A indicação registrada vale por 24 (vinte e quatro) meses contados da data do registro. Qualquer contratação do cliente indicado nesse período, inclusive por pessoas da mesma família ou empresas do mesmo grupo, será atribuída à indicação.</p>
+
+        <div class="clause-header">CLÁUSULA 3 – ATENDIMENTO E TRANSPARÊNCIA COM O PARCEIRO</div>
+
+        <p class="clause-item"><span class="clause-num">3.1.</span> O Consultor manterá o Parceiro informado sobre o andamento de cada cliente indicado, ao menos nas etapas de reunião inicial, envio de proposta e contratação ou desistência, respeitado o sigilo das informações do cliente.</p>
+
+        <p class="clause-item"><span class="clause-num">3.2.</span> Sempre que o planejamento do cliente exigir serviços da área de atuação do Parceiro, o Consultor recomendará o Parceiro em primeiro lugar, ressalvada a livre escolha do cliente.</p>
+
+        <p class="clause-item"><span class="clause-num">3.3.</span> Quando o Parceiro desejar, o Consultor o convidará para participar das reuniões relevantes com o cliente indicado, de forma a preservar a condução conjunta do relacionamento.</p>
+
+        <div class="clause-header">CLÁUSULA 4 – PRESERVAÇÃO DO RELACIONAMENTO COM O CLIENTE</div>
+
+        <p class="clause-item"><span class="clause-num">4.1.</span> O cliente indicado pelo Parceiro continua sendo cliente do Parceiro para todos os serviços da área de atuação deste. A indicação não transfere ao Consultor o relacionamento, a carteira ou a recomendação de serviços do Parceiro.</p>
+
+        <p class="clause-item"><span class="clause-num">4.2.</span> O Consultor não oferecerá, direta ou indiretamente, ao cliente indicado serviços concorrentes aos do Parceiro, descritos a seguir: <span class="field-fill">[ex.: assessoria de investimentos, serviços jurídicos, serviços contábeis]</span>.</p>
+
+        <p class="clause-item"><span class="clause-num">4.3.</span> O Consultor não fará comentários depreciativos sobre o Parceiro, seus serviços ou honorários, e não sugerirá ao cliente a substituição do Parceiro.</p>
+
+        <p class="clause-item"><span class="clause-num">4.4.</span> Se o próprio cliente manifestar ao Consultor insatisfação com o Parceiro ou intenção de trocá-lo, o Consultor comunicará o Parceiro por escrito, na medida permitida pelo sigilo, antes de qualquer outra providência.</p>
+
+        <div class="clause-header">CLÁUSULA 5 – NÃO ALICIAMENTO E NÃO CONTORNO</div>
+
+        <p class="clause-item"><span class="clause-num">5.1.</span> <strong>Não aliciamento de clientes.</strong> Durante a vigência e por 24 (vinte e quatro) meses após o término deste Contrato, nenhuma das Partes poderá, direta ou indiretamente, por si ou por terceiros, assediar, convidar ou induzir clientes indicados pela outra Parte a contratar serviços concorrentes aos dela ou a encerrar o relacionamento com ela.</p>
+
+        <p class="clause-item"><span class="clause-num">5.2.</span> <strong>Não contorno.</strong> Nenhuma das Partes poderá contratar ou negociar com o cliente indicado de forma a excluir a outra Parte, evitar a remuneração prevista neste Contrato ou omitir que a contratação decorre da indicação.</p>
+
+        <p class="clause-item"><span class="clause-num">5.3.</span> <strong>Não aliciamento de colaboradores.</strong> Durante a vigência e por 12 (doze) meses após o término, nenhuma das Partes contratará ou convidará sócios, empregados ou prestadores de serviço da outra Parte que tenham participado da parceria, salvo autorização por escrito.</p>
+
+        <p class="clause-item"><span class="clause-num">5.4.</span> <strong>Exceções.</strong> Não configuram violação: (a) o relacionamento anterior comprovado na forma da cláusula 2.3; (b) a procura espontânea do cliente, desde que a Parte procurada comunique o fato</p>
+
+      </div>
+
+      <!-- RODAPÉ FOLHA 2 -->
+      <footer class="doc-footer-a4">
+        <div class="footer-rubricas">Rubricas: ________ ________</div>
+        <div class="footer-center">Jefferson Pizzio Advisory</div>
+        <div class="footer-page-num">Página 2 de 6</div>
+      </footer>
+    </article>
+
+    <!-- DIVISOR VISUAL ENTRE FOLHAS 2 E 3 -->
+    <div class="screen-page-divider"><span>📄 Início da Folha 3</span></div>
+
+    <!-- ======================================================== -->
+    <!-- FOLHA 3 DE 6                                            -->
+    <!-- ======================================================== -->
+    <article class="a4-page" id="folha-3">
+      <div class="a4-border-frame"></div>
+
+      <!-- CABEÇALHO FOLHA 3 -->
+      <header class="doc-header-continuation">
+        <div class="header-continuation-left">
+          <span class="doc-brand-name-mini">Jefferson Pizzio</span>
+          <span class="doc-brand-sub-mini">Advisory</span>
+        </div>
+        <div class="header-continuation-right">
+          Contrato de Parceria e Indicação de Clientes
+        </div>
+      </header>
+
+      <!-- CORPO DA FOLHA 3 -->
+      <div class="page-content-flow">
+        
+        <p class="clause-item" style="margin-top: 2px;">à outra em até 5 (cinco) dias úteis e respeite a Cláusula 4; (c) anúncios e publicações gerais, não dirigidos ao cliente indicado.</p>
+
+        <p class="clause-item"><span class="clause-num">5.5.</span> As obrigações desta cláusula alcançam sócios, administradores, empregados e empresas do mesmo grupo de cada Parte, que responderá por eles.</p>
+
+        <div class="clause-header">CLÁUSULA 6 – PENALIDADE POR VIOLAÇÃO</div>
+
+        <p class="clause-item"><span class="clause-num">6.1.</span> A violação das Cláusulas 4 ou 5 sujeitará a Parte infratora ao pagamento de multa não compensatória equivalente a <span class="field-fill">[2 (duas)]</span> vezes a remuneração que seria devida pela indicação, ou R$ <span class="field-fill">[valor]</span>, o que for maior, por cliente afetado.</p>
+
+        <p class="clause-item"><span class="clause-num">6.2.</span> A multa não impede a cobrança das perdas e danos que a excederem, nem a rescisão imediata deste Contrato pela Parte prejudicada.</p>
+
+        <div class="clause-header">CLÁUSULA 7 – REMUNERAÇÃO PELA INDICAÇÃO</div>
+
+        <p class="clause-item"><span class="clause-num">7.1.</span> Quando permitido pela regulamentação profissional aplicável à Parte que indicou, a Parte que receber o cliente pagará à outra <span class="field-fill">[__% (por cento) dos honorários efetivamente recebidos do cliente indicado / R$ (valor) por cliente contratado]</span>, conforme o serviço:</p>
+
+        <table class="contract-table">
+          <thead>
+            <tr>
+              <th style="width: 38%;">Serviço contratado pelo cliente indicado</th>
+              <th style="width: 30%;">Remuneração da indicação</th>
+              <th style="width: 32%;">Prazo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Diagnóstico e projeto de planejamento sucessório</strong></td>
+              <td><span class="field-fill">[% dos honorários recebidos]</span></td>
+              <td>Primeiro pagamento do cliente + <span class="field-fill">[12]</span>&nbsp;meses</td>
+            </tr>
+            <tr>
+              <td><strong>Acompanhamento recorrente</strong></td>
+              <td><span class="field-fill">[% das mensalidades recebidas]</span></td>
+              <td>Enquanto durar o contrato com o cliente</td>
+            </tr>
+            <tr>
+              <td><strong>Seguro de vida e previdência</strong></td>
+              <td><span class="field-fill">[% da comissão recebida]</span>, respeitadas as normas da SUSEP</td>
+              <td>Enquanto houver comissão</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="clause-item"><span class="clause-num">7.2.</span> A remuneração é devida apenas sobre valores efetivamente recebidos e será paga até o dia <span class="field-fill">[10]</span> do mês seguinte ao recebimento, mediante emissão de nota fiscal pela Parte credora.</p>
+
+        <p class="clause-item"><span class="clause-num">7.3.</span> Junto com cada pagamento, a Parte pagadora enviará demonstrativo com os valores recebidos do cliente. A Parte credora poderá, uma vez por ano, solicitar os comprovantes correspondentes.</p>
+
+        <p class="clause-item"><span class="clause-num">7.4.</span> A remuneração de indicações registradas durante a vigência continua devida após o término deste Contrato, pelos prazos da tabela acima.</p>
+
+        <p class="clause-item"><span class="clause-num">7.5.</span> <strong>Transparência.</strong> O cliente será informado, quando exigido pela regulamentação ou quando ele perguntar, da existência da remuneração por indicação. A remuneração não poderá aumentar o preço cobrado do cliente indicado.</p>
+
+        <p class="clause-item"><span class="clause-num">7.6.</span> <strong>Profissões com restrição.</strong> Se o Parceiro for advogado ou sociedade de advogados, ou estiver sujeito a norma que proíba ou limite remuneração por indicação, a parceria será exclusivamente de reciprocidade, sem pagamento entre as Partes, e as demais cláusulas permanecem válidas.</p>
+
+      </div>
+
+      <!-- RODAPÉ FOLHA 3 -->
+      <footer class="doc-footer-a4">
+        <div class="footer-rubricas">Rubricas: ________ ________</div>
+        <div class="footer-center">Jefferson Pizzio Advisory</div>
+        <div class="footer-page-num">Página 3 de 6</div>
+      </footer>
+    </article>
+
+    <!-- DIVISOR VISUAL ENTRE FOLHAS 3 E 4 -->
+    <div class="screen-page-divider"><span>📄 Início da Folha 4</span></div>
+
+    <!-- ======================================================== -->
+    <!-- FOLHA 4 DE 6                                            -->
+    <!-- ======================================================== -->
+    <article class="a4-page" id="folha-4">
+      <div class="a4-border-frame"></div>
+
+      <!-- CABEÇALHO FOLHA 4 -->
+      <header class="doc-header-continuation">
+        <div class="header-continuation-left">
+          <span class="doc-brand-name-mini">Jefferson Pizzio</span>
+          <span class="doc-brand-sub-mini">Advisory</span>
+        </div>
+        <div class="header-continuation-right">
+          Contrato de Parceria e Indicação de Clientes
+        </div>
+      </header>
+
+      <!-- CORPO DA FOLHA 4 -->
+      <div class="page-content-flow">
+        
+        <div class="clause-header">CLÁUSULA 8 – CONFIDENCIALIDADE</div>
+
+        <p class="clause-item"><span class="clause-num">8.1.</span> As Partes manterão sigilo sobre todas as informações de clientes, patrimônio, famílias, empresas, estratégias, honorários e termos deste Contrato a que tiverem acesso, usando-as somente para os fins da parceria.</p>
+
+        <p class="clause-item"><span class="clause-num">8.2.</span> O sigilo vale durante a vigência e por 5 (cinco) anos após o término, e por prazo indeterminado para informações protegidas por sigilo profissional.</p>
+
+        <p class="clause-item"><span class="clause-num">8.3.</span> Não é confidencial a informação que já era pública, que a Parte comprovadamente já possuía ou cuja divulgação seja exigida por lei ou ordem de autoridade, caso em que a outra Parte será avisada previamente, se possível.</p>
+
+        <div class="clause-header">CLÁUSULA 9 – PROTEÇÃO DE DADOS (LGPD)</div>
+
+        <p class="clause-item"><span class="clause-num">9.1.</span> Cada Parte atuará como controladora independente dos dados pessoais que tratar e cumprirá a Lei nº 13.709/2018.</p>
+
+        <p class="clause-item"><span class="clause-num">9.2.</span> A indicação só será feita com o consentimento do cliente ou outra base legal adequada, e a Parte que indicar compartilhará apenas os dados necessários ao primeiro contato.</p>
+
+        <p class="clause-item"><span class="clause-num">9.3.</span> A Parte que tomar conhecimento de incidente de segurança envolvendo dados de cliente indicado avisará a outra em até 48 (quarenta e oito) horas.</p>
+
+        <div class="clause-header">CLÁUSULA 10 – CONFORMIDADE REGULATÓRIA E ANTICORRUPÇÃO</div>
+
+        <p class="clause-item"><span class="clause-num">10.1.</span> Cada Parte declara possuir as habilitações e registros exigidos para sua atividade e se obriga a respeitar as normas de seu órgão regulador ou conselho profissional (como SUSEP, CVM, OAB e CRC).</p>
+
+        <p class="clause-item"><span class="clause-num">10.2.</span> Nenhuma das Partes exercerá atividade privativa da outra nem se apresentará como representante da outra.</p>
+
+        <p class="clause-item"><span class="clause-num">10.3.</span> As Partes cumprirão a Lei nº 12.846/2013 (Lei Anticorrupção) e não oferecerão vantagem indevida a clientes, agentes públicos ou terceiros.</p>
+
+        <div class="clause-header">CLÁUSULA 11 – INDEPENDÊNCIA E RESPONSABILIDADE</div>
+
+        <p class="clause-item"><span class="clause-num">11.1.</span> Não há entre as Partes vínculo societário, empregatício, de representação ou de exclusividade. Nenhuma assume obrigação em nome da outra.</p>
+
+        <p class="clause-item"><span class="clause-num">11.2.</span> Cada Parte responde exclusivamente pelos serviços que prestar ao cliente, inclusive perante órgãos reguladores, e manterá a outra isenta de reclamações decorrentes desses serviços.</p>
+
+        <p class="clause-item"><span class="clause-num">11.3.</span> Uma Parte só usará o nome, a marca ou o logotipo da outra com autorização prévia e por escrito.</p>
+
+        <div class="clause-header">CLÁUSULA 12 – VIGÊNCIA E RESCISÃO</div>
+
+        <p class="clause-item"><span class="clause-num">12.1.</span> Este Contrato vigora por 12 (doze) meses a partir da assinatura e se renova automaticamente por iguais períodos.</p>
+
+        <p class="clause-item"><span class="clause-num">12.2.</span> Qualquer Parte pode encerrá-lo sem multa, mediante aviso escrito com 30 (trinta) dias de antecedência.</p>
+
+      </div>
+
+      <!-- RODAPÉ FOLHA 4 -->
+      <footer class="doc-footer-a4">
+        <div class="footer-rubricas">Rubricas: ________ ________</div>
+        <div class="footer-center">Jefferson Pizzio Advisory</div>
+        <div class="footer-page-num">Página 4 de 6</div>
+      </footer>
+    </article>
+
+    <!-- DIVISOR VISUAL ENTRE FOLHAS 4 E 5 -->
+    <div class="screen-page-divider"><span>📄 Início da Folha 5</span></div>
+
+    <!-- ======================================================== -->
+    <!-- FOLHA 5 DE 6                                            -->
+    <!-- ======================================================== -->
+    <article class="a4-page" id="folha-5">
+      <div class="a4-border-frame"></div>
+
+      <!-- CABEÇALHO FOLHA 5 -->
+      <header class="doc-header-continuation">
+        <div class="header-continuation-left">
+          <span class="doc-brand-name-mini">Jefferson Pizzio</span>
+          <span class="doc-brand-sub-mini">Advisory</span>
+        </div>
+        <div class="header-continuation-right">
+          Contrato de Parceria e Indicação de Clientes
+        </div>
+      </header>
+
+      <!-- CORPO DA FOLHA 5 -->
+      <div class="page-content-flow">
+        
+        <p class="clause-item" style="margin-top: 2px;"><span class="clause-num">12.3.</span> O Contrato pode ser rescindido imediatamente em caso de descumprimento não corrigido em 10 (dez) dias após notificação, ou de perda de habilitação profissional.</p>
+
+        <p class="clause-item"><span class="clause-num">12.4.</span> Sobrevivem ao término as Cláusulas 5, 6, 7.4, 8 e 9.</p>
+
+        <div class="clause-header">CLÁUSULA 13 – DISPOSIÇÕES GERAIS</div>
+
+        <p class="clause-item"><span class="clause-num">13.1.</span> Alterações só valem se feitas por escrito e assinadas pelas Partes.</p>
+
+        <p class="clause-item"><span class="clause-num">13.2.</span> Comunicações serão feitas para os e-mails: Consultor, <span style="font-family: var(--font-mono); color: #07111D;">jeffpizzio@gmail.com</span>; Parceiro, <span class="field-fill">[e-mail]</span>.</p>
+
+        <p class="clause-item"><span class="clause-num">13.3.</span> A tolerância com o descumprimento de qualquer cláusula não significa renúncia ou novação.</p>
+
+        <p class="clause-item"><span class="clause-num">13.4.</span> As Partes admitem a assinatura eletrônica deste Contrato, nos termos da MP nº 2.200-2/2001 e da Lei nº 14.063/2020.</p>
+
+        <div class="clause-header">CLÁUSULA 14 – FORO</div>
+
+        <p class="clause-item"><span class="clause-num">14.1.</span> Fica eleito o foro da Comarca de Porto Alegre/RS para dirimir questões deste Contrato, com renúncia a qualquer outro.</p>
+
+        <p class="clause-item" style="margin-top: 6px;">E, por estarem justas e acordadas, as Partes assinam este Contrato em 2 (duas) vias de igual teor, na presença das testemunhas abaixo.</p>
+
+        <p class="clause-item" style="text-align: right; margin-top: 10px; font-weight: 600;">
+          Porto Alegre, <span class="field-fill">[dia]</span> de <span class="field-fill">[mês]</span> de <span class="field-fill">[ano]</span>.
+        </p>
+
+        <!-- ASSINATURAS -->
+        <div class="signatures-block">
+          
+          <div class="signatures-row">
+            <div class="signature-item">
+              <div class="signature-line"></div>
+              <div class="signature-title">CONSULTOR</div>
+              <div class="signature-sub">
+                <strong>JEFFERSON PIZZIO CORRETAGEM DE SEGUROS DE VIDA LTDA</strong><br>
+                Jefferson Pizzio
+              </div>
+            </div>
+
+            <div class="signature-item">
+              <div class="signature-line"></div>
+              <div class="signature-title">PARCEIRO</div>
+              <div class="signature-sub">
+                <span class="field-fill">[nome / razão social]</span> – <span class="field-fill">[representante]</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="signatures-row" style="margin-top: 8px;">
+            <div class="signature-item">
+              <div class="signature-line"></div>
+              <div class="signature-title">TESTEMUNHA 1</div>
+              <div class="signature-sub">
+                Nome: <span class="field-fill">[preencher]</span><br>
+                CPF: <span class="field-fill">[preencher]</span>
+              </div>
+            </div>
+
+            <div class="signature-item">
+              <div class="signature-line"></div>
+              <div class="signature-title">TESTEMUNHA 2</div>
+              <div class="signature-sub">
+                Nome: <span class="field-fill">[preencher]</span><br>
+                CPF: <span class="field-fill">[preencher]</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RODAPÉ FOLHA 5 -->
+      <footer class="doc-footer-a4">
+        <div class="footer-rubricas">Rubricas: ________ ________</div>
+        <div class="footer-center">Jefferson Pizzio Advisory</div>
+        <div class="footer-page-num">Página 5 de 6</div>
+      </footer>
+    </article>
+
+    <!-- DIVISOR VISUAL ENTRE FOLHAS 5 E 6 -->
+    <div class="screen-page-divider"><span>📄 Início da Folha 6 (Anexo I)</span></div>
+
+    <!-- ======================================================== -->
+    <!-- FOLHA 6 DE 6                                            -->
+    <!-- ======================================================== -->
+    <article class="a4-page" id="folha-6">
+      <div class="a4-border-frame"></div>
+
+      <!-- CABEÇALHO FOLHA 6 -->
+      <header class="doc-header-continuation">
+        <div class="header-continuation-left">
+          <span class="doc-brand-name-mini">Jefferson Pizzio</span>
+          <span class="doc-brand-sub-mini">Advisory</span>
+        </div>
+        <div class="header-continuation-right">
+          Contrato de Parceria e Indicação de Clientes
+        </div>
+      </header>
+
+      <!-- CORPO DA FOLHA 6 -->
+      <div class="page-content-flow">
+        
+        <div class="contract-title-card" style="margin-bottom: 8px;">
+          <h2 class="contract-main-title" style="font-size: 16px;">ANEXO I – REGISTRO DE INDICAÇÃO</h2>
+          <div class="contract-sub-title">Modelo para enviar por e-mail a cada indicação, conforme a Cláusula 2.</div>
+        </div>
+
+        <table class="anexo-table">
+          <thead>
+            <tr>
+              <th style="width: 38%;">Campo</th>
+              <th class="col-fill" style="width: 62%;">Preenchimento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-label">Data da indicação</td>
+              <td class="col-field"></td>
+            </tr>
+            <tr>
+              <td class="col-label">Parte que indica</td>
+              <td class="col-field"></td>
+            </tr>
+            <tr>
+              <td class="col-label">Parte que recebe</td>
+              <td class="col-field"></td>
+            </tr>
+            <tr>
+              <td class="col-label">Cliente indicado (nome / família / empresa)</td>
+              <td class="col-field"></td>
+            </tr>
+            <tr>
+              <td class="col-label">Contato autorizado pelo cliente</td>
+              <td class="col-field"></td>
+            </tr>
+            <tr>
+              <td class="col-label">Serviço pretendido</td>
+              <td class="col-field"></td>
+            </tr>
+            <tr>
+              <td class="col-label">Serviços do Parceiro a preservar (Cláusula 4.2)</td>
+              <td class="col-field"></td>
+            </tr>
+            <tr>
+              <td class="col-label">Observações</td>
+              <td class="col-field" style="height: 52px;"></td>
+            </tr>
+            <tr>
+              <td class="col-label">Confirmação de recebimento (data)</td>
+              <td class="col-field"></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <!-- RODAPÉ FOLHA 6 -->
+      <footer class="doc-footer-a4">
+        <div class="footer-rubricas">Rubricas: ________ ________</div>
+        <div class="footer-center">Jefferson Pizzio Advisory</div>
+        <div class="footer-page-num">Página 6 de 6</div>
+      </footer>
+    </article>
+
+  </main>
+
+  <script>
+    function toggleFieldHighlights() {
+      document.body.classList.toggle('clean-fields');
+      const isClean = document.body.classList.contains('clean-fields');
+      const textSpan = document.getElementById('toggleFieldsText');
+      if (isClean) {
+        textSpan.innerText = 'Mostrar Destaques';
+      } else {
+        textSpan.innerText = 'Ocultar Destaques';
+      }
+    }
+  </script>
+</body>
+</html>

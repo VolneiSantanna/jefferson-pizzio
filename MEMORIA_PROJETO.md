@@ -84,6 +84,7 @@
 │   ├── assinatura-email.html      # Criador oficial de assinatura de e-mail (Outlook/GoDaddy)
 │   ├── deck-institucional.html    # Apresentação institucional executiva em slides
 │   ├── one-pager-parceiros.html   # One-pager para escritórios de advocacia e contabilidade
+│   ├── contrato-parceria.html     # Contrato oficial de parceria e indicação (6 páginas A4 Quiet Luxury)
 │   ├── guia-liquidez-sucessoria.html # Guia executivo sobre liquidez no inventário
 │   ├── mercado-internacional.html # Guia sobre diversificação e moeda forte offshore
 │   └── GUIA_IDENTIDADE_E_GERADOR_PDF.md # Manual técnico do gerador de documentos
