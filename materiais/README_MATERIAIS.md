@@ -101,6 +101,18 @@ Abaixo está o detalhamento de cada um dos 3 materiais desenvolvidos:
 
 ---
 
+### 5. `ficha-diagnostico.html` — Ficha de Diagnóstico & Levantamento Patrimonial (A4 Retrato)
+- **Para que serve**: Instrumento físico ou digital utilizado nas primeiras reuniões com o cliente para coleta minuciosa de dados patrimoniais, familiares, sucessórios e societários.
+- **Diferencial de Design**: Layout em **fundo branco puro (ink-friendly)**, desenhado para **impressão em 1 única folha A4** e preenchimento confortável à mão com caneta (ou prancheta executiva).
+- **Estrutura dos 4 Blocos**:
+  1. *Identificação do Cliente & Atividade Econômica*: Dados pessoais, contatos, empresa, área de atuação, modelo societário e renda.
+  2. *Estrutura Familiar & Sucessória*: Regime de casamento, cônjuge, dependentes, custos escolares e especificidades dos herdeiros.
+  3. *Raio-X Patrimonial & Liquidez*: Estimativas de patrimônio imobilizado vs. financeiro, previdência/seguros atuais, custo de vida familiar, plano de saúde e alocação offshore.
+  4. *Contexto Societário & Observações*: Linhas pontilhadas guias para anotação livre de gargalos, acordos e encaminhamentos imediatos.
+- **PDF Pré-compilado**: `Ficha_Diagnostico_Patrimonial_Jefferson_Pizzio.pdf` (1 página A4 vetorial pronta para impressão).
+
+---
+
 ## 🖨️ Como Salvar ou Imprimir em PDF de Alta Qualidade
 
 Todos os materiais contam com:
