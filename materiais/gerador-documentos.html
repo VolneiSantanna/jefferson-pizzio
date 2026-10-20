@@ -40,6 +40,14 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html, body {
+      height: 100vh;
+      max-height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       background: var(--bg-desk);
       color: var(--text-main);
@@ -47,24 +55,23 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       line-height: 1.5;
-      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* BARRA SUPERIOR */
     .top-action-bar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(7, 16, 27, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      height: 54px;
+      flex-shrink: 0;
+      background: rgba(7, 16, 27, 0.98);
       border-bottom: 1px solid var(--border-line);
-      padding: 12px 24px;
+      padding: 0 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      flex-wrap: wrap;
+      box-sizing: border-box;
+      z-index: 100;
     }
 
     .doc-info {
@@ -138,32 +145,37 @@
     .didactic-bar {
       background: rgba(14, 26, 43, 0.95);
       border-bottom: 1px solid rgba(197, 168, 128, 0.2);
-      padding: 12px 24px;
+      padding: 0 24px;
+      height: 40px;
+      min-height: 40px;
+      flex-shrink: 0;
+      box-sizing: border-box;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      flex-wrap: wrap;
+      overflow-x: auto;
     }
 
     .steps-container {
       display: flex;
       align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
+      gap: 20px;
+      flex-shrink: 0;
     }
 
     .step-pill {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 0.82rem;
+      gap: 8px;
+      font-size: 0.78rem;
       color: #CBD5E1;
+      white-space: nowrap;
     }
 
     .step-pill-num {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       background: rgba(197, 168, 128, 0.2);
       color: var(--gold-light);
@@ -171,7 +183,7 @@
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-family: var(--font-mono);
       flex-shrink: 0;
     }
@@ -182,27 +194,91 @@
 
     .save-status-indicator {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       color: #10B981;
       display: flex;
       align-items: center;
       gap: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    /* LAYOUT PRINCIPAL SPLIT (EDITOR À ESQUERDA + A4 AO VIVO À DIREITA) */
+    /* LAYOUT PRINCIPAL SPLIT (EDITOR FIXO À ESQUERDA + A4 AO VIVO À DIREITA) */
     .studio-container {
       display: grid;
-      grid-template-columns: 460px 1fr;
-      min-height: calc(100vh - 110px);
+      grid-template-columns: 480px 1fr;
+      flex: 1;
+      min-height: 0;
+      height: 100%;
+      overflow: hidden;
     }
 
     /* PAINEL DO EDITOR */
     .editor-pane {
       background: var(--bg-panel);
       border-right: 1px solid var(--border-line);
-      padding: 24px 20px 80px;
+      padding: 20px 20px 100px;
       overflow-y: auto;
-      max-height: calc(100vh - 110px);
+      height: 100%;
+      max-height: 100%;
+      box-sizing: border-box;
+    }
+
+    /* BARRA DE RESUMO DAS FOLHAS NO EDITOR */
+    .editor-page-summary-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(197, 168, 128, 0.1);
+      border: 1px solid rgba(197, 168, 128, 0.25);
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 14px;
+      font-size: 0.76rem;
+      color: #CBD5E1;
+    }
+    .editor-page-summary-bar strong {
+      color: var(--gold-light);
+    }
+
+    /* BADGE DE FOLHA NO CABEÇALHO DO BLOCO NO EDITOR */
+    .block-page-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      background: rgba(197, 168, 128, 0.16);
+      border: 1px solid rgba(197, 168, 128, 0.35);
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-left: 8px;
+    }
+
+    /* SEPARADOR DE FOLHA NO EDITOR DE BLOCOS */
+    .editor-sheet-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px 0;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .editor-sheet-divider::before,
+    .editor-sheet-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(197, 168, 128, 0.3);
+    }
+    .editor-sheet-divider span {
+      background: rgba(197, 168, 128, 0.12);
+      border: 1px solid rgba(197, 168, 128, 0.3);
+      padding: 4px 10px;
+      border-radius: 12px;
     }
 
     /* SELETOR DE MODELOS */
@@ -609,8 +685,12 @@
     /* PAINEL DE VISUALIZAÇÃO DA FOLHA A4 AO VIVO (COM PAGINAÇÃO MULTIFOLHAS) */
     .preview-pane {
       background: #04080F;
-      padding: 36px 20px 80px;
+      padding: 16px 20px 120px;
       overflow-y: auto;
+      height: 100%;
+      max-height: 100%;
+      box-sizing: border-box;
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -623,6 +703,99 @@
       align-items: center;
       gap: 0;
       width: auto;
+      transform-origin: top center;
+      transition: transform 0.2s ease;
+    }
+
+    /* TOOLBAR FLUTUANTE DA PREVIEW (PAGINAÇÃO & ZOOM) */
+    .preview-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(14, 26, 43, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(197, 168, 128, 0.35);
+      border-radius: 30px;
+      padding: 6px 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      flex-shrink: 0;
+    }
+
+    .preview-pages-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-page-tab {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #94A3B8;
+      font-size: 0.74rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-page-tab:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .btn-page-tab.active {
+      background: rgba(197, 168, 128, 0.22);
+      border-color: var(--gold-light);
+      color: var(--gold-light);
+    }
+
+    .preview-toolbar-divider {
+      width: 1px;
+      height: 18px;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .preview-scale-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-zoom-ctrl {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #CBD5E1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: all 0.15s ease;
+    }
+    .btn-zoom-ctrl:hover {
+      background: var(--gold-primary);
+      color: #07101B;
+      border-color: var(--gold-primary);
+    }
+
+    .zoom-value {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: #CBD5E1;
+      min-width: 42px;
+      text-align: center;
     }
 
     /* FOLHA A4 (210mm x 297mm) */
@@ -1124,16 +1297,22 @@
         color: #000000 !important;
         margin: 0 !important;
         padding: 0 !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
 
-      .top-action-bar, .didactic-bar, .editor-pane, .page-separator-badge {
+      .top-action-bar, .didactic-bar, .editor-pane, .page-separator-badge, .preview-toolbar {
         display: none !important;
       }
 
       .studio-container {
         display: block !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
         min-height: auto !important;
       }
 
@@ -1141,11 +1320,14 @@
         background: #FFFFFF !important;
         padding: 0 !important;
         margin: 0 !important;
+        height: auto !important;
+        max-height: none !important;
         overflow: visible !important;
         display: block !important;
       }
 
       .a4-sheet-container {
+        transform: none !important;
         box-shadow: none !important;
         margin: 0 !important;
         display: block !important;
@@ -1232,21 +1414,21 @@
     <div class="steps-container">
       <div class="step-pill">
         <span class="step-pill-num">1</span>
-        <span>Escolha um <strong>Modelo Pronto</strong> ou clique em <strong>Criar do Zero</strong></span>
+        <span>Escolha um <strong>Modelo</strong> ou inicie do zero</span>
       </div>
       <div class="step-pill">
         <span class="step-pill-num">2</span>
-        <span>Adicione textos, tabelas ou cole imagens com <strong>Ctrl + V</strong></span>
+        <span>Edite blocos ou cole prints com <strong>Ctrl + V</strong></span>
       </div>
       <div class="step-pill">
         <span class="step-pill-num">3</span>
-        <span>Clique no botão dourado <strong>Exportar em PDF</strong> para salvar em A4</span>
+        <span>Exporte em <strong>PDF A4 oficial</strong></span>
       </div>
     </div>
 
     <div class="save-status-indicator" id="save-status">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-      <span>Rascunho salvo automaticamente</span>
+      <span>Salvo automaticamente</span>
     </div>
   </div>
 
@@ -1319,6 +1501,12 @@
           2. Blocos de Conteúdo do Documento
         </div>
 
+        <!-- RESUMO VISUAL DE FOLHAS OCUPADAS -->
+        <div class="editor-page-summary-bar" id="editor-page-summary-bar">
+          <span>📄 O documento ocupa <strong>1 folha A4</strong></span>
+          <span style="font-family: var(--font-mono); font-size: 0.70rem; color: var(--gold-light);">Sincronizado ao vivo</span>
+        </div>
+
         <!-- LISTA DE BLOCOS DINÂMICOS -->
         <div class="blocks-list" id="blocks-editor-container">
           <!-- Renderizado via JS -->
@@ -1368,7 +1556,20 @@
     </div>
 
     <!-- COLUNA DIREITA: VISUALIZAÇÃO A4 AO VIVO (PAGINAÇÃO AUTOMÁTICA EM FOLHAS) -->
-    <div class="preview-pane">
+    <div class="preview-pane" id="preview-pane">
+      <!-- BARRA FLUTUANTE DE CONTROLE DA PREVIEW (PAGINAÇÃO & ZOOM) -->
+      <div class="preview-toolbar" id="preview-toolbar">
+        <div class="preview-pages-nav" id="preview-pages-nav">
+          <!-- Botões de navegação rápida por folha gerados via JS -->
+        </div>
+        <div class="preview-toolbar-divider"></div>
+        <div class="preview-scale-controls">
+          <button class="btn-zoom-ctrl" onclick="adjustZoom(-0.1)" title="Diminuir Zoom">−</button>
+          <span class="zoom-value" id="zoom-val-label" onclick="resetZoom()" title="Clique para redefinir zoom" style="cursor: pointer;">100%</span>
+          <button class="btn-zoom-ctrl" onclick="adjustZoom(0.1)" title="Aumentar Zoom">+</button>
+        </div>
+      </div>
+
       <div class="a4-sheet-container" id="a4-pages-wrapper">
         <!-- As folhas A4 e separadores visuais são gerados dinamicamente via renderDoc() -->
       </div>
@@ -1584,11 +1785,18 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
             b.role = b.role.replace("Head de ", "");
           }
         });
+
+        // Garante que a assinatura oficial fique sempre como o último bloco
+        const sigIdx = documentState.blocks.findIndex(b => b.type === 'signature');
+        if (sigIdx !== -1 && sigIdx < documentState.blocks.length - 1) {
+          const [sigBlock] = documentState.blocks.splice(sigIdx, 1);
+          documentState.blocks.push(sigBlock);
+        }
       }
 
       syncInputsFromState();
-      renderBlocksEditor();
       renderDoc();
+      renderBlocksEditor();
 
       // OUVINTE GLOBAL PARA COLAR IMAGEM (CTRL + V)
       window.addEventListener('paste', handleGlobalPaste);
@@ -1608,8 +1816,8 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
 
       documentState = JSON.parse(JSON.stringify(TEMPLATES[key]));
       syncInputsFromState();
-      renderBlocksEditor();
       renderDoc();
+      renderBlocksEditor();
       saveToStorage();
     }
 
@@ -1643,8 +1851,8 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
       };
 
       syncInputsFromState();
-      renderBlocksEditor();
       renderDoc();
+      renderBlocksEditor();
       saveToStorage();
     }
 
@@ -1706,9 +1914,17 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
         block.note = "Início da próxima folha A4";
       }
 
-      documentState.blocks.push(block);
-      renderBlocksEditor();
+      // Se já existir um bloco de assinatura e o novo bloco não for uma assinatura,
+      // insere antes da assinatura para mantê-la sempre no encerramento do documento
+      const sigIndex = documentState.blocks.findIndex(b => b.type === 'signature');
+      if (sigIndex !== -1 && type !== 'signature') {
+        documentState.blocks.splice(sigIndex, 0, block);
+      } else {
+        documentState.blocks.push(block);
+      }
+
       renderDoc();
+      renderBlocksEditor();
       saveToStorage();
     }
 
@@ -1723,16 +1939,16 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
         documentState.blocks[index] = documentState.blocks[index + 1];
         documentState.blocks[index + 1] = temp;
       }
-      renderBlocksEditor();
       renderDoc();
+      renderBlocksEditor();
       saveToStorage();
     }
 
     function deleteBlock(index) {
       if (confirm("Deseja remover este bloco do documento?")) {
         documentState.blocks.splice(index, 1);
-        renderBlocksEditor();
         renderDoc();
+        renderBlocksEditor();
         saveToStorage();
       }
     }
@@ -1740,9 +1956,24 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
     // RENDERIZA O EDITOR DOS BLOCOS À ESQUERDA
     function renderBlocksEditor() {
       const container = document.getElementById('blocks-editor-container');
+      if (!container) return;
       container.innerHTML = "";
 
       documentState.blocks.forEach((block, idx) => {
+        const pageNum = blockPageAllocation[block.id] || 1;
+
+        // Se este bloco inicia uma nova folha (e não é o primeiro bloco)
+        if (idx > 0) {
+          const prevBlock = documentState.blocks[idx - 1];
+          const prevPageNum = blockPageAllocation[prevBlock.id] || 1;
+          if (pageNum > prevPageNum) {
+            const dividerEl = document.createElement('div');
+            dividerEl.className = 'editor-sheet-divider';
+            dividerEl.innerHTML = `<span>✂️ Início da Folha ${pageNum}</span>`;
+            container.appendChild(dividerEl);
+          }
+        }
+
         const blockEl = document.createElement('div');
         blockEl.className = 'block-item';
 
@@ -1937,7 +2168,10 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
 
         blockEl.innerHTML = `
           <div class="block-header">
-            <span class="block-type-badge">${typeIcon} ${typeName}</span>
+            <div style="display: flex; align-items: center;">
+              <span class="block-type-badge">${typeIcon} ${typeName}</span>
+              <span class="block-page-tag" id="block-page-badge-${block.id}">Folha ${pageNum}</span>
+            </div>
             <div class="block-actions">
               <button class="btn-block-ctrl" title="Mover para Cima" onclick="moveBlock(${idx}, -1)">▲</button>
               <button class="btn-block-ctrl" title="Mover para Baixo" onclick="moveBlock(${idx}, 1)">▼</button>
@@ -2178,9 +2412,14 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
         size: "medium",
         border: true
       };
-      documentState.blocks.push(newBlock);
-      renderBlocksEditor();
+      const sigIndex = documentState.blocks.findIndex(b => b.type === 'signature');
+      if (sigIndex !== -1) {
+        documentState.blocks.splice(sigIndex, 0, newBlock);
+      } else {
+        documentState.blocks.push(newBlock);
+      }
       renderDoc();
+      renderBlocksEditor();
       saveToStorage();
       alert("✓ Imagem colada com sucesso no documento!");
     }
@@ -2189,6 +2428,7 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
     function createPageElement(pageNum) {
       const page = document.createElement('div');
       page.className = 'a4-page';
+      page.id = `a4-page-${pageNum}`;
       page.setAttribute('data-page', pageNum);
 
       let headerHtml = "";
@@ -2331,7 +2571,10 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
       }, 50);
     }
 
-    // RENDERIZAÇÃO DA FOLHA A4 AO VIVO (COM PAGINAÇÃO MULTIFOLHAS REAL)
+    // Mapeamento de cada bloco para a sua respectiva folha A4
+    let blockPageAllocation = {}; // { [blockId]: pageNum }
+
+    // RENDERIZAÇÃO DA FOLHA A4 AO VIVO (COM PAGINAÇÃO MULTIFOLHAS REAL & ANTI-ÓRFÃOS)
     function renderDoc() {
       updateStateFromInputs();
 
@@ -2340,6 +2583,7 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
       container.innerHTML = "";
 
       const pages = [];
+      blockPageAllocation = {};
 
       function addPage() {
         const pageNum = pages.length + 1;
@@ -2361,22 +2605,51 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
       documentState.blocks.forEach(block => {
         // Se for quebra de folha explícita
         if (block.type === 'page-break') {
+          blockPageAllocation[block.id] = pages.length;
           currentPage = addPage();
           currentBody = currentPage.querySelector('.doc-content-body');
           return;
         }
 
         const blockEl = renderBlockElement(block);
+        blockEl.dataset.blockId = block.id;
         currentBody.appendChild(blockEl);
+        blockPageAllocation[block.id] = pages.length;
 
         // Verifica transbordo além da altura limite da folha A4 (297mm)
         if (currentPage.scrollHeight > currentPage.clientHeight + 2) {
-          // Se não for o primeiro bloco da folha, move para a próxima folha
           if (currentBody.children.length > 1) {
+            // Remove o bloco que transbordou
             currentBody.removeChild(blockEl);
+
+            // REGRA ANTI-TÍTULO ÓRFÃO:
+            // Se o último bloco restante na página for um título de seção ('title'),
+            // o título não deve ficar abandonado sozinho no rodapé da folha sem nenhum conteúdo!
+            let orphanTitleEl = null;
+            let orphanTitleId = null;
+            const remainingChildren = Array.from(currentBody.children);
+            if (remainingChildren.length > 1) {
+              const lastChild = remainingChildren[remainingChildren.length - 1];
+              if (lastChild && lastChild.classList.contains('rendered-section-title')) {
+                orphanTitleEl = lastChild;
+                orphanTitleId = lastChild.dataset.blockId;
+                currentBody.removeChild(orphanTitleEl);
+              }
+            }
+
             currentPage = addPage();
             currentBody = currentPage.querySelector('.doc-content-body');
+
+            // Se tínhamos um título órfão, coloca ele no topo da nova folha primeiro
+            if (orphanTitleEl) {
+              currentBody.appendChild(orphanTitleEl);
+              if (orphanTitleId) {
+                blockPageAllocation[orphanTitleId] = pages.length;
+              }
+            }
+
             currentBody.appendChild(blockEl);
+            blockPageAllocation[block.id] = pages.length;
           }
         }
       });
@@ -2392,6 +2665,79 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
         const contTag = pageEl.querySelector('.continuation-tag');
         if (contTag) {
           contTag.innerHTML = `Continuação &middot; Folha ${pageNum} de ${totalPages}`;
+        }
+      });
+
+      // Atualiza toolbar flutuante da preview
+      renderPreviewToolbarNav(totalPages);
+
+      // Atualiza indicador de resumo de páginas no editor
+      updateEditorPageSummary(totalPages);
+    }
+
+    // CONTROLES DE ZOOM E NAVEGAÇÃO DA PREVIEW
+    let currentZoom = 1.0;
+
+    function adjustZoom(delta) {
+      currentZoom = Math.min(1.4, Math.max(0.6, Math.round((currentZoom + delta) * 10) / 10));
+      applyZoom();
+    }
+
+    function resetZoom() {
+      currentZoom = 1.0;
+      applyZoom();
+    }
+
+    function applyZoom() {
+      const container = document.getElementById('a4-pages-wrapper');
+      const valEl = document.getElementById('zoom-val-label');
+      if (container) {
+        container.style.transform = `scale(${currentZoom})`;
+      }
+      if (valEl) {
+        valEl.innerText = `${Math.round(currentZoom * 100)}%`;
+      }
+    }
+
+    function jumpToPage(pageNum) {
+      const pageEl = document.getElementById(`a4-page-${pageNum}`);
+      if (pageEl) {
+        pageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function renderPreviewToolbarNav(totalPages) {
+      const nav = document.getElementById('preview-pages-nav');
+      if (!nav) return;
+      nav.innerHTML = "";
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.className = `btn-page-tab ${i === 1 ? 'active' : ''}`;
+        btn.innerHTML = `📄 Folha ${i}`;
+        btn.onclick = () => {
+          document.querySelectorAll('.btn-page-tab').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          jumpToPage(i);
+        };
+        nav.appendChild(btn);
+      }
+    }
+
+    function updateEditorPageSummary(totalPages) {
+      const summary = document.getElementById('editor-page-summary-bar');
+      if (summary) {
+        summary.innerHTML = `
+          <span>📄 O documento ocupa <strong>${totalPages} ${totalPages === 1 ? 'folha' : 'folhas'} A4</strong></span>
+          <span style="font-family: var(--font-mono); font-size: 0.70rem; color: var(--gold-light);">Sincronizado ao vivo</span>
+        `;
+      }
+
+      // Atualiza os badges de folha individuais nos cartões de bloco do editor
+      documentState.blocks.forEach(block => {
+        const badge = document.getElementById(`block-page-badge-${block.id}`);
+        if (badge) {
+          const pNum = blockPageAllocation[block.id] || 1;
+          badge.innerText = `Folha ${pNum}`;
         }
       });
     }
