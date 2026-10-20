@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurador de Assinatura de E-mail | Jefferson Pizzio Advisory</title>
+  <meta name="description" content="Gerador e configurador oficial de assinatura de e-mail executiva para Outlook e GoDaddy. Jefferson Pizzio Advisory.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Jefferson Pizzio Advisory">
+  <meta property="og:url" content="https://jeffersonpizzio.com/materiais/assinatura-email">
+  <meta property="og:title" content="Assinatura Corporativa de E-mail | Jefferson Pizzio Advisory">
+  <meta property="og:description" content="Modelos e passo a passo para configuração de assinatura no Outlook e GoDaddy.">
+  <meta property="og:image" content="https://jeffersonpizzio.com/assets/images/og-share-card.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-desk: #07101B;
+      --bg-card: #0E1A2B;
+      --bg-card-inner: #142236;
+      --gold-primary: #8E6D38;
+      --gold-dark: #634A21;
+      --gold-light: #C5A880;
+      --gold-soft: #F9F6F0;
+      --text-dark: #07111D;
+      --text-main: #F1F5F9;
+      --text-sub: #94A3B8;
+      --border-line: rgba(197, 168, 128, 0.3);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-desk);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+      padding-bottom: 60px;
+    }
+
+    /* BARRA SUPERIOR */
+    .top-action-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 16, 27, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-line);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .doc-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .doc-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      padding: 4px 12px;
+      border: 1px solid rgba(197, 168, 128, 0.35);
+      border-radius: 20px;
+      background: rgba(197, 168, 128, 0.08);
+      font-weight: 600;
+    }
+
+    .doc-name {
+      color: #F8FAFC;
+      font-size: 0.98rem;
+      font-weight: 700;
+    }
+
+    .top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: transparent;
+      color: #CBD5E1;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+    .top-btn:hover {
+      color: #FFFFFF;
+      border-color: var(--gold-light);
+    }
+
+    /* CONTAINER PRINCIPAL */
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.24em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    .page-desc {
+      color: #94A3B8;
+      font-size: 0.95rem;
+      max-width: 700px;
+      margin: 12px auto 0;
+      line-height: 1.5;
+    }
+
+    /* CARD DE CONTROLE E CUSTOMIZAÇÃO */
+    .control-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-line);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .model-selector {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .model-btn {
+      flex: 1;
+      min-width: 220px;
+      padding: 12px 18px;
+      background: var(--bg-card-inner);
+      border: 1.5px solid rgba(197, 168, 128, 0.25);
+      border-radius: 6px;
+      color: #E2E8F0;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .model-btn:hover {
+      border-color: var(--gold-light);
+      background: rgba(197, 168, 128, 0.12);
+    }
+
+    .model-btn.active {
+      border-color: var(--gold-light);
+      background: rgba(197, 168, 128, 0.18);
+      color: #FFFFFF;
+      font-weight: 700;
+      box-shadow: 0 0 16px rgba(197, 168, 128, 0.25);
+    }
+
+    .model-radio {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-light);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .model-btn.active .model-radio::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold-light);
+    }
+
+    /* CAMPOS EDITÁVEIS */
+    .edit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+
+    .input-group input {
+      width: 100%;
+      background: var(--bg-card-inner);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      padding: 8px 12px;
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-group input:focus {
+      border-color: var(--gold-light);
+    }
+
+    /* ÁREA DE PRÉ-VISUALIZAÇÃO */
+    .preview-section {
+      margin-bottom: 36px;
+    }
+
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .preview-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .preview-card {
+      background: #FFFFFF;
+      border-radius: 8px;
+      padding: 32px 28px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    /* BARRA DE AÇÃO DE CÓPIA */
+    .action-panel {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-copy-main {
+      flex: 2;
+      min-width: 260px;
+      background: linear-gradient(135deg, #C5A880, #8E6D38);
+      color: #07101B;
+      border: none;
+      padding: 14px 24px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 18px rgba(197, 168, 128, 0.35);
+    }
+
+    .btn-copy-main:hover {
+      background: linear-gradient(135deg, #DFC9AB, #A17A3D);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(197, 168, 128, 0.5);
+    }
+
+    .btn-copy-main.copied {
+      background: #10B981 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.4) !important;
+    }
+
+    .btn-download-htm {
+      flex: 1;
+      min-width: 190px;
+      background: transparent;
+      color: #E2E8F0;
+      border: 1px solid var(--border-line);
+      padding: 14px 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-download-htm:hover {
+      border-color: var(--gold-light);
+      color: #FFFFFF;
+      background: rgba(197, 168, 128, 0.1);
+    }
+
+    /* SEÇÃO GUIA PASSO A PASSO */
+    .guide-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-line);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .guide-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .guide-sub {
+      color: #94A3B8;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    /* ABAS DE CLIENTES */
+    .tabs-nav {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 24px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover {
+      color: #E2E8F0;
+    }
+
+    .tab-btn.active {
+      color: var(--gold-light);
+      border-bottom-color: var(--gold-light);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.25s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* PASSOS NUMERADOS */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--bg-card-inner);
+      padding: 16px 20px;
+      border-radius: 6px;
+      border-left: 3px solid var(--gold-primary);
+    }
+
+    .step-num {
+      background: rgba(197, 168, 128, 0.15);
+      color: var(--gold-light);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      font-family: var(--font-mono);
+    }
+
+    .step-text {
+      color: #CBD5E1;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .step-text strong {
+      color: #FFFFFF;
+    }
+
+    .step-code {
+      display: inline-block;
+      background: #07101B;
+      color: var(--gold-light);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(197, 168, 128, 0.3);
+      margin: 2px 0;
+    }
+
+    .callout-box {
+      margin-top: 18px;
+      background: rgba(197, 168, 128, 0.08);
+      border: 1px solid rgba(197, 168, 128, 0.3);
+      border-radius: 6px;
+      padding: 14px 18px;
+      color: #E2E8F0;
+      font-size: 0.88rem;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    /* COMPARAÇÃO: ANTES VS DEPOIS */
+    .compare-section {
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 32px;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .compare-card {
+      background: var(--bg-card-inner);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .compare-badge-old {
+      display: inline-block;
+      background: rgba(239, 68, 68, 0.15);
+      color: #EF4444;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .compare-badge-new {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.15);
+      color: #10B981;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .compare-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.86rem;
+      color: #94A3B8;
+    }
+
+    .compare-list li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 768px) {
+      .top-action-bar { padding: 12px 16px; }
+      .container { padding: 20px 12px; }
+      .brand-title { font-size: 1.8rem; }
+      .preview-card { padding: 20px 14px; overflow-x: auto; }
+      .btn-copy-main { width: 100%; }
+      .btn-download-htm { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR -->
+  <div class="top-action-bar">
+    <div class="doc-info">
+      <span class="doc-badge">Material Executivo</span>
+      <span class="doc-name">Configurador de Assinatura Corporativa de E-mail</span>
+    </div>
+    <a href="../" class="top-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Voltar ao Portal
+    </a>
+  </div>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <div class="page-header">
+      <h1 class="brand-title">Assinatura de E-mail Oficial</h1>
+      <div class="brand-sub">Jefferson Pizzio · Wealth & Succession Advisory</div>
+      <p class="page-desc">
+        Substituição da antiga assinatura institucional por uma identidade moderna, limpa e com autoridade Private Wealth. 
+        Totalmente otimizada para <strong>Microsoft Outlook</strong> e para o <strong>E-mail GoDaddy</strong>.
+      </p>
+    </div>
+
+    <!-- SELETOR DE MODELOS & CUSTOMIZADOR -->
+    <div class="control-card">
+      <div class="model-selector">
+        <button class="model-btn active" onclick="selectModel(1)" id="btn-model-1">
+          <span class="model-radio"></span>
+          <span><strong>Modelo 1:</strong> Minimalista em Ouro (Sem Foto)</span>
+        </button>
+        <button class="model-btn" onclick="selectModel(2)" id="btn-model-2">
+          <span class="model-radio"></span>
+          <span><strong>Modelo 2:</strong> Foto Oficial & Borda Ouro</span>
+        </button>
+        <button class="model-btn" onclick="selectModel(3)" id="btn-model-3">
+          <span class="model-radio"></span>
+          <span><strong>Modelo 3:</strong> Compacta para Respostas</span>
+        </button>
+      </div>
+
+      <div class="edit-grid">
+        <div class="input-group">
+          <label>Nome Completo</label>
+          <input type="text" id="inp-name" value="Jefferson Pizzio" oninput="updateSignature()">
+        </div>
+        <div class="input-group">
+          <label>Cargo / Título</label>
+          <input type="text" id="inp-role" value="Head de Planejamento Patrimonial e Sucessório" oninput="updateSignature()">
+        </div>
+        <div class="input-group">
+          <label>E-mail Oficial (GoDaddy / Outlook)</label>
+          <input type="text" id="inp-email" value="contato@jeffersonpizzio.com" oninput="updateSignature()">
+        </div>
+        <div class="input-group">
+          <label>WhatsApp / Telefone</label>
+          <input type="text" id="inp-phone" value="(51) 99897-0838" oninput="updateSignature()">
+        </div>
+      </div>
+    </div>
+
+    <!-- ÁREA DE PREVIEW AO VIVO -->
+    <div class="preview-section">
+      <div class="preview-header">
+        <div class="preview-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          Pré-visualização ao Vivo (Como aparecerá na caixa do destinatário)
+        </div>
+        <span style="font-size: 0.75rem; color: #94A3B8; font-family: var(--font-mono);">FORMATO: HTML TABLE COMPATÍVEL MSO</span>
+      </div>
+
+      <div class="preview-card" id="signature-container">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+
+      <div class="action-panel">
+        <button class="btn-copy-main" id="btn-copy" onclick="copySignature()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span>Copiar Assinatura Formatada (Ctrl + C)</span>
+        </button>
+
+        <a id="btn-download" href="assinatura-jefferson-pizzio.htm" download="assinatura-jefferson-pizzio.htm" class="btn-download-htm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Baixar Arquivo .HTM
+        </a>
+      </div>
+    </div>
+
+    <!-- GUIA PASSO A PASSO -->
+    <div class="guide-section">
+      <h2 class="guide-title">Passo a Passo de Instalação</h2>
+      <p class="guide-sub">
+        Escolha abaixo o seu cliente de e-mail para ver instruções exatas de onde colar a assinatura copiada:
+      </p>
+
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab('godaddy')">E-mail GoDaddy / Microsoft 365</button>
+        <button class="tab-btn" onclick="switchTab('outlook-win')">Outlook Desktop (Windows)</button>
+        <button class="tab-btn" onclick="switchTab('outlook-mac')">Outlook Desktop (Mac)</button>
+        <button class="tab-btn" onclick="switchTab('mobile')">Celular (iPhone & Android)</button>
+      </div>
+
+      <!-- ABA 1: GODADDY / M365 -->
+      <div class="tab-content active" id="tab-godaddy">
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              Clique no botão dourado acima <strong>"COPIAR ASSINATURA FORMATADA"</strong>. 
+              (Isso copia a assinatura com cores, fontes e links prontos para o seu computador).
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              Acesse sua caixa de entrada no navegador pelo link <strong><a href="https://email.godaddy.com" target="_blank" style="color: var(--gold-light); text-decoration: underline;">email.godaddy.com</a></strong> (ou <strong>outlook.office.com</strong> se sua GoDaddy for Microsoft 365) e faça login.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              No canto superior direito, clique no ícone da <strong>Engrenagem (Configurações)</strong>.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-text">
+              No menu lateral, vá em <strong>Email</strong> &rarr; <strong>Redigir e responder</strong>.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">5</div>
+            <div class="step-text">
+              Em <em>Assinatura de email</em>, clique em <strong>+ Nova assinatura</strong>, dê o nome <code>Jefferson Pizzio Oficial</code>.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">6</div>
+            <div class="step-text">
+              Clique dentro da caixa de texto em branco e pressione <strong>Ctrl + V</strong> (no Windows) ou <strong>Cmd + V</strong> (no Mac). A assinatura aparecerá formatada com links e molduras.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">7</div>
+            <div class="step-text">
+              Logo abaixo, em <em>Selecionar assinaturas padrão</em>, escolha <code>Jefferson Pizzio Oficial</code> tanto para <strong>Para novas mensagens</strong> quanto para <strong>Para respostas/encaminhamentos</strong> e clique em <strong>Salvar</strong>. Pronto!
+            </div>
+          </div>
+        </div>
+
+        <div class="callout-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--gold-light); flex-shrink: 0;"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+          <div>
+            <strong>GoDaddy Workspace Webmail (versão antiga):</strong> Se o seu e-mail da GoDaddy for o painel clássico e não o Microsoft 365, basta clicar em <em>Configurações Pessoais &rarr; Assinatura &rarr; Marcar "Inserir automaticamente"</em>, escolher o modo <em>Rich Text</em>, colar com <strong>Ctrl + V</strong> e clicar em <em>Salvar</em>.
+          </div>
+        </div>
+      </div>
+
+      <!-- ABA 2: OUTLOOK DESKTOP WINDOWS -->
+      <div class="tab-content" id="tab-outlook-win">
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              Clique no botão dourado <strong>"COPIAR ASSINATURA FORMATADA"</strong> acima.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              Abra o aplicativo do <strong>Microsoft Outlook</strong> no seu computador.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              Clique em <strong>Arquivo</strong> (canto superior esquerdo) &rarr; <strong>Opções</strong> &rarr; <strong>Email</strong>.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-text">
+              Clique no botão <strong>Assinaturas...</strong> (Signatures).
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">5</div>
+            <div class="step-text">
+              Clique em <strong>Novo</strong>, digite <code>Jefferson Pizzio</code> e dê OK.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">6</div>
+            <div class="step-text">
+              Na caixa de edição de texto inferior, clique com o mouse e pressione <strong>Ctrl + V</strong> para colar.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">7</div>
+            <div class="step-text">
+              No canto direito em <em>Escolher assinatura padrão</em>, selecione sua conta e defina <code>Jefferson Pizzio</code> para <strong>Novas mensagens</strong> e para <strong>Respostas/encaminhamentos</strong>. Clique em <strong>OK</strong>. Concluído!
+            </div>
+          </div>
+        </div>
+
+        <div class="callout-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--gold-light); flex-shrink: 0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <div>
+            <strong>Método Alternativo Rápido (Pasta de Assinaturas):</strong> Baixe o arquivo <code>.HTM</code> pelo botão acima. Pressione as teclas <span class="step-code">Win + R</span>, digite <span class="step-code">%appdata%\Microsoft\Signatures</span> e dê Enter. Arraste o arquivo baixado para dentro dessa pasta. O Outlook carregará a assinatura automaticamente!
+          </div>
+        </div>
+      </div>
+
+      <!-- ABA 3: OUTLOOK MAC -->
+      <div class="tab-content" id="tab-outlook-mac">
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              Clique no botão <strong>"COPIAR ASSINATURA FORMATADA"</strong> acima.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              No Mac, abra o aplicativo do <strong>Outlook</strong>.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-text">
+              No menu superior do macOS, clique em <strong>Outlook</strong> &rarr; <strong>Configurações...</strong> (ou <em>Preferências</em>).
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-text">
+              Clique no ícone <strong>Assinaturas</strong>.
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">5</div>
+            <div class="step-text">
+              Clique no botão <strong>+</strong> para criar uma nova assinatura, cole o conteúdo com <strong>Cmd + V</strong> e selecione como padrão para a sua conta. Pronto!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABA 4: MOBILE -->
+      <div class="tab-content" id="tab-mobile">
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text">
+              <strong>Outlook Mobile (iOS / Android):</strong> Se o seu e-mail estiver configurado via Microsoft 365 / Exchange, a assinatura criada no Outlook Web sincroniza automaticamente com o aplicativo de celular!
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text">
+              <strong>Configuração manual no iPhone (Mail nativo):</strong> Envie um e-mail para você mesmo com a assinatura, abra o e-mail no iPhone, selecione e copie a assinatura. Depois vá em <em>Ajustes &rarr; Mail &rarr; Assinatura</em>, cole e dê uma leve chacoalhada no iPhone para aparecer a opção <em>"Desfazer Modificar Atributos"</em> para manter a formatação original.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPARAÇÃO COM A ANTIGA -->
+      <div class="compare-section">
+        <h3 style="font-size: 1.1rem; color: #FFFFFF; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">
+          Por que a nova assinatura é infinitamente superior à antiga?
+        </h3>
+        <p style="color: #94A3B8; font-size: 0.88rem;">
+          Análise comparativa das melhorias em relação ao modelo antigo da Origem Capital:
+        </p>
+
+        <div class="compare-grid">
+          <div class="compare-card">
+            <span class="compare-badge-old">Antiga (Origem Capital)</span>
+            <ul class="compare-list">
+              <li>❌ Bloco massivo de texto de compliance da Safra/CVM (poluído e com cara de spam bancário).</li>
+              <li>❌ Logotipos externos e selos de terceiros (Great Place to Work) que desviam a atenção do cliente.</li>
+              <li>❌ Endereço físico e lista de filiais desnecessárias para negociações digitais de alta renda.</li>
+              <li>❌ Não destacava a marca própria e consultoria exclusiva de Jefferson.</li>
+            </ul>
+          </div>
+
+          <div class="compare-card">
+            <span class="compare-badge-new">Nova (Jefferson Pizzio Advisory)</span>
+            <ul class="compare-list">
+              <li>✅ Posicionamento autoral Private Wealth: Dourado nobre, azul marinho executivo e tipografia serifada.</li>
+              <li>✅ Foco 100% no contato direto de alta conversão: WhatsApp direto e site oficial.</li>
+              <li>✅ Aviso de confidencialidade enxuto e elegante (2 linhas), ideal para negociações de patrimônio.</li>
+              <li>✅ Código HTML blindado: abre com velocidade máxima e perfeita nitidez em qualquer tela e aplicativo.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    let currentModel = 1;
+
+    function getFormData() {
+      return {
+        name: document.getElementById('inp-name').value || 'Jefferson Pizzio',
+        role: document.getElementById('inp-role').value || 'Head de Planejamento Patrimonial e Sucessório',
+        email: document.getElementById('inp-email').value || 'contato@jeffersonpizzio.com',
+        phone: document.getElementById('inp-phone').value || '(51) 99897-0838'
+      };
+    }
+
+    function selectModel(modelNum) {
+      currentModel = modelNum;
+      document.getElementById('btn-model-1').classList.toggle('active', modelNum === 1);
+      document.getElementById('btn-model-2').classList.toggle('active', modelNum === 2);
+      document.getElementById('btn-model-3').classList.toggle('active', modelNum === 3);
+      
+      const downloadLink = document.getElementById('btn-download');
+      if (modelNum === 1) {
+        downloadLink.href = 'assinatura-jefferson-pizzio.htm';
+        downloadLink.download = 'assinatura-jefferson-pizzio.htm';
+      } else if (modelNum === 2) {
+        downloadLink.href = 'assinatura-jefferson-pizzio-foto.htm';
+        downloadLink.download = 'assinatura-jefferson-pizzio-foto.htm';
+      } else {
+        downloadLink.href = 'assinatura-jefferson-pizzio-compacta.htm';
+        downloadLink.download = 'assinatura-jefferson-pizzio-compacta.htm';
+      }
+
+      updateSignature();
+    }
+
+    function updateSignature() {
+      const data = getFormData();
+      const phoneDigits = data.phone.replace(/\\D/g, '');
+      const waLink = phoneDigits ? `https://wa.me/55${phoneDigits}` : 'https://wa.me/5551998970838';
+      const container = document.getElementById('signature-container');
+
+      if (currentModel === 1) {
+        container.innerHTML = `
+<table cellpadding="0" cellspacing="0" border="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.4; color: #07101B; background-color: #ffffff; max-width: 530px;">
+  <tr>
+    <td style="padding-right: 18px; vertical-align: middle; border-right: 2.5px solid #C5A880; width: 68px; text-align: center;">
+      <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 32px; font-weight: bold; color: #07101B; letter-spacing: 1.5px; line-height: 1;">
+        JP
+      </div>
+      <div style="font-family: Arial, Helvetica, sans-serif; font-size: 8px; font-weight: 800; color: #8E6D38; letter-spacing: 2px; text-transform: uppercase; padding-top: 4px; line-height: 1;">
+        ADVISORY
+      </div>
+    </td>
+    <td style="padding-left: 18px; vertical-align: top;">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="font-family: Georgia, 'Times New Roman', serif; font-size: 19px; font-weight: bold; color: #07101B; letter-spacing: 0.8px; text-transform: uppercase; line-height: 1.1;">
+            ${data.name}
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 11px; font-weight: 800; color: #8E6D38; letter-spacing: 0.5px; text-transform: uppercase; padding-top: 3px; padding-bottom: 4px; line-height: 1.2;">
+            ${data.role}
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 11px; color: #475569; padding-bottom: 7px; line-height: 1.2;">
+            <span style="font-weight: 700; color: #07101B;">Jefferson Pizzio Advisory</span> &middot; <span style="color: #64748B;">Wealth & Succession Planning</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 11.5px; color: #1E293B; line-height: 1.5;">
+            <div style="white-space: nowrap;">
+              <span style="color: #8E6D38; font-weight: 800; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.5px;">Tel / WhatsApp:</span>
+              <a href="${waLink}" target="_blank" style="color: #07101B; text-decoration: none; font-weight: 600; margin-left: 3px;">
+                ${data.phone}
+              </a>
+              <span style="color: #CBD5E1; margin: 0 8px;">&vert;</span>
+              <span style="color: #8E6D38; font-weight: 800; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.5px;">E-mail:</span>
+              <a href="mailto:${data.email}" style="color: #07101B; text-decoration: none; font-weight: 600; margin-left: 3px;">
+                ${data.email}
+              </a>
+            </div>
+            <div style="padding-top: 3px; white-space: nowrap;">
+              <span style="color: #8E6D38; font-weight: 800; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.5px;">Website:</span>
+              <a href="https://jeffersonpizzio.com" target="_blank" style="color: #8E6D38; text-decoration: none; font-weight: 800; letter-spacing: 0.4px; margin-left: 3px;">
+                jeffersonpizzio.com
+              </a>
+              <span style="color: #CBD5E1; margin: 0 8px;">&vert;</span>
+              <span style="color: #64748B; font-size: 10.5px;">Porto Alegre &middot; Brasil &middot; Global</span>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding-top: 10px;">
+      <table cellpadding="0" cellspacing="0" border="0" style="border-top: 1px solid #E2E8F0; width: 100%;">
+        <tr>
+          <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 8.5px; line-height: 1.35; color: #94A3B8; padding-top: 7px;">
+            <strong style="color: #64748B;">CONFIDENCIALIDADE:</strong> Esta mensagem e seus anexos s&atilde;o estritamente confidenciais e protegidos por sigilo profissional, destinados exclusivamente ao destinat&aacute;rio. Caso tenha recebido por engano, por favor notifique o remetente e desconsidere o conte&uacute;do.
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>`;
+      } else if (currentModel === 2) {
+        container.innerHTML = `
+<table cellpadding="0" cellspacing="0" border="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.4; color: #07101B; background-color: #ffffff; max-width: 530px;">
+  <tr>
+    <td style="padding-right: 18px; vertical-align: middle; width: 76px;">
+      <a href="https://jeffersonpizzio.com" target="_blank" style="text-decoration: none; display: block;">
+        <img src="https://jeffersonpizzio.com/assets/images/jefferson_pizzio_avatar_signature.jpg" alt="Jefferson Pizzio" width="74" height="74" style="width: 74px; height: 74px; border-radius: 50%; border: 2.5px solid #C5A880; display: block; object-fit: cover;">
+      </a>
+    </td>
+    <td style="padding-left: 18px; vertical-align: top; border-left: 2.5px solid #C5A880;">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="font-family: Georgia, 'Times New Roman', serif; font-size: 19px; font-weight: bold; color: #07101B; letter-spacing: 0.8px; text-transform: uppercase; line-height: 1.1;">
+            ${data.name}
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 11px; font-weight: 800; color: #8E6D38; letter-spacing: 0.5px; text-transform: uppercase; padding-top: 3px; padding-bottom: 4px; line-height: 1.2;">
+            ${data.role}
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 11px; color: #475569; padding-bottom: 7px; line-height: 1.2;">
+            <span style="font-weight: 700; color: #07101B;">Jefferson Pizzio Advisory</span> &middot; <span style="color: #64748B;">Wealth & Succession Planning</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 11.5px; color: #1E293B; line-height: 1.5;">
+            <div style="white-space: nowrap;">
+              <span style="color: #8E6D38; font-weight: 800; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.5px;">Tel / WhatsApp:</span>
+              <a href="${waLink}" target="_blank" style="color: #07101B; text-decoration: none; font-weight: 600; margin-left: 3px;">
+                ${data.phone}
+              </a>
+              <span style="color: #CBD5E1; margin: 0 8px;">&vert;</span>
+              <span style="color: #8E6D38; font-weight: 800; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.5px;">E-mail:</span>
+              <a href="mailto:${data.email}" style="color: #07101B; text-decoration: none; font-weight: 600; margin-left: 3px;">
+                ${data.email}
+              </a>
+            </div>
+            <div style="padding-top: 3px; white-space: nowrap;">
+              <span style="color: #8E6D38; font-weight: 800; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.5px;">Website:</span>
+              <a href="https://jeffersonpizzio.com" target="_blank" style="color: #8E6D38; text-decoration: none; font-weight: 800; letter-spacing: 0.4px; margin-left: 3px;">
+                jeffersonpizzio.com
+              </a>
+              <span style="color: #CBD5E1; margin: 0 8px;">&vert;</span>
+              <span style="color: #64748B; font-size: 10.5px;">Porto Alegre &middot; Brasil &middot; Global</span>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" style="padding-top: 10px;">
+      <table cellpadding="0" cellspacing="0" border="0" style="border-top: 1px solid #E2E8F0; width: 100%;">
+        <tr>
+          <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 8.5px; line-height: 1.35; color: #94A3B8; padding-top: 7px;">
+            <strong style="color: #64748B;">CONFIDENCIALIDADE:</strong> Esta mensagem e seus anexos s&atilde;o estritamente confidenciais e protegidos por sigilo profissional, destinados exclusivamente ao destinat&aacute;rio. Caso tenha recebido por engano, por favor notifique o remetente e desconsidere o conte&uacute;do.
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>`;
+      } else {
+        container.innerHTML = `
+<table cellpadding="0" cellspacing="0" border="0" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; line-height: 1.4; color: #07101B; background-color: #ffffff; max-width: 480px;">
+  <tr>
+    <td style="border-left: 2.5px solid #C5A880; padding-left: 12px;">
+      <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 15px; font-weight: bold; color: #07101B; letter-spacing: 0.5px; text-transform: uppercase;">
+        ${data.name}
+      </div>
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 10.5px; font-weight: 800; color: #8E6D38; letter-spacing: 0.5px; text-transform: uppercase; padding-top: 1px;">
+        ${data.role} &middot; <span style="color: #64748B; font-weight: 600;">Wealth Advisory</span>
+      </div>
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 11px; color: #334155; padding-top: 4px;">
+        <a href="${waLink}" target="_blank" style="color: #07101B; text-decoration: none; font-weight: 600;">
+          <span style="color: #8E6D38; font-weight: bold;">WhatsApp:</span> ${data.phone}
+        </a>
+        <span style="color: #CBD5E1; margin: 0 6px;">&vert;</span>
+        <a href="https://jeffersonpizzio.com" target="_blank" style="color: #8E6D38; text-decoration: none; font-weight: bold;">
+          jeffersonpizzio.com
+        </a>
+      </div>
+    </td>
+  </tr>
+</table>`;
+      }
+    }
+
+    async function copySignature() {
+      const container = document.getElementById('signature-container');
+      const btn = document.getElementById('btn-copy');
+
+      let copied = false;
+      if (navigator.clipboard && window.ClipboardItem) {
+        try {
+          const typeHtml = 'text/html';
+          const typeText = 'text/plain';
+          const blobHtml = new Blob([container.innerHTML], { type: typeHtml });
+          const blobText = new Blob([container.innerText], { type: typeText });
+          const data = [new ClipboardItem({ [typeHtml]: blobHtml, [typeText]: blobText })];
+          await navigator.clipboard.write(data);
+          copied = true;
+        } catch (e) {
+          console.warn('ClipboardItem error, trying fallback', e);
+        }
+      }
+
+      if (!copied) {
+        const range = document.createRange();
+        range.selectNodeContents(container);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        copied = document.execCommand('copy');
+        sel.removeAllRanges();
+      }
+
+      if (copied) {
+        const originalText = btn.innerHTML;
+        btn.classList.add('copied');
+        btn.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>✓ Assinatura Copiada! Agora cole com Ctrl + V</span>
+        `;
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = originalText;
+        }, 4000);
+      } else {
+        alert('Por favor, selecione com o mouse a assinatura acima e pressione Ctrl + C para copiar.');
+      }
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      
+      event.target.classList.add('active');
+      const targetContent = document.getElementById('tab-' + tabId);
+      if (targetContent) targetContent.classList.add('active');
+    }
+
+    // Inicializa
+    updateSignature();
+  </script>
+
+</body>
+</html>

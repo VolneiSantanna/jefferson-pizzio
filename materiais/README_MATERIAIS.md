@@ -113,6 +113,21 @@ Abaixo está o detalhamento de cada um dos 3 materiais desenvolvidos:
 
 ---
 
+### 6. `assinatura-email.html` — Assinaturas Corporativas de E-mail (Outlook & GoDaddy)
+- **Para que serve**: Configurador e instalador oficial da assinatura de e-mail de Jefferson Pizzio, substituindo o antigo modelo corporativo da Origem Capital por uma identidade exclusiva Private Wealth Advisory.
+- **Modelos Disponíveis**:
+  1. *Modelo 1: Minimalista Ouro (Sem Foto)* — 100% tipográfico, ultraleve, com monograma JP e borda em ouro nobre.
+  2. *Modelo 2: Foto Oficial & Borda Dourada* — Com avatar circular em alta resolução hospedado com SSL no domínio próprio.
+  3. *Modelo 3: Compacta para Respostas* — Versão sintetizada de 2 linhas para respostas rápidas (Reply/Forward).
+- **Recursos da Ferramenta**:
+  - Botão de cópia formatada em 1 clique (Ctrl+C direto no clipboard do sistema);
+  - Download de arquivos `.htm` para a pasta de assinaturas do Outlook (`%appdata%\Microsoft\Signatures`);
+  - Passo a passo completo para GoDaddy Webmail, Microsoft 365, Outlook Desktop (Win/Mac) e smartphones.
+- **Arquivos Standalone**: `assinatura-jefferson-pizzio.htm`, `assinatura-jefferson-pizzio-foto.htm` e `assinatura-jefferson-pizzio-compacta.htm`.
+- **Manual Completo**: `GUIA_CONFIGURACAO_ASSINATURA.md`.
+
+---
+
 ## 🖨️ Como Salvar ou Imprimir em PDF de Alta Qualidade
 
 Todos os materiais contam com:
