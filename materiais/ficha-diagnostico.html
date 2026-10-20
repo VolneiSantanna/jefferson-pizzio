@@ -17,21 +17,22 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg-desk: #07101B;
       --sheet-bg: #FFFFFF;
-      --gold-primary: #9E7D47;
-      --gold-dark: #7A5E32;
+      --gold-primary: #8E6D38;
+      --gold-dark: #684E25;
       --gold-light: #C5A880;
-      --gold-soft: #F4EFE6;
-      --text-dark: #0F172A;
-      --text-label: #334155;
-      --text-sub: #64748B;
-      --border-form: #CBD5E1;
-      --border-strong: #94A3B8;
+      --gold-soft: #FBF8F3;
+      --text-dark: #09131F;
+      --text-label: #0F1E36;
+      --text-sub: #475569;
+      --border-form: #94A3B8;
+      --border-light: #CBD5E1;
+      --border-guide: #94A3B8;
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       --font-mono: 'IBM Plex Mono', monospace;
@@ -44,7 +45,9 @@
       color: var(--text-dark);
       font-family: var(--font-body);
       -webkit-font-smoothing: antialiased;
-      line-height: 1.4;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      line-height: 1.35;
     }
 
     /* BARRA SUPERIOR DE AÇÕES (NÃO IMPRIME) */
@@ -72,7 +75,7 @@
 
     .doc-badge {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.68rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold-light);
@@ -84,8 +87,8 @@
 
     .doc-name {
       color: #F8FAFC;
-      font-size: 0.88rem;
-      font-weight: 500;
+      font-size: 0.92rem;
+      font-weight: 600;
     }
 
     .action-buttons {
@@ -98,11 +101,11 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 18px;
-      font-size: 0.72rem;
+      padding: 9px 20px;
+      font-size: 0.74rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
       border-radius: 4px;
       cursor: pointer;
@@ -121,11 +124,11 @@
 
     .btn-outline {
       background: transparent;
-      color: #94A3B8;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #CBD5E1;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
     .btn-outline:hover {
-      color: #F8FAFC;
+      color: #FFFFFF;
       border-color: var(--gold-light);
     }
 
@@ -142,8 +145,8 @@
       height: 297mm;
       max-height: 297mm;
       background: var(--sheet-bg);
-      padding: 10mm 12mm 8mm 12mm;
-      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.7);
+      padding: 8mm 11mm 6mm 11mm;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
       border-radius: 2px;
       position: relative;
       display: flex;
@@ -155,11 +158,11 @@
     /* BORDA DE RECORTE / MOLDURA EXECUTIVA */
     .sheet-border {
       position: absolute;
-      top: 5mm;
-      left: 5mm;
-      right: 5mm;
-      bottom: 5mm;
-      border: 1px solid #E2E8F0;
+      top: 4mm;
+      left: 4mm;
+      right: 4mm;
+      bottom: 4mm;
+      border: 1px solid #CBD5E1;
       pointer-events: none;
     }
 
@@ -168,9 +171,9 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      border-bottom: 2px solid var(--gold-primary);
+      border-bottom: 2.5px solid var(--gold-primary);
       padding-bottom: 6px;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
 
     .brand-block {
@@ -180,22 +183,22 @@
 
     .brand-logo {
       font-family: var(--font-display);
-      font-size: 21px;
+      font-size: 24px;
       font-weight: 700;
       letter-spacing: 0.12em;
-      color: #0A1420;
+      color: #07111D;
       text-transform: uppercase;
       line-height: 1;
     }
 
     .brand-sub {
       font-family: var(--font-body);
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: 0.26em;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
       color: var(--gold-primary);
       text-transform: uppercase;
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
     .header-center {
@@ -204,41 +207,45 @@
 
     .form-title {
       font-family: var(--font-display);
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--text-dark);
+      letter-spacing: 0.05em;
+      color: #07111D;
       text-transform: uppercase;
+      line-height: 1.1;
     }
 
     .form-tagline {
-      font-size: 7.5px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
       color: var(--gold-primary);
       text-transform: uppercase;
+      margin-top: 2px;
     }
 
     .meta-box {
-      border: 1px solid var(--border-form);
+      border: 1.5px solid var(--gold-primary);
       background: var(--gold-soft);
-      border-radius: 3px;
-      padding: 4px 8px;
+      border-radius: 4px;
+      padding: 5px 10px;
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      gap: 2px;
+      align-items: flex-start;
+      gap: 3px;
     }
 
     .meta-row {
-      font-size: 8.5px;
+      font-size: 10px;
       font-family: var(--font-mono);
-      color: var(--text-dark);
+      color: #07111D;
+      font-weight: 600;
+      white-space: nowrap;
     }
 
     .meta-row strong {
       color: var(--gold-dark);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     /* BLOCOS DO FORMULÁRIO */
@@ -248,25 +255,27 @@
 
     .section-title-bar {
       background: #F1F5F9;
-      border-left: 3px solid var(--gold-primary);
+      border-left: 4px solid var(--gold-primary);
       border-right: 1px solid var(--border-form);
       border-top: 1px solid var(--border-form);
       border-bottom: 1px solid var(--border-form);
-      padding: 3px 8px;
-      font-size: 8.5px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      padding: 3.5px 10px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #0F172A;
+      color: #09131F;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .section-tag-num {
-      color: var(--gold-primary);
+      color: var(--gold-dark);
       font-family: var(--font-mono);
-      font-size: 7.5px;
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
     }
 
     /* TABELA DE CAMPOS */
@@ -278,53 +287,43 @@
 
     .field-table td {
       border: 1px solid var(--border-form);
-      padding: 3px 6px;
+      padding: 3.5px 8px;
       vertical-align: top;
       background: #FFFFFF;
     }
 
     .field-label {
-      font-size: 7.5px;
-      font-weight: 700;
+      font-size: 9px;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       color: var(--text-label);
       display: block;
-      margin-bottom: 1px;
-    }
-
-    .field-label-inline {
-      font-size: 7.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--text-label);
-      display: inline-block;
-      margin-right: 4px;
+      margin-bottom: 2px;
     }
 
     .field-handwrite-space {
-      min-height: 18px;
-      font-size: 9px;
-      color: #334155;
-      font-family: var(--font-body);
+      min-height: 20px;
+      font-size: 10px;
+      color: #1E293B;
     }
 
     .field-handwrite-space-lg {
-      min-height: 40px;
-      font-size: 9px;
-      color: #334155;
+      min-height: 42px;
+      font-size: 10px;
+      color: #1E293B;
     }
 
     .field-handwrite-space-xl {
       min-height: 52px;
-      font-size: 9px;
-      color: #334155;
+      font-size: 10px;
+      color: #1E293B;
     }
 
     /* PONTILHADO GUIA PARA ESCRITA À MÃO */
     .write-line {
-      border-bottom: 1px dashed #CBD5E1;
-      height: 16px;
+      border-bottom: 1px dashed var(--border-guide);
+      height: 17px;
       margin-top: 1px;
     }
 
@@ -335,7 +334,7 @@
     /* OPÇÕES CHECKBOX */
     .check-group {
       display: flex;
-      gap: 12px;
+      gap: 14px;
       align-items: center;
       margin-top: 2px;
     }
@@ -343,29 +342,30 @@
     .check-box-opt {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      font-size: 8px;
-      color: #1E293B;
-      font-weight: 500;
+      gap: 5px;
+      font-size: 9.5px;
+      color: #0F172A;
+      font-weight: 600;
     }
 
     .sq-box {
-      width: 10px;
-      height: 10px;
-      border: 1.2px solid #475569;
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid #1E293B;
       border-radius: 2px;
       display: inline-block;
+      background: #FFFFFF;
     }
 
     /* RODAPÉ DO DOCUMENTO */
     .footer {
-      border-top: 1.5px solid var(--gold-primary);
-      padding-top: 5px;
+      border-top: 2px solid var(--gold-primary);
+      padding-top: 4px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 7.5px;
-      color: #64748B;
+      font-size: 8.5px;
+      color: #475569;
     }
 
     .footer-left {
@@ -375,30 +375,32 @@
     }
 
     .footer-left strong {
-      color: #0F172A;
-      font-weight: 600;
+      color: #09131F;
+      font-weight: 700;
     }
 
     .footer-confidential {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
       color: var(--gold-dark);
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      font-size: 7px;
+      font-size: 8px;
     }
 
     .footer-right {
       text-align: right;
       font-family: var(--font-mono);
-      font-size: 7.5px;
-      color: #334155;
+      font-size: 8.5px;
+      color: #1E293B;
+      line-height: 1.35;
     }
 
     .footer-right strong {
       color: var(--gold-dark);
+      font-weight: 700;
     }
 
     /* RESPONSIVIDADE SCREEN */
@@ -445,7 +447,7 @@
         height: 297mm !important;
         max-height: 297mm !important;
         margin: 0 !important;
-        padding: 8mm 10mm 7mm 10mm !important;
+        padding: 7mm 10mm 5mm 10mm !important;
         box-shadow: none !important;
         border-radius: 0 !important;
         page-break-after: avoid !important;
@@ -454,11 +456,11 @@
       }
 
       .sheet-border {
-        top: 4mm !important;
-        left: 4mm !important;
-        right: 4mm !important;
-        bottom: 4mm !important;
-        border: 0.8px solid #CBD5E1 !important;
+        top: 3.5mm !important;
+        left: 3.5mm !important;
+        right: 3.5mm !important;
+        bottom: 3.5mm !important;
+        border: 0.8px solid #94A3B8 !important;
       }
     }
   </style>
@@ -473,11 +475,11 @@
     </div>
     <div class="action-buttons">
       <button onclick="window.print()" class="btn btn-gold">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
         Imprimir Ficha (A4)
       </button>
       <a href="Ficha_Diagnostico_Patrimonial_Jefferson_Pizzio.pdf" download class="btn btn-outline">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
         Baixar PDF
       </a>
       <a href="../" class="btn btn-outline">Voltar ao Portal</a>
@@ -502,8 +504,8 @@
         </div>
 
         <div class="meta-box">
-          <div class="meta-row"><strong>DATA:</strong> ____ / ____ / 2026</div>
-          <div class="meta-row"><strong>FINDER / INDICAÇÃO:</strong> _________________</div>
+          <div class="meta-row"><strong>DATA:</strong> ____ / ____ / ________</div>
+          <div class="meta-row"><strong>FINDER / INDICAÇÃO:</strong> _______________________</div>
         </div>
       </div>
 
@@ -548,7 +550,7 @@
             <td>
               <span class="field-label">Renda Mensal Líquida / Retirada</span>
               <div class="field-handwrite-space" style="display: flex; align-items: center; gap: 4px;">
-                <span style="font-weight: 600; font-size: 8px; color: var(--gold-dark);">R$</span>
+                <span style="font-weight: 700; font-size: 9.5px; color: var(--gold-dark);">R$</span>
               </div>
             </td>
             <td>
@@ -575,7 +577,7 @@
           <tr>
             <td style="width: 50%;">
               <span class="field-label">Estado Civil / Casamento</span>
-              <div class="check-group" style="margin-bottom: 3px;">
+              <div class="check-group" style="margin-bottom: 4px;">
                 <span class="check-box-opt"><span class="sq-box"></span> Casado(a)</span>
                 <span class="check-box-opt"><span class="sq-box"></span> União Estável</span>
                 <span class="check-box-opt"><span class="sq-box"></span> Solteiro</span>
@@ -604,7 +606,7 @@
             <td rowspan="2">
               <span class="field-label">Mensalidades Escolares / Custo com Filhos</span>
               <div class="field-handwrite-space" style="margin-bottom: 2px;">
-                <span style="font-weight: 600; font-size: 8px; color: var(--gold-dark);">R$</span>
+                <span style="font-weight: 700; font-size: 9.5px; color: var(--gold-dark);">R$</span>
               </div>
               <span class="field-label">Observações sobre Dependentes / Sucessores</span>
               <div class="write-line"></div>
@@ -639,8 +641,8 @@
               <span class="field-label">Patrimônio Imobilizado (Imóveis, Terrenos, Quotas, Fazendas)</span>
               <div class="field-handwrite-space-lg">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                  <span style="font-size: 8px; color: var(--text-sub);">Estimativa Global:</span>
-                  <span style="font-weight: 700; font-size: 8.5px; color: var(--gold-dark);">R$ ____________________</span>
+                  <span style="font-size: 8.5px; font-weight: 600; color: var(--text-sub);">Estimativa Global:</span>
+                  <span style="font-weight: 700; font-size: 9.5px; color: var(--gold-dark);">R$ ____________________</span>
                 </div>
                 <div class="write-line"></div>
                 <div class="write-line"></div>
@@ -650,8 +652,8 @@
               <span class="field-label">Patrimônio Financeiro Líquido (Bancos, Corretoras, CDBs, Ações)</span>
               <div class="field-handwrite-space-lg">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-                  <span style="font-size: 8px; color: var(--text-sub);">Estimativa Global:</span>
-                  <span style="font-weight: 700; font-size: 8.5px; color: var(--gold-dark);">R$ ____________________</span>
+                  <span style="font-size: 8.5px; font-weight: 600; color: var(--text-sub);">Estimativa Global:</span>
+                  <span style="font-weight: 700; font-size: 9.5px; color: var(--gold-dark);">R$ ____________________</span>
                 </div>
                 <div class="write-line"></div>
                 <div class="write-line"></div>
@@ -670,8 +672,8 @@
               <span class="field-label">Custo Mensal de Manutenção do Padrão de Vida Familiar</span>
               <div class="field-handwrite-space">
                 <div style="display: flex; align-items: center; gap: 4px; margin-top: 2px;">
-                  <span style="font-weight: 700; font-size: 8.5px; color: var(--gold-dark);">R$</span>
-                  <span style="font-size: 8px; color: #475569;">____________________ / mês</span>
+                  <span style="font-weight: 700; font-size: 9.5px; color: var(--gold-dark);">R$</span>
+                  <span style="font-size: 9px; color: #334155;">____________________ / mês</span>
                 </div>
                 <div class="write-line" style="margin-top: 4px;"></div>
               </div>
@@ -697,7 +699,7 @@
       </div>
 
       <!-- SEÇÃO 4: CONTEXTO, GARGALOS & OBSERVAÇÕES -->
-      <div class="form-section" style="margin-bottom: 4px;">
+      <div class="form-section" style="margin-bottom: 3px;">
         <div class="section-title-bar">
           <span>4. Contexto Societário, Gargalos & Observações Estratégicas</span>
           <span class="section-tag-num">DIAGNÓSTICO QUALITATIVO</span>
@@ -731,7 +733,7 @@
       <div class="footer">
         <div class="footer-left">
           <div class="footer-confidential">
-            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
             Documento de Uso Restrito & Estritamente Confidencial
           </div>
           <div>Jefferson Pizzio Advisory · Estratégia de Proteção Patrimonial, Liquidez & Sucessão</div>
