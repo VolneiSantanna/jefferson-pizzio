@@ -456,6 +456,156 @@
       color: var(--gold-light);
     }
 
+    /* CONTROLES E GRID DA TABELA EDITÁVEL */
+    .table-dim-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.28);
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(197, 168, 128, 0.22);
+      margin-top: 6px;
+    }
+
+    .dim-counter-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+    }
+
+    .btn-counter {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      border: 1px solid rgba(197, 168, 128, 0.4);
+      background: rgba(197, 168, 128, 0.12);
+      color: var(--gold-light);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 0.85rem;
+      transition: all 0.15s;
+      line-height: 1;
+      padding: 0;
+    }
+    .btn-counter:hover {
+      background: var(--gold-primary);
+      color: #07101B;
+      border-color: var(--gold-primary);
+    }
+
+    .counter-num-input {
+      width: 44px;
+      height: 24px;
+      background: var(--bg-input);
+      border: 1px solid rgba(197, 168, 128, 0.35);
+      color: #FFFFFF;
+      border-radius: 4px;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      outline: none;
+    }
+    .counter-num-input::-webkit-inner-spin-button,
+    .counter-num-input::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .table-editor-scroll {
+      overflow-x: auto;
+      max-width: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      padding: 6px;
+      margin-top: 6px;
+    }
+
+    .table-editor-grid {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 4px;
+    }
+
+    .table-th-input {
+      width: 100%;
+      background: rgba(197, 168, 128, 0.15);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: 0.72rem;
+      padding: 5px 6px;
+      border-radius: 3px;
+      outline: none;
+      box-sizing: border-box;
+      min-width: 110px;
+    }
+    .table-th-input:focus {
+      border-color: #FFFFFF;
+      background: rgba(197, 168, 128, 0.25);
+    }
+
+    .table-td-input {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #F1F5F9;
+      font-size: 0.72rem;
+      padding: 5px 6px;
+      border-radius: 3px;
+      outline: none;
+      box-sizing: border-box;
+      min-width: 110px;
+    }
+    .table-td-input:focus {
+      border-color: var(--gold-light);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .btn-table-action {
+      background: rgba(197, 168, 128, 0.08);
+      border: 1px dashed rgba(197, 168, 128, 0.4);
+      color: var(--gold-light);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+    .btn-table-action:hover {
+      background: rgba(197, 168, 128, 0.2);
+      color: #FFFFFF;
+      border-style: solid;
+      border-color: var(--gold-light);
+    }
+
+    .btn-del-cell {
+      background: transparent;
+      border: none;
+      color: #64748B;
+      cursor: pointer;
+      font-size: 0.72rem;
+      padding: 2px 4px;
+      border-radius: 2px;
+      line-height: 1;
+      transition: color 0.15s;
+    }
+    .btn-del-cell:hover {
+      color: #EF4444;
+      background: rgba(239, 68, 68, 0.12);
+    }
+
     /* PAINEL DE VISUALIZAÇÃO DA FOLHA A4 AO VIVO */
     .preview-pane {
       background: #04080F;
@@ -734,6 +884,11 @@
 
     .rendered-table tr:nth-child(even) td {
       background: #F8FAFC;
+    }
+
+    .rendered-table.table-dense th, .rendered-table.table-dense td {
+      padding: 4px 6px;
+      font-size: 8.5px;
     }
 
     /* LISTA DE PONTOS RENDERIZADA */
@@ -1117,8 +1272,27 @@
 
   <script>
 
+    // UTILITÁRIOS
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    function escapeAttr(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
     // ESTADO DO DOCUMENTO
-        function safeGetStorage(key) {
+    function safeGetStorage(key) {
       try {
         return localStorage.getItem(key);
       } catch (e) {
@@ -1502,12 +1676,101 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
             </div>
           `;
         } else if (block.type === 'table') {
+          // Normaliza cabeçalhos e linhas
+          block.headers = Array.isArray(block.headers) && block.headers.length > 0 ? block.headers : ["Coluna 1", "Coluna 2"];
+          block.rows = Array.isArray(block.rows) && block.rows.length > 0 ? block.rows : [["", ""]];
+          block.rows.forEach(r => {
+            while (r.length < block.headers.length) r.push("");
+            if (r.length > block.headers.length) r.length = block.headers.length;
+          });
+
+          const numCols = block.headers.length;
+          const numRows = block.rows.length;
+
+          const thInputs = block.headers.map((h, colIdx) => `
+            <th style="padding: 2px;">
+              <div style="display: flex; align-items: center; gap: 2px;">
+                <input type="text" class="table-th-input" 
+                  value="${escapeAttr(h)}" 
+                  placeholder="Coluna ${colIdx + 1}"
+                  title="Título da Coluna ${colIdx + 1}"
+                  oninput="updateTableHeader(${idx}, ${colIdx}, this.value)">
+                ${numCols > 1 ? `
+                  <button type="button" class="btn-del-cell" title="Remover Coluna ${colIdx + 1}" onclick="deleteTableCol(${idx}, ${colIdx})">✕</button>
+                ` : ''}
+              </div>
+            </th>
+          `).join('');
+
+          const trInputs = block.rows.map((row, rowIdx) => `
+            <tr>
+              <td style="width: 20px; font-size: 0.65rem; color: #64748B; text-align: center; font-family: var(--font-mono);">${rowIdx + 1}</td>
+              ${row.map((cell, colIdx) => `
+                <td style="padding: 2px;">
+                  <input type="text" class="table-td-input" 
+                    value="${escapeAttr(cell)}" 
+                    placeholder="Dado..."
+                    oninput="updateTableCell(${idx}, ${rowIdx}, ${colIdx}, this.value)">
+                </td>
+              `).join('')}
+              <td style="width: 22px; text-align: center;">
+                ${numRows > 1 ? `
+                  <button type="button" class="btn-del-cell" title="Excluir Linha ${rowIdx + 1}" onclick="deleteTableRow(${idx}, ${rowIdx})">✕</button>
+                ` : ''}
+              </td>
+            </tr>
+          `).join('');
+
           contentInputs = `
             <div class="field-group">
               <label class="field-label">Título da Tabela</label>
-              <input type="text" class="field-input" value="${block.title}" oninput="updateTableTitle(${idx}, this.value)">
+              <input type="text" class="field-input" value="${escapeAttr(block.title || '')}" oninput="updateTableTitle(${idx}, this.value)">
             </div>
-            <div style="font-size: 0.75rem; color: #94A3B8;">Tabela com ${block.headers.length} colunas e ${block.rows.length} linhas.</div>
+
+            <!-- CONTROLE DE DIMENSÕES: COLUNAS E LINHAS -->
+            <div class="table-dim-controls">
+              <div class="dim-counter-group">
+                <span style="font-weight: 700; color: var(--gold-light);">Colunas:</span>
+                <button type="button" class="btn-counter" title="Diminuir Colunas" onclick="changeTableCols(${idx}, -1)">−</button>
+                <input type="number" min="1" max="8" class="counter-num-input" value="${numCols}" onchange="setTableColsCount(${idx}, this.value)">
+                <button type="button" class="btn-counter" title="Aumentar Colunas" onclick="changeTableCols(${idx}, 1)">+</button>
+              </div>
+
+              <div style="width: 1px; height: 18px; background: rgba(255,255,255,0.12);"></div>
+
+              <div class="dim-counter-group">
+                <span style="font-weight: 700; color: var(--gold-light);">Linhas:</span>
+                <button type="button" class="btn-counter" title="Diminuir Linhas" onclick="changeTableRows(${idx}, -1)">−</button>
+                <input type="number" min="1" max="30" class="counter-num-input" value="${numRows}" onchange="setTableRowsCount(${idx}, this.value)">
+                <button type="button" class="btn-counter" title="Aumentar Linhas" onclick="changeTableRows(${idx}, 1)">+</button>
+              </div>
+            </div>
+
+            <!-- GRID EDITÁVEL DAS CÉLULAS -->
+            <div style="margin-top: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <label class="field-label" style="margin: 0;">Células da Tabela</label>
+                <div style="font-size: 0.68rem; color: #64748B;">Edite os textos diretamente</div>
+              </div>
+              <div class="table-editor-scroll">
+                <table class="table-editor-grid">
+                  <thead>
+                    <tr>
+                      <th style="width: 20px; font-size: 0.65rem; color: #64748B; text-align: center;">#</th>
+                      ${thInputs}
+                      <th style="width: 22px;"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${trInputs}
+                  </tbody>
+                </table>
+              </div>
+              <div style="display: flex; gap: 8px; margin-top: 8px;">
+                <button type="button" class="btn-table-action" onclick="addTableRow(${idx})">+ Adicionar Linha</button>
+                <button type="button" class="btn-table-action" onclick="addTableCol(${idx})">+ Adicionar Coluna</button>
+              </div>
+            </div>
           `;
         } else if (block.type === 'list') {
           contentInputs = `
@@ -1570,6 +1833,134 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
       documentState.blocks[idx].title = val;
       renderDoc();
       debouncedSave();
+    }
+
+    function updateTableHeader(blockIdx, colIdx, val) {
+      documentState.blocks[blockIdx].headers[colIdx] = val;
+      renderDoc();
+      debouncedSave();
+    }
+
+    function updateTableCell(blockIdx, rowIdx, colIdx, val) {
+      if (!documentState.blocks[blockIdx].rows[rowIdx]) {
+        documentState.blocks[blockIdx].rows[rowIdx] = [];
+      }
+      documentState.blocks[blockIdx].rows[rowIdx][colIdx] = val;
+      renderDoc();
+      debouncedSave();
+    }
+
+    function changeTableCols(blockIdx, delta) {
+      const block = documentState.blocks[blockIdx];
+      const current = block.headers.length;
+      const target = Math.max(1, Math.min(8, current + delta));
+      if (target === current) return;
+
+      if (target > current) {
+        for (let i = current; i < target; i++) {
+          block.headers.push(`Coluna ${i + 1}`);
+          block.rows.forEach(r => r.push(""));
+        }
+      } else {
+        let hasData = false;
+        for (let c = target; c < current; c++) {
+          if (block.headers[c] && !block.headers[c].startsWith("Coluna ")) hasData = true;
+          if (block.rows.some(r => r[c] && r[c].trim() !== "")) hasData = true;
+        }
+        if (hasData && !confirm(`Deseja remover as últimas ${current - target} coluna(s) e seus dados?`)) {
+          renderBlocksEditor();
+          return;
+        }
+        block.headers.splice(target);
+        block.rows.forEach(r => r.splice(target));
+      }
+      renderBlocksEditor();
+      renderDoc();
+      saveToStorage();
+    }
+
+    function setTableColsCount(blockIdx, val) {
+      let target = parseInt(val, 10);
+      if (isNaN(target) || target < 1) target = 1;
+      if (target > 8) target = 8;
+      const current = documentState.blocks[blockIdx].headers.length;
+      changeTableCols(blockIdx, target - current);
+    }
+
+    function changeTableRows(blockIdx, delta) {
+      const block = documentState.blocks[blockIdx];
+      const current = block.rows.length;
+      const target = Math.max(1, Math.min(30, current + delta));
+      if (target === current) return;
+
+      if (target > current) {
+        for (let i = current; i < target; i++) {
+          block.rows.push(new Array(block.headers.length).fill(""));
+        }
+      } else {
+        let hasData = false;
+        for (let r = target; r < current; r++) {
+          if (block.rows[r].some(c => c && c.trim() !== "")) hasData = true;
+        }
+        if (hasData && !confirm(`Deseja remover as últimas ${current - target} linha(s) e seus dados?`)) {
+          renderBlocksEditor();
+          return;
+        }
+        block.rows.splice(target);
+      }
+      renderBlocksEditor();
+      renderDoc();
+      saveToStorage();
+    }
+
+    function setTableRowsCount(blockIdx, val) {
+      let target = parseInt(val, 10);
+      if (isNaN(target) || target < 1) target = 1;
+      if (target > 30) target = 30;
+      const current = documentState.blocks[blockIdx].rows.length;
+      changeTableRows(blockIdx, target - current);
+    }
+
+    function addTableCol(blockIdx) {
+      changeTableCols(blockIdx, 1);
+    }
+
+    function addTableRow(blockIdx) {
+      changeTableRows(blockIdx, 1);
+    }
+
+    function deleteTableCol(blockIdx, colIdx) {
+      const block = documentState.blocks[blockIdx];
+      if (block.headers.length <= 1) {
+        alert("A tabela precisa ter no mínimo 1 coluna.");
+        return;
+      }
+      const hasData = (block.headers[colIdx] && !block.headers[colIdx].startsWith("Coluna ")) ||
+                      block.rows.some(r => r[colIdx] && r[colIdx].trim() !== "");
+      if (hasData && !confirm(`Deseja remover a Coluna ${colIdx + 1} ("${block.headers[colIdx] || ''}") e seus dados?`)) {
+        return;
+      }
+      block.headers.splice(colIdx, 1);
+      block.rows.forEach(r => r.splice(colIdx, 1));
+      renderBlocksEditor();
+      renderDoc();
+      saveToStorage();
+    }
+
+    function deleteTableRow(blockIdx, rowIdx) {
+      const block = documentState.blocks[blockIdx];
+      if (block.rows.length <= 1) {
+        alert("A tabela precisa ter no mínimo 1 linha.");
+        return;
+      }
+      const hasData = block.rows[rowIdx].some(c => c && c.trim() !== "");
+      if (hasData && !confirm(`Deseja remover a Linha ${rowIdx + 1}?`)) {
+        return;
+      }
+      block.rows.splice(rowIdx, 1);
+      renderBlocksEditor();
+      renderDoc();
+      saveToStorage();
     }
 
     function updateListItems(idx, val) {
@@ -1681,12 +2072,14 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
             ${block.caption ? `<div class="rendered-image-caption">${block.caption}</div>` : ''}
           `;
         } else if (block.type === 'table') {
+          const colCount = (block.headers || []).length;
+          const isDense = colCount >= 5;
           div.className = 'rendered-table-wrap';
-          let ths = block.headers.map(h => `<th>${h}</th>`).join('');
-          let trs = block.rows.map(row => `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`).join('');
+          let ths = (block.headers || []).map(h => `<th>${h ? escapeHtml(h) : '&nbsp;'}</th>`).join('');
+          let trs = (block.rows || []).map(row => `<tr>${(row || []).map(c => `<td>${c ? escapeHtml(c) : '&nbsp;'}</td>`).join('')}</tr>`).join('');
           div.innerHTML = `
-            ${block.title ? `<div class="rendered-table-title">${block.title}</div>` : ''}
-            <table class="rendered-table">
+            ${block.title ? `<div class="rendered-table-title">${escapeHtml(block.title)}</div>` : ''}
+            <table class="rendered-table ${isDense ? 'table-dense' : ''}">
               <thead><tr>${ths}</tr></thead>
               <tbody>${trs}</tbody>
             </table>
