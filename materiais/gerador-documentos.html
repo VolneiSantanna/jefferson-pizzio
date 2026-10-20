@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criador de Documentos Executivos em PDF | Jefferson Pizzio Advisory</title>
+  <meta name="description" content="Ferramenta executiva para criação de cartas consultivas, pareceres e relatórios personalizados em PDF no padrão Jefferson Pizzio Advisory.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Jefferson Pizzio Advisory">
+  <meta property="og:url" content="https://jeffersonpizzio.com/materiais/gerador-documentos">
+  <meta property="og:title" content="Criador de Documentos Executivos em PDF | Jefferson Pizzio Advisory">
+  <meta property="og:description" content="Crie documentos executivos, cartas consultivas e relatórios em PDF com identidade visual nobre e colar de imagens via Ctrl+V.">
+  <meta property="og:image" content="https://jeffersonpizzio.com/assets/images/og-share-card.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-desk: #07101B;
+      --bg-panel: #0E1A2B;
+      --bg-panel-inner: #142236;
+      --bg-input: #091322;
+      --gold-primary: #8E6D38;
+      --gold-dark: #634A21;
+      --gold-light: #C5A880;
+      --gold-soft: #F9F6F0;
+      --text-dark: #07111D;
+      --text-main: #F1F5F9;
+      --text-sub: #94A3B8;
+      --border-line: rgba(197, 168, 128, 0.3);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-desk);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* BARRA SUPERIOR */
+    .top-action-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 16, 27, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-line);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .doc-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .doc-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      padding: 4px 12px;
+      border: 1px solid rgba(197, 168, 128, 0.35);
+      border-radius: 20px;
+      background: rgba(197, 168, 128, 0.08);
+      font-weight: 600;
+    }
+
+    .doc-name {
+      color: #F8FAFC;
+      font-size: 0.98rem;
+      font-weight: 700;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: transparent;
+      color: #CBD5E1;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+    .btn-top:hover {
+      color: #FFFFFF;
+      border-color: var(--gold-light);
+    }
+
+    .btn-export-pdf {
+      background: linear-gradient(135deg, #C5A880, #8E6D38);
+      color: #07101B !important;
+      border: 1px solid var(--gold-light);
+      font-weight: 800;
+      box-shadow: 0 4px 16px rgba(197, 168, 128, 0.35);
+    }
+    .btn-export-pdf:hover {
+      background: linear-gradient(135deg, #DFC9AB, #A17A3D);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(197, 168, 128, 0.5);
+    }
+
+    /* BARRA DIDÁTICA: 3 PASSOS VISUAIS */
+    .didactic-bar {
+      background: rgba(14, 26, 43, 0.95);
+      border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .steps-container {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .step-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: #CBD5E1;
+    }
+
+    .step-pill-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(197, 168, 128, 0.2);
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      flex-shrink: 0;
+    }
+
+    .step-pill strong {
+      color: #FFFFFF;
+    }
+
+    .save-status-indicator {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #10B981;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* LAYOUT PRINCIPAL SPLIT (EDITOR À ESQUERDA + A4 AO VIVO À DIREITA) */
+    .studio-container {
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      min-height: calc(100vh - 110px);
+    }
+
+    /* PAINEL DO EDITOR */
+    .editor-pane {
+      background: var(--bg-panel);
+      border-right: 1px solid var(--border-line);
+      padding: 24px 20px 80px;
+      overflow-y: auto;
+      max-height: calc(100vh - 110px);
+    }
+
+    /* SELETOR DE MODELOS */
+    .templates-box {
+      background: var(--bg-panel-inner);
+      border: 1px solid rgba(197, 168, 128, 0.25);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+
+    .templates-title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .templates-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .template-btn {
+      background: var(--bg-input);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #E2E8F0;
+      padding: 9px 10px;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.2s;
+      text-align: left;
+    }
+    .template-btn:hover {
+      border-color: var(--gold-light);
+      background: rgba(197, 168, 128, 0.12);
+      color: #FFFFFF;
+    }
+    .template-btn.active {
+      border-color: var(--gold-light);
+      background: rgba(197, 168, 128, 0.2);
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+
+    /* CARTÕES DE SEÇÃO NO EDITOR */
+    .editor-card {
+      background: var(--bg-panel-inner);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .editor-card-header {
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-light);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .field-group {
+      margin-bottom: 12px;
+    }
+    .field-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #CBD5E1;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .field-input, .field-textarea, .field-select {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      padding: 8px 12px;
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .field-input:focus, .field-textarea:focus, .field-select:focus {
+      border-color: var(--gold-light);
+    }
+    .field-textarea {
+      min-height: 80px;
+      resize: vertical;
+      line-height: 1.4;
+    }
+
+    /* BLOCOS DINÂMICOS NO EDITOR */
+    .blocks-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .block-item {
+      background: var(--bg-input);
+      border: 1px solid rgba(197, 168, 128, 0.25);
+      border-radius: 6px;
+      padding: 14px;
+      position: relative;
+    }
+
+    .block-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .block-type-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-light);
+    }
+
+    .block-actions {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-block-ctrl {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #94A3B8;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.7rem;
+      transition: all 0.15s;
+    }
+    .btn-block-ctrl:hover {
+      color: #FFFFFF;
+      border-color: var(--gold-light);
+    }
+    .btn-block-ctrl.btn-delete:hover {
+      color: #EF4444;
+      border-color: #EF4444;
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    /* BARRA PARA ADICIONAR NOVOS BLOCOS */
+    .add-block-panel {
+      background: var(--bg-panel-inner);
+      border: 1.5px dashed rgba(197, 168, 128, 0.35);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .add-block-title {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+
+    .add-buttons-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .btn-add-block {
+      background: var(--bg-input);
+      border: 1px solid rgba(197, 168, 128, 0.3);
+      color: #E2E8F0;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-add-block:hover {
+      background: rgba(197, 168, 128, 0.15);
+      color: #FFFFFF;
+      border-color: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    /* ÁREA DE COLAR IMAGEM DIDÁTICA */
+    .paste-drop-zone {
+      border: 1.5px dashed rgba(197, 168, 128, 0.4);
+      background: rgba(197, 168, 128, 0.05);
+      padding: 14px;
+      border-radius: 6px;
+      text-align: center;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: all 0.2s;
+    }
+    .paste-drop-zone:hover {
+      background: rgba(197, 168, 128, 0.12);
+      border-color: var(--gold-light);
+    }
+    .paste-drop-zone-text {
+      font-size: 0.78rem;
+      color: #CBD5E1;
+      line-height: 1.4;
+    }
+    .paste-drop-zone-text strong {
+      color: var(--gold-light);
+    }
+
+    /* PAINEL DE VISUALIZAÇÃO DA FOLHA A4 AO VIVO */
+    .preview-pane {
+      background: #04080F;
+      padding: 36px 20px 80px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .a4-sheet-container {
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+      transition: transform 0.2s;
+    }
+
+    /* FOLHA A4 (210mm x 297mm) */
+    .a4-page {
+      width: 210mm;
+      min-height: 297mm;
+      background: #FFFFFF;
+      color: #07111D;
+      padding: 14mm 16mm 14mm 16mm;
+      position: relative;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+    }
+
+    /* BORDA MOLDURA EXECUTIVA */
+    .a4-border-frame {
+      position: absolute;
+      top: 5mm;
+      left: 5mm;
+      right: 5mm;
+      bottom: 5mm;
+      border: 1px solid #CBD5E1;
+      pointer-events: none;
+    }
+
+    /* CABEÇALHO DA FOLHA A4 */
+    .doc-header {
+      border-bottom: 2.5px solid var(--gold-primary);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .doc-brand-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .doc-brand-name {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #07111D;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .doc-brand-sub {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .doc-meta-block {
+      text-align: right;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      color: #475569;
+      line-height: 1.4;
+    }
+    .doc-meta-block strong {
+      color: #07111D;
+    }
+
+    /* BLOCO DO DESTINATÁRIO & TÍTULO */
+    .doc-intro-box {
+      background: var(--gold-soft);
+      border-left: 3.5px solid var(--gold-primary);
+      border-top: 1px solid rgba(197, 168, 128, 0.3);
+      border-right: 1px solid rgba(197, 168, 128, 0.3);
+      border-bottom: 1px solid rgba(197, 168, 128, 0.3);
+      padding: 10px 14px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .doc-main-titles {
+      flex: 1;
+    }
+
+    .doc-type-tag {
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+    }
+
+    .doc-title-rendered {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      color: #07111D;
+      line-height: 1.2;
+      margin-top: 2px;
+    }
+
+    .doc-subtitle-rendered {
+      font-size: 10.5px;
+      color: #475569;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .doc-client-rendered {
+      text-align: right;
+      font-size: 10px;
+      color: #334155;
+      line-height: 1.35;
+      padding-left: 12px;
+      border-left: 1px solid rgba(197, 168, 128, 0.4);
+    }
+    .doc-client-rendered strong {
+      color: #07111D;
+      font-size: 11px;
+      display: block;
+    }
+
+    /* CORPO DO DOCUMENTO (CONTEÚDO DINÂMICO) */
+    .doc-content-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* BLOCOS RENDERIZADOS NA FOLHA A4 */
+    .rendered-section-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #07111D;
+      border-bottom: 1.5px solid var(--gold-primary);
+      padding-bottom: 3px;
+      margin-top: 4px;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .rendered-paragraph {
+      font-size: 11px;
+      line-height: 1.55;
+      color: #1E293B;
+      text-align: justify;
+      white-space: pre-line;
+    }
+
+    .rendered-callout {
+      background: var(--gold-soft);
+      border: 1px solid rgba(197, 168, 128, 0.5);
+      border-left: 4px solid var(--gold-primary);
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin: 4px 0;
+    }
+
+    .rendered-callout-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gold-dark);
+      margin-bottom: 3px;
+    }
+
+    .rendered-callout-value {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: #07111D;
+      margin-bottom: 3px;
+    }
+
+    .rendered-callout-desc {
+      font-size: 10px;
+      color: #475569;
+      line-height: 1.4;
+    }
+
+    /* IMAGEM RENDERIZADA */
+    .rendered-image-wrap {
+      margin: 6px 0;
+      text-align: center;
+    }
+
+    .rendered-image-wrap img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 3px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      display: inline-block;
+    }
+    .rendered-image-wrap.with-border img {
+      border: 1px solid #CBD5E1;
+      padding: 3px;
+      background: #FFFFFF;
+    }
+
+    .rendered-image-caption {
+      font-size: 9px;
+      font-style: italic;
+      color: #64748B;
+      margin-top: 4px;
+    }
+
+    /* TABELA RENDERIZADA */
+    .rendered-table-wrap {
+      margin: 4px 0;
+    }
+
+    .rendered-table-title {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #07111D;
+      margin-bottom: 4px;
+    }
+
+    .rendered-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+    }
+
+    .rendered-table th {
+      background: #F1F5F9;
+      color: #07111D;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 6px 10px;
+      border: 1px solid #CBD5E1;
+      text-align: left;
+    }
+
+    .rendered-table td {
+      padding: 5px 10px;
+      border: 1px solid #CBD5E1;
+      color: #1E293B;
+      vertical-align: middle;
+    }
+
+    .rendered-table tr:nth-child(even) td {
+      background: #F8FAFC;
+    }
+
+    /* LISTA DE PONTOS RENDERIZADA */
+    .rendered-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin: 4px 0;
+    }
+
+    .rendered-list li {
+      font-size: 10.5px;
+      color: #1E293B;
+      line-height: 1.45;
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+    }
+
+    .rendered-list-bullet {
+      color: var(--gold-primary);
+      font-weight: 800;
+      font-size: 11px;
+      line-height: 1.3;
+      flex-shrink: 0;
+    }
+
+    /* ASSINATURA RENDERIZADA */
+    .rendered-signature-block {
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1.5px solid #CBD5E1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .rendered-signature-info {
+      font-family: Georgia, serif;
+    }
+    .rendered-signature-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #07111D;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .rendered-signature-role {
+      font-family: var(--font-body);
+      font-size: 9.5px;
+      font-weight: 800;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+    .rendered-signature-contact {
+      font-family: var(--font-body);
+      font-size: 9px;
+      color: #475569;
+      margin-top: 3px;
+    }
+
+    /* RODAPÉ DA FOLHA A4 */
+    .doc-footer {
+      border-top: 1.5px solid var(--gold-primary);
+      padding-top: 6px;
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8px;
+      color: #64748B;
+      gap: 12px;
+    }
+    .doc-footer > div {
+      white-space: nowrap;
+    }
+
+    .doc-footer strong {
+      color: #07111D;
+    }
+
+    /* ESTILOS DE IMPRESSÃO (PDF EXATO A4) */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      html, body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .top-action-bar, .didactic-bar, .editor-pane {
+        display: none !important;
+      }
+
+      .studio-container {
+        display: block !important;
+        min-height: auto !important;
+      }
+
+      .preview-pane {
+        background: #FFFFFF !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: visible !important;
+      }
+
+      .a4-sheet-container {
+        box-shadow: none !important;
+        margin: 0 !important;
+      }
+
+      .a4-page {
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        margin: 0 !important;
+        padding: 12mm 14mm 10mm 14mm !important;
+        box-sizing: border-box !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+        overflow: hidden !important;
+      }
+
+      .a4-border-frame {
+        top: 4mm !important;
+        left: 4mm !important;
+        right: 4mm !important;
+        bottom: 4mm !important;
+        border: 1px solid #94A3B8 !important;
+      }
+    }
+
+    /* RESPONSIVIDADE SCREEN */
+    @media screen and (max-width: 992px) {
+      .studio-container {
+        grid-template-columns: 1fr;
+      }
+      .editor-pane {
+        max-height: none;
+        border-right: none;
+        border-bottom: 1px solid var(--border-line);
+      }
+      .a4-page {
+        width: 100%;
+        min-width: 680px;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR DE AÇÕES -->
+  <div class="top-action-bar">
+    <div class="doc-info">
+      <span class="doc-badge">Estúdio Executivo</span>
+      <span class="doc-name">Criador Didático de Documentos & Pareceres em PDF</span>
+    </div>
+
+    <div class="top-actions">
+      <button class="btn-top" onclick="clearToBlank()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+        Criar do Zero
+      </button>
+
+      <button class="btn-top" onclick="saveToStorage()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+        Salvar Rascunho
+      </button>
+
+      <button class="btn-top btn-export-pdf" onclick="window.print()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        Exportar em PDF (A4)
+      </button>
+
+      <a href="../" class="btn-top">Voltar ao Portal</a>
+    </div>
+  </div>
+
+  <!-- BARRA DIDÁTICA: 3 PASSOS SIMPLES -->
+  <div class="didactic-bar">
+    <div class="steps-container">
+      <div class="step-pill">
+        <span class="step-pill-num">1</span>
+        <span>Escolha um <strong>Modelo Pronto</strong> ou clique em <strong>Criar do Zero</strong></span>
+      </div>
+      <div class="step-pill">
+        <span class="step-pill-num">2</span>
+        <span>Adicione textos, tabelas ou cole imagens com <strong>Ctrl + V</strong></span>
+      </div>
+      <div class="step-pill">
+        <span class="step-pill-num">3</span>
+        <span>Clique no botão dourado <strong>Exportar em PDF</strong> para salvar em A4</span>
+      </div>
+    </div>
+
+    <div class="save-status-indicator" id="save-status">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      <span>Rascunho salvo automaticamente</span>
+    </div>
+  </div>
+
+  <!-- CONTAINER STUDIO SPLIT -->
+  <div class="studio-container">
+
+    <!-- COLUNA ESQUERDA: EDITOR DIDÁTICO -->
+    <div class="editor-pane">
+
+      <!-- SELETOR DE MODELOS PRÉ-CONFIGURADOS -->
+      <div class="templates-box">
+        <div class="templates-title">
+          <span>Modelos Prontos de Início Rápido</span>
+          <span style="font-size: 0.65rem; color: #94A3B8; text-transform: none; font-weight: 500;">1 clique para carregar</span>
+        </div>
+        <div class="templates-grid">
+          <button class="template-btn active" onclick="loadTemplate('carta')" id="tpl-carta">
+            ✉️ Carta Consultiva
+          </button>
+          <button class="template-btn" onclick="loadTemplate('diagnostico')" id="tpl-diagnostico">
+            📊 Parecer de Liquidez
+          </button>
+          <button class="template-btn" onclick="loadTemplate('parceria')" id="tpl-parceria">
+            🤝 Proposta Parceiro
+          </button>
+          <button class="template-btn" onclick="clearToBlank()" id="tpl-blank">
+            📄 Folha em Branco
+          </button>
+        </div>
+      </div>
+
+      <!-- CARTÃO 1: IDENTIFICAÇÃO DO DOCUMENTO -->
+      <div class="editor-card">
+        <div class="editor-card-header">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          1. Cabeçalho & Dados do Cliente
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Tipo de Documento</label>
+          <input type="text" class="field-input" id="inp-doc-type" value="Carta Consultiva · Planejamento Sucessório" oninput="renderDoc()">
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Título Principal do Documento</label>
+          <input type="text" class="field-input" id="inp-doc-title" value="Diagnóstico Preliminar de Estruturação Patrimonial & Liquidez" oninput="renderDoc()">
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Subtítulo / Descrição Rápida</label>
+          <input type="text" class="field-input" id="inp-doc-sub" value="Análise comparativa de custos de transmissão causa mortis e proteção em moeda forte" oninput="renderDoc()">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;" class="field-group">
+          <div>
+            <label class="field-label">Cliente / Família</label>
+            <input type="text" class="field-input" id="inp-client-name" value="Família Silveira & Associados" oninput="renderDoc()">
+          </div>
+          <div>
+            <label class="field-label">Data do Documento</label>
+            <input type="text" class="field-input" id="inp-doc-date" value="20 de Outubro de 2026" oninput="renderDoc()">
+          </div>
+        </div>
+      </div>
+
+      <!-- CARTÃO 2: BLOCOS DE CONTEÚDO -->
+      <div class="editor-card">
+        <div class="editor-card-header">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          2. Blocos de Conteúdo do Documento
+        </div>
+
+        <!-- LISTA DE BLOCOS DINÂMICOS -->
+        <div class="blocks-list" id="blocks-editor-container">
+          <!-- Renderizado via JS -->
+        </div>
+
+        <!-- PAINEL ADICIONAR NOVO BLOCO (DIDÁTICO) -->
+        <div class="add-block-panel">
+          <div class="add-block-title">+ Clique para Adicionar um Novo Bloco:</div>
+          <div class="add-buttons-grid">
+            <button class="btn-add-block" onclick="addBlock('paragraph')">
+              📝 Parágrafo
+            </button>
+            <button class="btn-add-block" onclick="addBlock('title')">
+              🏷️ Título de Seção
+            </button>
+            <button class="btn-add-block" onclick="addBlock('callout')">
+              💡 Destaque Ouro
+            </button>
+            <button class="btn-add-block" onclick="addBlock('image')">
+              🖼️ Imagem (Ctrl+V)
+            </button>
+            <button class="btn-add-block" onclick="addBlock('table')">
+              📊 Tabela
+            </button>
+            <button class="btn-add-block" onclick="addBlock('list')">
+              📌 Lista de Pontos
+            </button>
+          </div>
+
+          <!-- DROP ZONE DIDÁTICA PARA COLAR COM CTRL + V -->
+          <div class="paste-drop-zone" onclick="triggerImageUpload()">
+            <div class="paste-drop-zone-text">
+              📋 <strong>Dica Didática de Imagem:</strong> Tire um print de qualquer tela e pressione <strong>Ctrl + V</strong> aqui para colar na hora, ou clique para escolher um arquivo.
+            </div>
+            <input type="file" id="hidden-file-input" accept="image/*" style="display: none;" onchange="handleFileSelect(event)">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- COLUNA DIREITA: VISUALIZAÇÃO A4 AO VIVO -->
+    <div class="preview-pane">
+      <div class="a4-sheet-container">
+        <div class="a4-page" id="a4-rendered-page">
+          <div class="a4-border-frame"></div>
+
+          <!-- CABEÇALHO OFICIAL DO DOCUMENTO -->
+          <div>
+            <div class="doc-header">
+              <div class="doc-brand-block">
+                <div class="doc-brand-name">Jefferson Pizzio</div>
+                <div class="doc-brand-sub">Wealth & Succession Advisory</div>
+              </div>
+              <div class="doc-meta-block">
+                <div><strong>Ref:</strong> <span id="out-doc-ref">DOC-2026/08</span></div>
+                <div><span id="out-doc-date">20 de Outubro de 2026</span></div>
+              </div>
+            </div>
+
+            <!-- BLOCO DE DESTINATÁRIO & TÍTULO -->
+            <div class="doc-intro-box">
+              <div class="doc-main-titles">
+                <div class="doc-type-tag" id="out-doc-type">Carta Consultiva · Planejamento Sucessório</div>
+                <div class="doc-title-rendered" id="out-doc-title">Diagnóstico Preliminar de Estruturação Patrimonial & Liquidez</div>
+                <div class="doc-subtitle-rendered" id="out-doc-sub">Análise comparativa de custos de transmissão e proteção internacional</div>
+              </div>
+              <div class="doc-client-rendered">
+                Destinatário:
+                <strong id="out-client-name">Família Silveira & Associados</strong>
+                Confidencial
+              </div>
+            </div>
+
+            <!-- CONTEÚDO DOS BLOCOS RENDERIZADOS NA FOLHA -->
+            <div class="doc-content-body" id="out-blocks-body">
+              <!-- Renderizado dinamicamente via JS -->
+            </div>
+          </div>
+
+          <!-- RODAPÉ EXECUTIVO DA FOLHA A4 -->
+          <div class="doc-footer">
+            <div>
+              <strong>Jefferson Pizzio Advisory</strong> &middot; Head de Planejamento Patrimonial e Sucessório
+            </div>
+            <div>
+              Documento de Uso Restrito & Estritamente Confidencial &middot; <strong>Página 1 de 1</strong>
+            </div>
+            <div>
+              jeffersonpizzio.com &middot; (51) 99897-0838
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+
+    // ESTADO DO DOCUMENTO
+        function safeGetStorage(key) {
+      try {
+        return localStorage.getItem(key);
+      } catch (e) {
+        console.warn("Storage not accessible:", e);
+        return null;
+      }
+    }
+
+    function safeSetStorage(key, val) {
+      try {
+        localStorage.setItem(key, val);
+      } catch (e) {
+        console.warn("Storage write error:", e);
+      }
+    }
+
+    let documentState = {
+      type: "Carta Consultiva · Planejamento Sucessório",
+      title: "Diagnóstico Preliminar de Estruturação Patrimonial & Liquidez",
+      subtitle: "Análise comparativa de custos de transmissão causa mortis e proteção em moeda forte",
+      client: "Família Silveira & Associados",
+      date: "20 de Outubro de 2026",
+      ref: "DOC-2026/08",
+      blocks: []
+    };
+
+    // MODELOS PRÉ-CONFIGURADOS
+    const TEMPLATES = {
+      carta: {
+        type: "Carta Consultiva · Planejamento Sucessório",
+        title: "Diagnóstico Preliminar de Estruturação Patrimonial & Liquidez",
+        subtitle: "Síntese executiva após reunião consultiva sobre preservação de ativos e blindagem sucessória",
+        client: "Família Silveira & Associados",
+        date: "20 de Outubro de 2026",
+        ref: "DOC-2026/08",
+        blocks: [
+          {
+            id: 1,
+            type: "paragraph",
+            text: `Prezados Senhores,
+
+Conforme conversamos em nossa reunião consultiva inicial, o processo de transmissão patrimonial e governança familiar no Brasil exige atenção redobrada aos novos cenários tributários (reforma tributária, ITCMD progressivo com teto de até 16% a 30% e despesas processuais de inventário).
+
+Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o devido planejamento de liquidez prévia, a família frequentemente se vê forçada a liquidar imóveis ou quotas operacionais com deságios de até 30% a 40% para honrar tributos imediatos.`
+          },
+          {
+            id: 2,
+            type: "callout",
+            title: "Diagnóstico de Liquidez Imediata Necessária",
+            value: "R$ 3.850.000 (Estimativa de Custos de Inventário)",
+            desc: "Valor que a família precisará desembolsar em dinheiro vivo em até 60 dias para pagamento de ITCMD, custas forenses e honorários advocatícios."
+          },
+          {
+            id: 3,
+            type: "title",
+            text: "Recomendações Estruturais Propostas"
+          },
+          {
+            id: 4,
+            type: "list",
+            items: [
+              "Segregação dos ativos imobiliários em Holding Patrimonial Pura com cláusulas de inalienabilidade e impenhorabilidade.",
+              "Contratação de apólice de seguro de vida internacional em moeda forte (Dólar), estruturada fora do inventário e isenta de ITCMD e IR.",
+              "Acordo de Sócios e Protocolo Familiar prevendo regras claras de compra e venda de quotas (Buy-Sell Agreement) para continuidade dos negócios."
+            ]
+          },
+          {
+            id: 5,
+            type: "signature",
+            name: "Jefferson Pizzio",
+            role: "Head de Planejamento Patrimonial e Sucessório · Wealth Advisory",
+            phone: "(51) 99897-0838",
+            email: "contato@jeffersonpizzio.com"
+          }
+        ]
+      },
+
+      diagnostico: {
+        type: "Parecer Técnico · Avaliação de Liquidez",
+        title: "Comparativo Financeiro: Inventário Tradicional vs Estruturação Offshore",
+        subtitle: "Simulação de impacto fiscal sobre acervo patrimonial de R$ 25.000.000",
+        client: "Grupo Agro & Participações Familiares",
+        date: "20 de Outubro de 2026",
+        ref: "PARECER-2026/04",
+        blocks: [
+          {
+            id: 1,
+            type: "paragraph",
+            text: "Este parecer técnico visa demonstrar matematicamente a eficiência de uma arquitetura de proteção patrimonial internacional frente ao modelo comum de sucessão judicial brasileira."
+          },
+          {
+            id: 2,
+            type: "table",
+            title: "Quadro Comparativo de Custos & Prazos de Transmissão",
+            headers: ["Rubrica de Despesa", "Cenário sem Estruturação", "Cenário com Solução Internacional"],
+            rows: [
+              ["ITCMD Estimado", "R$ 2.000.000 (8% progressivo)", "Isento / Não incidente no exterior"],
+              ["Honorários e Custas", "R$ 1.500.000 (6% tabela OAB/TJ)", "Economia de até 70% na tramitação"],
+              ["Prazo de Liberação de Caixa", "12 a 36 meses (inventário travado)", "15 a 30 dias após aviso de sinistro"],
+              ["Exposição Cambial", "100% exposto à desvalorização do Real", "100% dolarizado em moeda forte"]
+            ]
+          },
+          {
+            id: 3,
+            type: "callout",
+            title: "Preservação Líquida do Patrimônio",
+            value: "Economia Real de mais de R$ 3,5 Milhões",
+            desc: "Evita o desmembramento de terras produtivas ou a venda forçada de participações estratégicas da empresa."
+          },
+          {
+            id: 4,
+            type: "signature",
+            name: "Jefferson Pizzio",
+            role: "Head de Planejamento Patrimonial e Sucessório",
+            phone: "(51) 99897-0838",
+            email: "contato@jeffersonpizzio.com"
+          }
+        ]
+      },
+
+      parceria: {
+        type: "Memorando de Aliança Estratégica",
+        title: "Proposta de Parceria Técnica para Bancas Jurídicas & Contábeis",
+        subtitle: "Integração entre Planejamento Jurídico-Tributário e Soluções de Liquidez em Dólar",
+        client: "Banca Advocacia Tributária & Societária",
+        date: "20 de Outubro de 2026",
+        ref: "PARCERIA-2026/01",
+        blocks: [
+          {
+            id: 1,
+            type: "paragraph",
+            text: "Apresentamos esta proposta de aliança estratégica com o objetivo de atuar como braço técnico de liquidez e alocação offshore para os clientes da sua banca, sem jamais concorrer com os serviços jurídicos ou societários do escritório."
+          },
+          {
+            id: 2,
+            type: "title",
+            text: "Divisão Clara de Responsabilidades Técnicas"
+          },
+          {
+            id: 3,
+            type: "list",
+            items: [
+              "O Escritório de Advocacia conduz: Redação do contrato social, abertura da holding, planejamento tributário e acordo parassociativo.",
+              "Jefferson Pizzio Advisory providencia: Estruturação das apólices em Dólar com seguradoras globais (Rating A+) e funding garantido para pagamento do imposto sem sangria de caixa.",
+              "Compromisso Ético: Não-concorrência absoluta com a liderança do advogado sobre a conta do cliente."
+            ]
+          },
+          {
+            id: 4,
+            type: "signature",
+            name: "Jefferson Pizzio",
+            role: "Head de Planejamento Patrimonial e Sucessório",
+            phone: "(51) 99897-0838",
+            email: "contato@jeffersonpizzio.com"
+          }
+        ]
+      }
+    };
+
+    // INICIALIZAÇÃO
+    function initApp() {
+      // Tenta recuperar do localStorage ou carrega a carta
+      const saved = safeGetStorage('jp_doc_draft');
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (parsed && parsed.blocks && parsed.blocks.length > 0) {
+            documentState = parsed;
+          } else {
+            documentState = JSON.parse(JSON.stringify(TEMPLATES.carta));
+          }
+        } catch (e) {
+          documentState = JSON.parse(JSON.stringify(TEMPLATES.carta));
+        }
+      } else {
+        documentState = JSON.parse(JSON.stringify(TEMPLATES.carta));
+      }
+
+      syncInputsFromState();
+      renderBlocksEditor();
+      renderDoc();
+
+      // OUVINTE GLOBAL PARA COLAR IMAGEM (CTRL + V)
+      window.addEventListener('paste', handleGlobalPaste);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initApp);
+    } else {
+      initApp();
+    }
+
+    // CARREGA UM MODELO
+    function loadTemplate(key) {
+      document.querySelectorAll('.template-btn').forEach(b => b.classList.remove('active'));
+      const btn = document.getElementById('tpl-' + key);
+      if (btn) btn.classList.add('active');
+
+      documentState = JSON.parse(JSON.stringify(TEMPLATES[key]));
+      syncInputsFromState();
+      renderBlocksEditor();
+      renderDoc();
+      saveToStorage();
+    }
+
+    // LIMPAR PARA DO ZERO
+    function clearToBlank() {
+      document.querySelectorAll('.template-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tpl-blank').classList.add('active');
+
+      documentState = {
+        type: "Documento Executivo",
+        title: "Título do Documento",
+        subtitle: "Subtítulo ou resumo descritivo do documento",
+        client: "Nome do Cliente / Destinatário",
+        date: new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }),
+        ref: "DOC-" + new Date().getFullYear() + "/01",
+        blocks: [
+          {
+            id: 1,
+            type: "paragraph",
+            text: "Digite aqui o texto do seu documento. Você pode adicionar quantos parágrafos, títulos, caixas de destaque ou tabelas desejar usando os botões abaixo."
+          },
+          {
+            id: 2,
+            type: "signature",
+            name: "Jefferson Pizzio",
+            role: "Head de Planejamento Patrimonial e Sucessório · Wealth Advisory",
+            phone: "(51) 99897-0838",
+            email: "contato@jeffersonpizzio.com"
+          }
+        ]
+      };
+
+      syncInputsFromState();
+      renderBlocksEditor();
+      renderDoc();
+      saveToStorage();
+    }
+
+    // SINCRONIZA CAMPOS DO FORMULÁRIO COM O ESTADO
+    function syncInputsFromState() {
+      document.getElementById('inp-doc-type').value = documentState.type;
+      document.getElementById('inp-doc-title').value = documentState.title;
+      document.getElementById('inp-doc-sub').value = documentState.subtitle;
+      document.getElementById('inp-client-name').value = documentState.client;
+      document.getElementById('inp-doc-date').value = documentState.date;
+    }
+
+    // ATUALIZA ESTADO COM OS CAMPOS DO FORMULÁRIO
+    function updateStateFromInputs() {
+      documentState.type = document.getElementById('inp-doc-type').value;
+      documentState.title = document.getElementById('inp-doc-title').value;
+      documentState.subtitle = document.getElementById('inp-doc-sub').value;
+      documentState.client = document.getElementById('inp-client-name').value;
+      documentState.date = document.getElementById('inp-doc-date').value;
+    }
+
+    // ADICIONAR NOVO BLOCO
+    function addBlock(type) {
+      const newId = Date.now();
+      let block = { id: newId, type: type };
+
+      if (type === 'paragraph') {
+        block.text = "Novo parágrafo executivo. Detalhe aqui as informações, justificativas e contexto técnico do cliente.";
+      } else if (type === 'title') {
+        block.text = "Nova Seção do Documento";
+      } else if (type === 'callout') {
+        block.title = "Destaque Estratégico";
+        block.value = "R$ 1.500.000";
+        block.desc = "Descrição explicativa da relevância deste valor para a estrutura patrimonial.";
+      } else if (type === 'image') {
+        block.src = "https://jeffersonpizzio.com/assets/images/mercado_eua_ny_financial_district.jpg";
+        block.caption = "Legenda opcional da imagem ou organograma societário.";
+        block.width = "100%";
+        block.border = true;
+      } else if (type === 'table') {
+        block.title = "Tabela de Projeção Financeira";
+        block.headers = ["Item / Ativo", "Valor Atual", "Impacto Sucessório"];
+        block.rows = [
+          ["Imóveis Operacionais", "R$ 10.000.000", "ITCMD estimado em 8%"],
+          ["Aplicações Financeiras", "R$ 5.000.000", "Liquidez bloqueada até partilha"]
+        ];
+      } else if (type === 'list') {
+        block.items = [
+          "Primeiro ponto de recomendação ou ação necessária.",
+          "Segundo ponto de proteção societária e patrimonial.",
+          "Terceiro ponto de implementação com cronograma definido."
+        ];
+      } else if (type === 'signature') {
+        block.name = "Jefferson Pizzio";
+        block.role = "Head de Planejamento Patrimonial e Sucessório · Wealth Advisory";
+        block.phone = "(51) 99897-0838";
+        block.email = "contato@jeffersonpizzio.com";
+      }
+
+      documentState.blocks.push(block);
+      renderBlocksEditor();
+      renderDoc();
+      saveToStorage();
+    }
+
+    // CONTROLE DE BLOCOS (MOVER, EXCLUIR)
+    function moveBlock(index, direction) {
+      if (direction === -1 && index > 0) {
+        const temp = documentState.blocks[index];
+        documentState.blocks[index] = documentState.blocks[index - 1];
+        documentState.blocks[index - 1] = temp;
+      } else if (direction === 1 && index < documentState.blocks.length - 1) {
+        const temp = documentState.blocks[index];
+        documentState.blocks[index] = documentState.blocks[index + 1];
+        documentState.blocks[index + 1] = temp;
+      }
+      renderBlocksEditor();
+      renderDoc();
+      saveToStorage();
+    }
+
+    function deleteBlock(index) {
+      if (confirm("Deseja remover este bloco do documento?")) {
+        documentState.blocks.splice(index, 1);
+        renderBlocksEditor();
+        renderDoc();
+        saveToStorage();
+      }
+    }
+
+    // RENDERIZA O EDITOR DOS BLOCOS À ESQUERDA
+    function renderBlocksEditor() {
+      const container = document.getElementById('blocks-editor-container');
+      container.innerHTML = "";
+
+      documentState.blocks.forEach((block, idx) => {
+        const blockEl = document.createElement('div');
+        blockEl.className = 'block-item';
+
+        let typeName = "Bloco";
+        let typeIcon = "📄";
+        if (block.type === 'paragraph') { typeName = "Parágrafo de Texto"; typeIcon = "📝"; }
+        if (block.type === 'title') { typeName = "Título de Seção"; typeIcon = "🏷️"; }
+        if (block.type === 'callout') { typeName = "Destaque Ouro"; typeIcon = "💡"; }
+        if (block.type === 'image') { typeName = "Imagem / Print"; typeIcon = "🖼️"; }
+        if (block.type === 'table') { typeName = "Tabela Comparativa"; typeIcon = "📊"; }
+        if (block.type === 'list') { typeName = "Lista de Pontos"; typeIcon = "📌"; }
+        if (block.type === 'signature') { typeName = "Assinatura Oficial"; typeIcon = "✍️"; }
+
+        let contentInputs = "";
+
+        if (block.type === 'paragraph') {
+          contentInputs = `
+            <textarea class="field-textarea" oninput="updateBlockText(${idx}, this.value)">${block.text}</textarea>
+          `;
+        } else if (block.type === 'title') {
+          contentInputs = `
+            <input type="text" class="field-input" value="${block.text}" oninput="updateBlockText(${idx}, this.value)">
+          `;
+        } else if (block.type === 'callout') {
+          contentInputs = `
+            <div class="field-group">
+              <label class="field-label">Título da Caixa</label>
+              <input type="text" class="field-input" value="${block.title}" oninput="updateCallout(${idx}, 'title', this.value)">
+            </div>
+            <div class="field-group">
+              <label class="field-label">Valor em Destaque</label>
+              <input type="text" class="field-input" value="${block.value}" oninput="updateCallout(${idx}, 'value', this.value)">
+            </div>
+            <div class="field-group">
+              <label class="field-label">Texto Explicativo</label>
+              <input type="text" class="field-input" value="${block.desc}" oninput="updateCallout(${idx}, 'desc', this.value)">
+            </div>
+          `;
+        } else if (block.type === 'image') {
+          contentInputs = `
+            <div style="margin-bottom: 8px;">
+              <img src="${block.src}" style="max-height: 80px; max-width: 100%; border-radius: 4px; display: block; margin-bottom: 6px;">
+              <button class="btn-top" style="font-size: 0.72rem; padding: 4px 8px;" onclick="changeImagePrompt(${idx})">Trocar Imagem (Upload/URL)</button>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Legenda da Imagem</label>
+              <input type="text" class="field-input" value="${block.caption || ''}" oninput="updateImageCaption(${idx}, this.value)">
+            </div>
+          `;
+        } else if (block.type === 'table') {
+          contentInputs = `
+            <div class="field-group">
+              <label class="field-label">Título da Tabela</label>
+              <input type="text" class="field-input" value="${block.title}" oninput="updateTableTitle(${idx}, this.value)">
+            </div>
+            <div style="font-size: 0.75rem; color: #94A3B8;">Tabela com ${block.headers.length} colunas e ${block.rows.length} linhas.</div>
+          `;
+        } else if (block.type === 'list') {
+          contentInputs = `
+            <label class="field-label">Itens da Lista (um por linha)</label>
+            <textarea class="field-textarea" oninput="updateListItems(${idx}, this.value)">${block.items.join('\n')}</textarea>
+          `;
+        } else if (block.type === 'signature') {
+          contentInputs = `
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <div>
+                <label class="field-label">Nome</label>
+                <input type="text" class="field-input" value="${block.name}" oninput="updateSigField(${idx}, 'name', this.value)">
+              </div>
+              <div>
+                <label class="field-label">Telefone</label>
+                <input type="text" class="field-input" value="${block.phone}" oninput="updateSigField(${idx}, 'phone', this.value)">
+              </div>
+            </div>
+          `;
+        }
+
+        blockEl.innerHTML = `
+          <div class="block-header">
+            <span class="block-type-badge">${typeIcon} ${typeName}</span>
+            <div class="block-actions">
+              <button class="btn-block-ctrl" title="Mover para Cima" onclick="moveBlock(${idx}, -1)">▲</button>
+              <button class="btn-block-ctrl" title="Mover para Baixo" onclick="moveBlock(${idx}, 1)">▼</button>
+              <button class="btn-block-ctrl btn-delete" title="Excluir Bloco" onclick="deleteBlock(${idx})">✕</button>
+            </div>
+          </div>
+          <div class="block-body">
+            ${contentInputs}
+          </div>
+        `;
+
+        container.appendChild(blockEl);
+      });
+    }
+
+    // ATUALIZADORES DE CAMPOS DE BLOCO
+    function updateBlockText(idx, val) {
+      documentState.blocks[idx].text = val;
+      renderDoc();
+      debouncedSave();
+    }
+
+    function updateCallout(idx, key, val) {
+      documentState.blocks[idx][key] = val;
+      renderDoc();
+      debouncedSave();
+    }
+
+    function updateImageCaption(idx, val) {
+      documentState.blocks[idx].caption = val;
+      renderDoc();
+      debouncedSave();
+    }
+
+    function updateTableTitle(idx, val) {
+      documentState.blocks[idx].title = val;
+      renderDoc();
+      debouncedSave();
+    }
+
+    function updateListItems(idx, val) {
+      documentState.blocks[idx].items = val.split('\n').filter(i => i.trim() !== '');
+      renderDoc();
+      debouncedSave();
+    }
+
+    function updateSigField(idx, key, val) {
+      documentState.blocks[idx][key] = val;
+      renderDoc();
+      debouncedSave();
+    }
+
+    // MANIPULAÇÃO DE IMAGENS (CTRL + V E UPLOAD)
+    let targetImageBlockIdx = null;
+
+    function triggerImageUpload() {
+      document.getElementById('hidden-file-input').click();
+    }
+
+    function handleFileSelect(e) {
+      const file = e.target.files[0];
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          insertImageBlock(event.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function changeImagePrompt(idx) {
+      const url = prompt("Cole a URL da nova imagem (ou dê Ctrl+V na página):", documentState.blocks[idx].src);
+      if (url) {
+        documentState.blocks[idx].src = url;
+        renderBlocksEditor();
+        renderDoc();
+        saveToStorage();
+      }
+    }
+
+    function handleGlobalPaste(e) {
+      const items = (e.clipboardData || e.originalEvent.clipboardData).items;
+      for (let item of items) {
+        if (item.type.indexOf('image') !== -1) {
+          const blob = item.getAsFile();
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            insertImageBlock(event.target.result);
+          };
+          reader.readAsDataURL(blob);
+          e.preventDefault();
+          break;
+        }
+      }
+    }
+
+    function insertImageBlock(base64Src) {
+      const newBlock = {
+        id: Date.now(),
+        type: 'image',
+        src: base64Src,
+        caption: "Imagem colada via captura de tela (Ctrl + V).",
+        width: "100%",
+        border: true
+      };
+      documentState.blocks.push(newBlock);
+      renderBlocksEditor();
+      renderDoc();
+      saveToStorage();
+      alert("✓ Imagem colada com sucesso no documento!");
+    }
+
+    // RENDERIZA A FOLHA A4 AO VIVO
+    function renderDoc() {
+      updateStateFromInputs();
+
+      document.getElementById('out-doc-type').innerText = documentState.type;
+      document.getElementById('out-doc-title').innerText = documentState.title;
+      document.getElementById('out-doc-sub').innerText = documentState.subtitle;
+      document.getElementById('out-client-name').innerText = documentState.client;
+      document.getElementById('out-doc-date').innerText = documentState.date;
+      document.getElementById('out-doc-ref').innerText = documentState.ref || "DOC-2026/08";
+
+      const outBody = document.getElementById('out-blocks-body');
+      outBody.innerHTML = "";
+
+      documentState.blocks.forEach(block => {
+        const div = document.createElement('div');
+
+        if (block.type === 'paragraph') {
+          div.className = 'rendered-paragraph';
+          div.innerText = block.text;
+        } else if (block.type === 'title') {
+          div.className = 'rendered-section-title';
+          div.innerText = block.text;
+        } else if (block.type === 'callout') {
+          div.className = 'rendered-callout';
+          div.innerHTML = `
+            <div class="rendered-callout-title">${block.title}</div>
+            <div class="rendered-callout-value">${block.value}</div>
+            <div class="rendered-callout-desc">${block.desc}</div>
+          `;
+        } else if (block.type === 'image') {
+          div.className = `rendered-image-wrap ${block.border ? 'with-border' : ''}`;
+          div.innerHTML = `
+            <img src="${block.src}" alt="Imagem do documento" style="max-height: 220px;">
+            ${block.caption ? `<div class="rendered-image-caption">${block.caption}</div>` : ''}
+          `;
+        } else if (block.type === 'table') {
+          div.className = 'rendered-table-wrap';
+          let ths = block.headers.map(h => `<th>${h}</th>`).join('');
+          let trs = block.rows.map(row => `<tr>${row.map(c => `<td>${c}</td>`).join('')}</tr>`).join('');
+          div.innerHTML = `
+            ${block.title ? `<div class="rendered-table-title">${block.title}</div>` : ''}
+            <table class="rendered-table">
+              <thead><tr>${ths}</tr></thead>
+              <tbody>${trs}</tbody>
+            </table>
+          `;
+        } else if (block.type === 'list') {
+          div.className = 'rendered-list-wrap';
+          let lis = block.items.map(item => `
+            <li>
+              <span class="rendered-list-bullet">◆</span>
+              <span>${item}</span>
+            </li>
+          `).join('');
+          div.innerHTML = `<ul class="rendered-list">${lis}</ul>`;
+        } else if (block.type === 'signature') {
+          div.className = 'rendered-signature-block';
+          div.innerHTML = `
+            <div class="rendered-signature-info">
+              <div class="rendered-signature-name">${block.name}</div>
+              <div class="rendered-signature-role">${block.role}</div>
+              <div class="rendered-signature-contact">
+                <strong>WhatsApp:</strong> ${block.phone} &nbsp;|&nbsp; <strong>E-mail:</strong> ${block.email}
+              </div>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 8.5px; color: #64748B; text-align: right;">
+              Assinado Digitalmente<br>
+              <strong>Jefferson Pizzio Advisory</strong>
+            </div>
+          `;
+        }
+
+        outBody.appendChild(div);
+      });
+    }
+
+    // PERSISTÊNCIA LOCALSTORAGE
+    let saveTimeout = null;
+    function debouncedSave() {
+      clearTimeout(saveTimeout);
+      saveTimeout = setTimeout(() => {
+        saveToStorage();
+      }, 600);
+    }
+
+    function saveToStorage() {
+      updateStateFromInputs();
+      safeSetStorage('jp_doc_draft', JSON.stringify(documentState));
+      const ind = document.getElementById('save-status');
+      ind.style.opacity = '1';
+      setTimeout(() => { ind.style.opacity = '0.7'; }, 1500);
+    }
+  
+  </script>
+
+</body>
+</html>

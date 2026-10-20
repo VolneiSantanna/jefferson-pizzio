@@ -128,6 +128,18 @@ Abaixo está o detalhamento de cada um dos 3 materiais desenvolvidos:
 
 ---
 
+### 7. `gerador-documentos.html` — Criador Didático de Documentos Executivos em PDF
+- **Para que serve**: Ferramenta em tempo real para Jefferson redigir cartas consultivas, pareceres técnicos de liquidez, relatórios de diagnóstico e propostas personalizadas para famílias empresárias e bancas parceiras.
+- **Diferencial Didático & Usabilidade**:
+  - **Interface Split-Screen ao Vivo**: Formulário estruturado à esquerda e folha A4 real atualizando a cada letra à direita.
+  - **Colagem de Imagens com `Ctrl + V`**: Suporte nativo para colar prints de tela (organogramas, gráficos ou tabelas) direto da área de transferência.
+  - **Modo do Zero + Modelos Prontos**: Opção de começar em folha totalmente em branco ou carregar modelos de 1 clique (*Carta Consultiva*, *Parecer de Liquidez*, *Proposta Parceiro*).
+  - **Blocos Modulares Reordenáveis**: Parágrafos, Títulos de Seção, Caixas Douradas de Destaque, Tabelas Comparativas, Listas de Pontos e Assinatura Oficial.
+  - **Exportação Direta em PDF Vetorial A4**: Motor `@media print` de alta definição, gerando arquivos leves e nítidos.
+  - **Auto-Save Local**: Grava automaticamente os rascunhos no navegador para nunca perder dados.
+
+---
+
 ## 🖨️ Como Salvar ou Imprimir em PDF de Alta Qualidade
 
 Todos os materiais contam com:
