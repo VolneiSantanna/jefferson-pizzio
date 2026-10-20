@@ -606,7 +606,7 @@
       background: rgba(239, 68, 68, 0.12);
     }
 
-    /* PAINEL DE VISUALIZAÇÃO DA FOLHA A4 AO VIVO */
+    /* PAINEL DE VISUALIZAÇÃO DA FOLHA A4 AO VIVO (COM PAGINAÇÃO MULTIFOLHAS) */
     .preview-pane {
       background: #04080F;
       padding: 36px 20px 80px;
@@ -614,27 +614,114 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 30px;
+      gap: 0;
     }
 
     .a4-sheet-container {
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
-      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      width: auto;
     }
 
     /* FOLHA A4 (210mm x 297mm) */
     .a4-page {
       width: 210mm;
-      min-height: 297mm;
+      height: 297mm;
+      max-height: 297mm;
       background: #FFFFFF;
       color: #07111D;
-      padding: 14mm 16mm 14mm 16mm;
+      padding: 13mm 15mm 11mm 15mm;
       position: relative;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       page-break-after: always;
+      break-after: page;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    /* SEPARADOR VISUAL ENTRE FOLHAS NA TELA */
+    .page-separator-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 210mm;
+      margin: 26px 0;
+      color: #94A3B8;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .page-separator-badge::before,
+    .page-separator-badge::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(197, 168, 128, 0.35);
+    }
+    .page-separator-badge span {
+      background: #07101B;
+      border: 1px solid rgba(197, 168, 128, 0.45);
+      padding: 5px 14px;
+      border-radius: 20px;
+      color: var(--gold-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+    }
+
+    /* CABEÇALHO DE CONTINUAÇÃO (FOLHAS 2+) */
+    .doc-header-continuation {
+      border-bottom: 2px solid var(--gold-primary);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .doc-brand-block-mini {
+      display: flex;
+      flex-direction: column;
+    }
+    .doc-brand-name-mini {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #07111D;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .doc-brand-sub-mini {
+      font-family: var(--font-body);
+      font-size: 7.5px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .doc-meta-block-mini {
+      text-align: right;
+      font-family: var(--font-mono);
+      font-size: 8.5px;
+      color: #475569;
+      line-height: 1.35;
+    }
+    .continuation-tag {
+      color: var(--gold-primary);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 1px;
     }
 
     /* BORDA MOLDURA EXECUTIVA */
@@ -818,18 +905,18 @@
       line-height: 1.4;
     }
 
-    /* IMAGEM RENDERIZADA */
+    /* IMAGEM RENDERIZADA COM CONTROLE DE ESCALA */
     .rendered-image-wrap {
       margin: 6px 0;
       text-align: center;
     }
 
     .rendered-image-wrap img {
-      max-width: 100%;
       height: auto;
       border-radius: 3px;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
       display: inline-block;
+      transition: max-width 0.2s;
     }
     .rendered-image-wrap.with-border img {
       border: 1px solid #CBD5E1;
@@ -837,11 +924,55 @@
       background: #FFFFFF;
     }
 
+    /* ESCALAS DE IMAGEM */
+    .rendered-image-wrap.size-small img {
+      max-width: 40%;
+      max-height: 150px;
+    }
+    .rendered-image-wrap.size-medium img {
+      max-width: 70%;
+      max-height: 240px;
+    }
+    .rendered-image-wrap.size-large img {
+      max-width: 100%;
+      max-height: 380px;
+    }
+
     .rendered-image-caption {
       font-size: 9px;
       font-style: italic;
       color: #64748B;
       margin-top: 4px;
+    }
+
+    /* BOTÕES DE TAMANHO DE IMAGEM NO EDITOR */
+    .size-toggle-group {
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .btn-size-toggle {
+      flex: 1;
+      background: var(--bg-panel-inner);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #CBD5E1;
+      padding: 6px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s;
+    }
+    .btn-size-toggle:hover {
+      border-color: var(--gold-light);
+      color: #FFFFFF;
+    }
+    .btn-size-toggle.active {
+      background: rgba(197, 168, 128, 0.2);
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+      font-weight: 700;
     }
 
     /* TABELA RENDERIZADA */
@@ -917,35 +1048,43 @@
       flex-shrink: 0;
     }
 
-    /* ASSINATURA RENDERIZADA */
+    /* ASSINATURA RENDERIZADA (ESTILO EXECUTIVO DISCRETO) */
     .rendered-signature-block {
-      margin-top: 14px;
+      margin-top: 16px;
       padding-top: 10px;
       border-top: 1.5px solid #CBD5E1;
       display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
     }
 
-    .rendered-signature-info {
-      font-family: Georgia, serif;
+    .signature-line-accent {
+      width: 44px;
+      height: 2px;
+      background: var(--gold-primary);
+      margin-bottom: 5px;
     }
+
     .rendered-signature-name {
-      font-size: 14px;
+      font-family: var(--font-display);
+      font-size: 16px;
       font-weight: 700;
       color: #07111D;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
     }
+
     .rendered-signature-role {
       font-family: var(--font-body);
       font-size: 9.5px;
       font-weight: 800;
       color: var(--gold-primary);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 2px;
+      letter-spacing: 0.08em;
+      margin-top: 1px;
     }
+
     .rendered-signature-contact {
       font-family: var(--font-body);
       font-size: 9px;
@@ -957,7 +1096,7 @@
     .doc-footer {
       border-top: 1.5px solid var(--gold-primary);
       padding-top: 6px;
-      margin-top: 16px;
+      margin-top: 14px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -973,7 +1112,7 @@
       color: #07111D;
     }
 
-    /* ESTILOS DE IMPRESSÃO (PDF EXATO A4) */
+    /* ESTILOS DE IMPRESSÃO (PDF EXATO A4 MULTIPÁGINAS) */
     @media print {
       @page {
         size: A4 portrait;
@@ -989,7 +1128,7 @@
         print-color-adjust: exact !important;
       }
 
-      .top-action-bar, .didactic-bar, .editor-pane {
+      .top-action-bar, .didactic-bar, .editor-pane, .page-separator-badge {
         display: none !important;
       }
 
@@ -1003,11 +1142,13 @@
         padding: 0 !important;
         margin: 0 !important;
         overflow: visible !important;
+        display: block !important;
       }
 
       .a4-sheet-container {
         box-shadow: none !important;
         margin: 0 !important;
+        display: block !important;
       }
 
       .a4-page {
@@ -1017,9 +1158,17 @@
         margin: 0 !important;
         padding: 12mm 14mm 10mm 14mm !important;
         box-sizing: border-box !important;
-        page-break-after: avoid !important;
+        page-break-after: always !important;
+        break-after: page !important;
         page-break-inside: avoid !important;
+        break-inside: avoid !important;
         overflow: hidden !important;
+        box-shadow: none !important;
+      }
+
+      .a4-page:last-child {
+        page-break-after: auto !important;
+        break-after: auto !important;
       }
 
       .a4-border-frame {
@@ -1197,6 +1346,12 @@
             <button class="btn-add-block" onclick="addBlock('list')">
               📌 Lista de Pontos
             </button>
+            <button class="btn-add-block" onclick="addBlock('signature')">
+              ✍️ Assinatura
+            </button>
+            <button class="btn-add-block" onclick="addBlock('page-break')">
+              ✂️ Quebra de Folha
+            </button>
           </div>
 
           <!-- DROP ZONE DIDÁTICA PARA COLAR COM CTRL + V -->
@@ -1212,59 +1367,10 @@
 
     </div>
 
-    <!-- COLUNA DIREITA: VISUALIZAÇÃO A4 AO VIVO -->
+    <!-- COLUNA DIREITA: VISUALIZAÇÃO A4 AO VIVO (PAGINAÇÃO AUTOMÁTICA EM FOLHAS) -->
     <div class="preview-pane">
-      <div class="a4-sheet-container">
-        <div class="a4-page" id="a4-rendered-page">
-          <div class="a4-border-frame"></div>
-
-          <!-- CABEÇALHO OFICIAL DO DOCUMENTO -->
-          <div>
-            <div class="doc-header">
-              <div class="doc-brand-block">
-                <div class="doc-brand-name">Jefferson Pizzio</div>
-                <div class="doc-brand-sub">Wealth & Succession Advisory</div>
-              </div>
-              <div class="doc-meta-block">
-                <div><strong>Ref:</strong> <span id="out-doc-ref">DOC-2026/08</span></div>
-                <div><span id="out-doc-date">20 de Outubro de 2026</span></div>
-              </div>
-            </div>
-
-            <!-- BLOCO DE DESTINATÁRIO & TÍTULO -->
-            <div class="doc-intro-box">
-              <div class="doc-main-titles">
-                <div class="doc-type-tag" id="out-doc-type">Carta Consultiva · Planejamento Sucessório</div>
-                <div class="doc-title-rendered" id="out-doc-title">Diagnóstico Preliminar de Estruturação Patrimonial & Liquidez</div>
-                <div class="doc-subtitle-rendered" id="out-doc-sub">Análise comparativa de custos de transmissão e proteção internacional</div>
-              </div>
-              <div class="doc-client-rendered">
-                Destinatário:
-                <strong id="out-client-name">Família Silveira & Associados</strong>
-                Confidencial
-              </div>
-            </div>
-
-            <!-- CONTEÚDO DOS BLOCOS RENDERIZADOS NA FOLHA -->
-            <div class="doc-content-body" id="out-blocks-body">
-              <!-- Renderizado dinamicamente via JS -->
-            </div>
-          </div>
-
-          <!-- RODAPÉ EXECUTIVO DA FOLHA A4 -->
-          <div class="doc-footer">
-            <div>
-              <strong>Jefferson Pizzio Advisory</strong> &middot; Head de Planejamento Patrimonial e Sucessório
-            </div>
-            <div>
-              Documento de Uso Restrito & Estritamente Confidencial &middot; <strong>Página 1 de 1</strong>
-            </div>
-            <div>
-              jeffersonpizzio.com &middot; (51) 99897-0838
-            </div>
-          </div>
-
-        </div>
+      <div class="a4-sheet-container" id="a4-pages-wrapper">
+        <!-- As folhas A4 e separadores visuais são gerados dinamicamente via renderDoc() -->
       </div>
     </div>
 
@@ -1363,7 +1469,7 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
             id: 5,
             type: "signature",
             name: "Jefferson Pizzio",
-            role: "Head de Planejamento Patrimonial e Sucessório · Wealth Advisory",
+            role: "Planejamento Patrimonial e Sucessório · Wealth Advisory",
             phone: "(51) 99897-0838",
             email: "contato@jeffersonpizzio.com"
           }
@@ -1406,7 +1512,7 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
             id: 4,
             type: "signature",
             name: "Jefferson Pizzio",
-            role: "Head de Planejamento Patrimonial e Sucessório",
+            role: "Planejamento Patrimonial e Sucessório · Wealth Advisory",
             phone: "(51) 99897-0838",
             email: "contato@jeffersonpizzio.com"
           }
@@ -1444,7 +1550,7 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
             id: 4,
             type: "signature",
             name: "Jefferson Pizzio",
-            role: "Head de Planejamento Patrimonial e Sucessório",
+            role: "Planejamento Patrimonial e Sucessório · Wealth Advisory",
             phone: "(51) 99897-0838",
             email: "contato@jeffersonpizzio.com"
           }
@@ -1469,6 +1575,15 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
         }
       } else {
         documentState = JSON.parse(JSON.stringify(TEMPLATES.carta));
+      }
+
+      // Sanitiza títulos legados (ex: remove "Head de ")
+      if (documentState && documentState.blocks) {
+        documentState.blocks.forEach(b => {
+          if (b.type === 'signature' && b.role && b.role.includes("Head de ")) {
+            b.role = b.role.replace("Head de ", "");
+          }
+        });
       }
 
       syncInputsFromState();
@@ -1520,7 +1635,7 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
             id: 2,
             type: "signature",
             name: "Jefferson Pizzio",
-            role: "Head de Planejamento Patrimonial e Sucessório · Wealth Advisory",
+            role: "Planejamento Patrimonial e Sucessório · Wealth Advisory",
             phone: "(51) 99897-0838",
             email: "contato@jeffersonpizzio.com"
           }
@@ -1567,7 +1682,7 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
       } else if (type === 'image') {
         block.src = "https://jeffersonpizzio.com/assets/images/mercado_eua_ny_financial_district.jpg";
         block.caption = "Legenda opcional da imagem ou organograma societário.";
-        block.width = "100%";
+        block.size = "medium";
         block.border = true;
       } else if (type === 'table') {
         block.title = "Tabela de Projeção Financeira";
@@ -1584,9 +1699,11 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
         ];
       } else if (type === 'signature') {
         block.name = "Jefferson Pizzio";
-        block.role = "Head de Planejamento Patrimonial e Sucessório · Wealth Advisory";
+        block.role = "Planejamento Patrimonial e Sucessório · Wealth Advisory";
         block.phone = "(51) 99897-0838";
         block.email = "contato@jeffersonpizzio.com";
+      } else if (type === 'page-break') {
+        block.note = "Início da próxima folha A4";
       }
 
       documentState.blocks.push(block);
@@ -1638,6 +1755,7 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
         if (block.type === 'table') { typeName = "Tabela Comparativa"; typeIcon = "📊"; }
         if (block.type === 'list') { typeName = "Lista de Pontos"; typeIcon = "📌"; }
         if (block.type === 'signature') { typeName = "Assinatura Oficial"; typeIcon = "✍️"; }
+        if (block.type === 'page-break') { typeName = "Quebra de Folha A4"; typeIcon = "✂️"; }
 
         let contentInputs = "";
 
@@ -1665,14 +1783,29 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
             </div>
           `;
         } else if (block.type === 'image') {
+          const currentSize = block.size || 'medium';
           contentInputs = `
             <div style="margin-bottom: 8px;">
               <img src="${block.src}" style="max-height: 80px; max-width: 100%; border-radius: 4px; display: block; margin-bottom: 6px;">
               <button class="btn-top" style="font-size: 0.72rem; padding: 4px 8px;" onclick="changeImagePrompt(${idx})">Trocar Imagem (Upload/URL)</button>
             </div>
             <div class="field-group">
+              <label class="field-label">Tamanho da Imagem na Folha</label>
+              <div class="size-toggle-group">
+                <button type="button" class="btn-size-toggle ${currentSize === 'small' ? 'active' : ''}" onclick="updateImageSize(${idx}, 'small')">Pequena (40%)</button>
+                <button type="button" class="btn-size-toggle ${currentSize === 'medium' ? 'active' : ''}" onclick="updateImageSize(${idx}, 'medium')">Média (70%)</button>
+                <button type="button" class="btn-size-toggle ${currentSize === 'large' ? 'active' : ''}" onclick="updateImageSize(${idx}, 'large')">Grande (100%)</button>
+              </div>
+            </div>
+            <div class="field-group">
               <label class="field-label">Legenda da Imagem</label>
               <input type="text" class="field-input" value="${block.caption || ''}" oninput="updateImageCaption(${idx}, this.value)">
+            </div>
+          `;
+        } else if (block.type === 'page-break') {
+          contentInputs = `
+            <div style="font-size: 0.78rem; color: #CBD5E1; padding: 6px 0; line-height: 1.45;">
+              ✂️ <strong>Ponto de Quebra de Página:</strong> O conteúdo que estiver abaixo deste bloco começará automaticamente no topo de uma nova folha A4.
             </div>
           `;
         } else if (block.type === 'table') {
@@ -1779,14 +1912,24 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
           `;
         } else if (block.type === 'signature') {
           contentInputs = `
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
               <div>
                 <label class="field-label">Nome</label>
-                <input type="text" class="field-input" value="${block.name}" oninput="updateSigField(${idx}, 'name', this.value)">
+                <input type="text" class="field-input" value="${escapeAttr(block.name || '')}" oninput="updateSigField(${idx}, 'name', this.value)">
               </div>
               <div>
-                <label class="field-label">Telefone</label>
-                <input type="text" class="field-input" value="${block.phone}" oninput="updateSigField(${idx}, 'phone', this.value)">
+                <label class="field-label">Cargo / Especialidade</label>
+                <input type="text" class="field-input" value="${escapeAttr(block.role || '')}" oninput="updateSigField(${idx}, 'role', this.value)">
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <div>
+                <label class="field-label">WhatsApp</label>
+                <input type="text" class="field-input" value="${escapeAttr(block.phone || '')}" oninput="updateSigField(${idx}, 'phone', this.value)">
+              </div>
+              <div>
+                <label class="field-label">E-mail</label>
+                <input type="text" class="field-input" value="${escapeAttr(block.email || '')}" oninput="updateSigField(${idx}, 'email', this.value)">
               </div>
             </div>
           `;
@@ -1808,6 +1951,13 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
 
         container.appendChild(blockEl);
       });
+    }
+
+    function updateImageSize(idx, size) {
+      documentState.blocks[idx].size = size;
+      renderBlocksEditor();
+      renderDoc();
+      saveToStorage();
     }
 
     // ATUALIZADORES DE CAMPOS DE BLOCO
@@ -2025,7 +2175,7 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
         type: 'image',
         src: base64Src,
         caption: "Imagem colada via captura de tela (Ctrl + V).",
-        width: "100%",
+        size: "medium",
         border: true
       };
       documentState.blocks.push(newBlock);
@@ -2035,82 +2185,214 @@ Quando um patrimônio familiar expressivo é transferido aos herdeiros sem o dev
       alert("✓ Imagem colada com sucesso no documento!");
     }
 
-    // RENDERIZA A FOLHA A4 AO VIVO
+    // CRIA ELEMENTO DE FOLHA A4
+    function createPageElement(pageNum) {
+      const page = document.createElement('div');
+      page.className = 'a4-page';
+      page.setAttribute('data-page', pageNum);
+
+      let headerHtml = "";
+      if (pageNum === 1) {
+        headerHtml = `
+          <div>
+            <div class="doc-header">
+              <div class="doc-brand-block">
+                <div class="doc-brand-name">Jefferson Pizzio</div>
+                <div class="doc-brand-sub">Wealth & Succession Advisory</div>
+              </div>
+              <div class="doc-meta-block">
+                <div><strong>Ref:</strong> <span class="out-doc-ref">${escapeHtml(documentState.ref || 'DOC-2026/08')}</span></div>
+                <div><span class="out-doc-date">${escapeHtml(documentState.date)}</span></div>
+              </div>
+            </div>
+
+            <!-- BLOCO DE DESTINATÁRIO & TÍTULO (FOLHA 1) -->
+            <div class="doc-intro-box">
+              <div class="doc-main-titles">
+                <div class="doc-type-tag">${escapeHtml(documentState.type)}</div>
+                <div class="doc-title-rendered">${escapeHtml(documentState.title)}</div>
+                <div class="doc-subtitle-rendered">${escapeHtml(documentState.subtitle)}</div>
+              </div>
+              <div class="doc-client-rendered">
+                Destinatário:
+                <strong>${escapeHtml(documentState.client)}</strong>
+                Confidencial
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        headerHtml = `
+          <div class="doc-header-continuation">
+            <div class="doc-brand-block-mini">
+              <div class="doc-brand-name-mini">Jefferson Pizzio</div>
+              <div class="doc-brand-sub-mini">Wealth & Succession Advisory</div>
+            </div>
+            <div class="doc-meta-block-mini">
+              <div><strong>Ref:</strong> ${escapeHtml(documentState.ref || 'DOC-2026/08')} &middot; <strong>${escapeHtml(documentState.title)}</strong></div>
+              <div class="continuation-tag">Continuação &middot; Folha ${pageNum}</div>
+            </div>
+          </div>
+        `;
+      }
+
+      page.innerHTML = `
+        <div class="a4-border-frame"></div>
+        <div>
+          ${headerHtml}
+          <div class="doc-content-body"></div>
+        </div>
+        <div class="doc-footer">
+          <div>
+            <strong>Jefferson Pizzio Advisory</strong> &middot; Planejamento Patrimonial e Sucessório
+          </div>
+          <div class="footer-page-label">
+            Documento de Uso Restrito &middot; <strong>Página ${pageNum}</strong>
+          </div>
+          <div>
+            jeffersonpizzio.com &middot; (51) 99897-0838
+          </div>
+        </div>
+      `;
+
+      return page;
+    }
+
+    // RENDERIZA UM BLOCO INDIVIDUAL
+    function renderBlockElement(block) {
+      const div = document.createElement('div');
+
+      if (block.type === 'paragraph') {
+        div.className = 'rendered-paragraph';
+        div.innerText = block.text;
+      } else if (block.type === 'title') {
+        div.className = 'rendered-section-title';
+        div.innerText = block.text;
+      } else if (block.type === 'callout') {
+        div.className = 'rendered-callout';
+        div.innerHTML = `
+          <div class="rendered-callout-title">${escapeHtml(block.title || '')}</div>
+          <div class="rendered-callout-value">${escapeHtml(block.value || '')}</div>
+          <div class="rendered-callout-desc">${escapeHtml(block.desc || '')}</div>
+        `;
+      } else if (block.type === 'image') {
+        const sizeClass = block.size === 'small' ? 'size-small' : (block.size === 'large' ? 'size-large' : 'size-medium');
+        div.className = `rendered-image-wrap ${sizeClass} ${block.border ? 'with-border' : ''}`;
+        div.innerHTML = `
+          <img src="${escapeAttr(block.src)}" alt="Imagem do documento" onload="checkImageLoadRelayout()">
+          ${block.caption ? `<div class="rendered-image-caption">${escapeHtml(block.caption)}</div>` : ''}
+        `;
+      } else if (block.type === 'table') {
+        const colCount = (block.headers || []).length;
+        const isDense = colCount >= 5;
+        div.className = 'rendered-table-wrap';
+        let ths = (block.headers || []).map(h => `<th>${h ? escapeHtml(h) : '&nbsp;'}</th>`).join('');
+        let trs = (block.rows || []).map(row => `<tr>${(row || []).map(c => `<td>${c ? escapeHtml(c) : '&nbsp;'}</td>`).join('')}</tr>`).join('');
+        div.innerHTML = `
+          ${block.title ? `<div class="rendered-table-title">${escapeHtml(block.title)}</div>` : ''}
+          <table class="rendered-table ${isDense ? 'table-dense' : ''}">
+            <thead><tr>${ths}</tr></thead>
+            <tbody>${trs}</tbody>
+          </table>
+        `;
+      } else if (block.type === 'list') {
+        div.className = 'rendered-list-wrap';
+        let lis = (block.items || []).map(item => `
+          <li>
+            <span class="rendered-list-bullet">◆</span>
+            <span>${escapeHtml(item)}</span>
+          </li>
+        `).join('');
+        div.innerHTML = `<ul class="rendered-list">${lis}</ul>`;
+      } else if (block.type === 'signature') {
+        div.className = 'rendered-signature-block';
+        div.innerHTML = `
+          <div class="signature-line-accent"></div>
+          <div class="rendered-signature-name">${escapeHtml(block.name || 'Jefferson Pizzio')}</div>
+          <div class="rendered-signature-role">${escapeHtml(block.role || 'Planejamento Patrimonial e Sucessório · Wealth Advisory')}</div>
+          <div class="rendered-signature-contact">
+            <span><strong>WhatsApp:</strong> ${escapeHtml(block.phone || '(51) 99897-0838')}</span>
+            <span style="margin: 0 6px; color: #CBD5E1;">&bull;</span>
+            <span><strong>E-mail:</strong> ${escapeHtml(block.email || 'contato@jeffersonpizzio.com')}</span>
+          </div>
+        `;
+      }
+
+      return div;
+    }
+
+    let isRelayouting = false;
+    function checkImageLoadRelayout() {
+      if (isRelayouting) return;
+      isRelayouting = true;
+      setTimeout(() => {
+        isRelayouting = false;
+        renderDoc();
+      }, 50);
+    }
+
+    // RENDERIZAÇÃO DA FOLHA A4 AO VIVO (COM PAGINAÇÃO MULTIFOLHAS REAL)
     function renderDoc() {
       updateStateFromInputs();
 
-      document.getElementById('out-doc-type').innerText = documentState.type;
-      document.getElementById('out-doc-title').innerText = documentState.title;
-      document.getElementById('out-doc-sub').innerText = documentState.subtitle;
-      document.getElementById('out-client-name').innerText = documentState.client;
-      document.getElementById('out-doc-date').innerText = documentState.date;
-      document.getElementById('out-doc-ref').innerText = documentState.ref || "DOC-2026/08";
+      const container = document.getElementById('a4-pages-wrapper');
+      if (!container) return;
+      container.innerHTML = "";
 
-      const outBody = document.getElementById('out-blocks-body');
-      outBody.innerHTML = "";
+      const pages = [];
+
+      function addPage() {
+        const pageNum = pages.length + 1;
+        if (pages.length > 0) {
+          const sep = document.createElement('div');
+          sep.className = 'page-separator-badge';
+          sep.innerHTML = `<span>Folha ${pages.length} concluída &middot; Início da Folha ${pageNum}</span>`;
+          container.appendChild(sep);
+        }
+        const pageEl = createPageElement(pageNum);
+        container.appendChild(pageEl);
+        pages.push(pageEl);
+        return pageEl;
+      }
+
+      let currentPage = addPage();
+      let currentBody = currentPage.querySelector('.doc-content-body');
 
       documentState.blocks.forEach(block => {
-        const div = document.createElement('div');
-
-        if (block.type === 'paragraph') {
-          div.className = 'rendered-paragraph';
-          div.innerText = block.text;
-        } else if (block.type === 'title') {
-          div.className = 'rendered-section-title';
-          div.innerText = block.text;
-        } else if (block.type === 'callout') {
-          div.className = 'rendered-callout';
-          div.innerHTML = `
-            <div class="rendered-callout-title">${block.title}</div>
-            <div class="rendered-callout-value">${block.value}</div>
-            <div class="rendered-callout-desc">${block.desc}</div>
-          `;
-        } else if (block.type === 'image') {
-          div.className = `rendered-image-wrap ${block.border ? 'with-border' : ''}`;
-          div.innerHTML = `
-            <img src="${block.src}" alt="Imagem do documento" style="max-height: 220px;">
-            ${block.caption ? `<div class="rendered-image-caption">${block.caption}</div>` : ''}
-          `;
-        } else if (block.type === 'table') {
-          const colCount = (block.headers || []).length;
-          const isDense = colCount >= 5;
-          div.className = 'rendered-table-wrap';
-          let ths = (block.headers || []).map(h => `<th>${h ? escapeHtml(h) : '&nbsp;'}</th>`).join('');
-          let trs = (block.rows || []).map(row => `<tr>${(row || []).map(c => `<td>${c ? escapeHtml(c) : '&nbsp;'}</td>`).join('')}</tr>`).join('');
-          div.innerHTML = `
-            ${block.title ? `<div class="rendered-table-title">${escapeHtml(block.title)}</div>` : ''}
-            <table class="rendered-table ${isDense ? 'table-dense' : ''}">
-              <thead><tr>${ths}</tr></thead>
-              <tbody>${trs}</tbody>
-            </table>
-          `;
-        } else if (block.type === 'list') {
-          div.className = 'rendered-list-wrap';
-          let lis = block.items.map(item => `
-            <li>
-              <span class="rendered-list-bullet">◆</span>
-              <span>${item}</span>
-            </li>
-          `).join('');
-          div.innerHTML = `<ul class="rendered-list">${lis}</ul>`;
-        } else if (block.type === 'signature') {
-          div.className = 'rendered-signature-block';
-          div.innerHTML = `
-            <div class="rendered-signature-info">
-              <div class="rendered-signature-name">${block.name}</div>
-              <div class="rendered-signature-role">${block.role}</div>
-              <div class="rendered-signature-contact">
-                <strong>WhatsApp:</strong> ${block.phone} &nbsp;|&nbsp; <strong>E-mail:</strong> ${block.email}
-              </div>
-            </div>
-            <div style="font-family: var(--font-mono); font-size: 8.5px; color: #64748B; text-align: right;">
-              Assinado Digitalmente<br>
-              <strong>Jefferson Pizzio Advisory</strong>
-            </div>
-          `;
+        // Se for quebra de folha explícita
+        if (block.type === 'page-break') {
+          currentPage = addPage();
+          currentBody = currentPage.querySelector('.doc-content-body');
+          return;
         }
 
-        outBody.appendChild(div);
+        const blockEl = renderBlockElement(block);
+        currentBody.appendChild(blockEl);
+
+        // Verifica transbordo além da altura limite da folha A4 (297mm)
+        if (currentPage.scrollHeight > currentPage.clientHeight + 2) {
+          // Se não for o primeiro bloco da folha, move para a próxima folha
+          if (currentBody.children.length > 1) {
+            currentBody.removeChild(blockEl);
+            currentPage = addPage();
+            currentBody = currentPage.querySelector('.doc-content-body');
+            currentBody.appendChild(blockEl);
+          }
+        }
+      });
+
+      // Atualiza os rodapés com a contagem total de páginas (Página X de Y)
+      const totalPages = pages.length;
+      pages.forEach((pageEl, idx) => {
+        const pageNum = idx + 1;
+        const footerLabel = pageEl.querySelector('.footer-page-label');
+        if (footerLabel) {
+          footerLabel.innerHTML = `Documento de Uso Restrito &middot; <strong>Página ${pageNum} de ${totalPages}</strong>`;
+        }
+        const contTag = pageEl.querySelector('.continuation-tag');
+        if (contTag) {
+          contTag.innerHTML = `Continuação &middot; Folha ${pageNum} de ${totalPages}`;
+        }
       });
     }
 
