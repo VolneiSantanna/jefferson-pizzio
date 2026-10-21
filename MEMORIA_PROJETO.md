@@ -15,6 +15,9 @@
   - WhatsApp de atendimento: `(51) 99897-0838`
   - Base de atuação: Porto Alegre / RS (com atendimento nacional e internacional)
 * **Domínio Oficial em Produção**: [https://jeffersonpizzio.com](https://jeffersonpizzio.com) (aliased com HTTPS na Vercel).
+  - Canônica preferencial: `https://jeffersonpizzio.com/` (sem `www` e com `cleanUrls: true`).
+  - Redirecionamento 301 permanente ativo: `www.jeffersonpizzio.com` redireciona via HTTP 301 para `https://jeffersonpizzio.com`.
+  - Redirecionamento 308 permanente ativo: URLs com sufixo `.html` redirecionam para URLs limpas (ex: `/index.html` → `/`).
 * **Repositório Git**: `https://github.com/VolneiSantanna/jefferson-pizzio.git` (branch `main`).
 
 ---
