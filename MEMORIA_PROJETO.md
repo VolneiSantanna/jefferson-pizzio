@@ -11,7 +11,7 @@
 * **Marca Oficial**: **JEFFERSON PIZZIO | WEALTH & SUCCESSION ADVISORY**
 * **Registro Profissional Oficial**: Corretor de Seguros habilitado pela Escola de Negócios e Seguros (ENS), aprovado no 75º Exame de Corretores de Seguros (Todos os Ramos) e registrado sob o nº **0335448** perante a SUSEP (Superintendência de Seguros Privados).
 * **Canais de Contato**:
-  - E-mail institucional: `contato@jeffersonpizzio.com`
+  - E-mail institucional: `consultor@jeffersonpizzio.com`
   - WhatsApp de atendimento: `(51) 99897-0838`
   - Base de atuação: Porto Alegre / RS (com atendimento nacional e internacional)
 * **Domínio Oficial em Produção**: [https://jeffersonpizzio.com](https://jeffersonpizzio.com) (aliased com HTTPS na Vercel).

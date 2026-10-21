@@ -14,7 +14,7 @@ A assinatura foi desenhada sob a ótica **Private Wealth Advisory**:
    - Diagramação direta e sem redundâncias: Nome em destaque, área de atuação consolidada e canais diretos de contato.
 2. **Foco em Contato de Alta Conversão**:
    - Link direto e funcional para o WhatsApp: `(51) 99897-0838`.
-   - E-mail institucional direto: `contato@jeffersonpizzio.com` (ou customizável).
+   - E-mail institucional direto: `consultor@jeffersonpizzio.com` (ou customizável).
    - Website oficial: `jeffersonpizzio.com`.
 3. **Aviso de Confidencialidade Executivo**:
    - Reduzido para 2 linhas elegantes e discretas, resguardando o sigilo patrimonial sem poluir as mensagens.
